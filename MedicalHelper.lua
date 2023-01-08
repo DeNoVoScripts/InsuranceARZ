@@ -1,6 +1,6 @@
-script_name("MedicalHelper")
+script_name("Insurance Compant by DeNoVo")
 script_authors("Christian Costa")
-script_description("Script for the Ministries of Health Arizona Saint Rose")
+script_description("Script for the Insurance Сompany Scottdale")
 script_version("2.5.38")
 script_properties("work-in-pause")
 setver = 1
@@ -15,42 +15,42 @@ local u8 = encoding.UTF8
 local dlstatus = require("moonloader").download_status
  
 local sampfuncsNot = [[
- Íå îáíàðóæåí ôàéë SAMPFUNCS.asi â ïàïêå èãðû, âñëåäñòâèå ÷åãî
-ñêðèïòó íå óäàëîñü çàïóñòèòüñÿ.
+ Не обнаружен файл SAMPFUNCS.asi в папке игры, вследствие чего
+скрипту не удалось запуститься.
 
-		Äëÿ ðåøåíèÿ ïðîáëåìû:
-1. Çàêðîéòå èãðó;
-2. Âûêëþ÷èòå àíòèâèðóñíûå ïðîãðàììû èëè â èõ íàñòðîéêàõ âíåñèòå ïàïêó èãðû â èñêëþ÷åíèå.
-• Âîçìîæíûå àíòèâèðóñû: 
-Çàùèòíèê Windows, McAfree, Avast, 360 Total è äðóãèå.
-Î òîì êàê âíåñòè â èñêëþ÷åíèå ïàïêó âîñïîëüçóéòåñü èíòåðíåòîì.
-3. Ïðîèçâåäèòå ïîâòîðíóþ óñòàíîâêó ñêðèïòà.
+		Для решения проблемы:
+1. Закройте игру;
+2. Выключите антивирусные программы или в их настройках внесите папку игры в исключение.
+• Возможные антивирусы: 
+Защитник Windows, McAfree, Avast, 360 Total и другие.
+О том как внести в исключение папку воспользуйтесь интернетом.
+3. Произведите повторную установку скрипта.
 
-Ïðè âîçíèêíîâåíèè ïðîáëåì îáðàùàéòåñü â ñîîáùåíèå ãðóïïû:
+При возникновении проблем обращайтесь в сообщение группы:
 		vk.me/hatiko_scripts
 
-Èãðà áûëà ñâåðíóòà, ïîýòîìó ìîæåòå ïðîäîëæèòü èãðàòü. 
+Игра была свернута, поэтому можете продолжить играть. 
 ]]
 
 local errorText = [[
-		  Âíèìàíèå! 
-Íå îáíàðóæåíû íåêîòîðûå âàæíûå ôàéëû äëÿ ðàáîòû ñêðèïòà.
-Â ñëåäñòâèè ÷åãî, ñêðèïò ïåðåñòàë ðàáîòàòü.
-	Ñïèñîê íåîáíàðóæåííûõ ôàéëîâ:
+		  Внимание! 
+Не обнаружены некоторые важные файлы для работы скрипта.
+В следствии чего, скрипт перестал работать.
+	Список необнаруженных файлов:
 		%s
 
-		Äëÿ ðåøåíèÿ ïðîáëåìû:
-1. Çàêðîéòå èãðó;
-2. Âûêëþ÷èòå àíòèâèðóñíûå ïðîãðàììû èëè â èõ íàñòðîéêàõ âíåñèòå ïàïêó èãðû â èñêëþ÷åíèå.
-• Âîçìîæíûå àíòèâèðóñû: 
-Çàùèòíèê Windows, McAfree, Avast, 360 Total è äðóãèå.
-Î òîì êàê âíåñòè â èñêëþ÷åíèå ïàïêó âîñïîëüçóéòåñü èíòåðíåòîì.
-3. Ïðîèçâåäèòå ïîâòîðíóþ óñòàíîâêó ñêðèïòà.
+		Для решения проблемы:
+1. Закройте игру;
+2. Выключите антивирусные программы или в их настройках внесите папку игры в исключение.
+• Возможные антивирусы: 
+Защитник Windows, McAfree, Avast, 360 Total и другие.
+О том как внести в исключение папку воспользуйтесь интернетом.
+3. Произведите повторную установку скрипта.
 
-Ïðè âîçíèêíîâåíèè ïðîáëåì îáðàùàéòåñü â ñîîáùåíèå ãðóïïû:
+При возникновении проблем обращайтесь в сообщение группы:
 		vk.me/hatiko_scripts
 
-Èãðà áûëà ñâåðíóòà, ïîýòîìó ìîæåòå ïðîäîëæèòü èãðàòü. 
+Игра была свернута, поэтому можете продолжить играть. 
 ]]
 
 local files = {
@@ -113,16 +113,16 @@ end
 
 
 local res, hook = pcall(require, 'lib.samp.events')
-assert(res, "Áèáëèîòåêà SAMP Event íå íàéäåíà")
+assert(res, "Библиотека SAMP Event не найдена")
 ----------------------------------------
 local res, imgui = pcall(require, "imgui")
-assert(res, "Áèáëèîòåêà Imgui íå íàéäåíà")
+assert(res, "Библиотека Imgui не найдена")
 -----------------------------------------
 local res, fa = pcall(require, 'faIcons')
-assert(res, "Áèáëèîòåêà faIcons íå íàéäåíà")
+assert(res, "Библиотека faIcons не найдена")
 -----------------------------------------
 local res, rkeys = pcall(require, 'rkeys')
-assert(res, "Áèáëèîòåêà Rkeys íå íàéäåíà")
+assert(res, "Библиотека Rkeys не найдена")
 vkeys.key_names[vkeys.VK_RBUTTON] = "RBut"
 vkeys.key_names[vkeys.VK_XBUTTON1] = "XBut1"
 vkeys.key_names[vkeys.VK_XBUTTON2] = 'XBut2'
@@ -149,10 +149,10 @@ vkeys.key_names[vkeys.VK_DOWN] = 'Ar.Down'
 
 
 
---- Ôàéëîâàÿ ñèñòåìà
-local deck = getFolderPath(0) -- äåñê
+--- Файловая система
+local deck = getFolderPath(0) -- деск
 local doc = getFolderPath(5) -- screens
-local dirml = getWorkingDirectory() -- Ìóí
+local dirml = getWorkingDirectory() -- Мун
 local dirGame = getGameDirectory()
 local scr = thisScript()
 local font = renderCreateFont("Trebuchet MS", 14, 5)
@@ -162,16 +162,16 @@ local sx, sy = getScreenResolution()
 --os.remove(dirml.."/MedicalHelper/files/update.txt")
 --os.remove(dirml.."/MedicalHelper/files/update.med")
 
-local mainWin	= imgui.ImBool(false) -- Ãë.îêíî
-local paramWin = imgui.ImBool(false) -- îêíî ïàðàìåòðîâ
-local spurBig = imgui.ImBool(false) -- áîëüøîå îêíî øïîðû
-local sobWin = imgui.ImBool(false) -- îêíî ñîáåñêè
-local depWin = imgui.ImBool(false) -- îêíî äåïàðòàìåíòà
-local updWin = imgui.ImBool(false) -- îêíî îáíîâëåíèé
+local mainWin	= imgui.ImBool(false) -- Гл.окно
+local paramWin = imgui.ImBool(false) -- окно параметров
+local spurBig = imgui.ImBool(false) -- большое окно шпоры
+local sobWin = imgui.ImBool(false) -- окно собески
+local depWin = imgui.ImBool(false) -- окно департамента
+local updWin = imgui.ImBool(false) -- окно обновлений
 local mcEditWin = imgui.ImBool(false)
 local iconwin	= imgui.ImBool(false)
 local profbWin = imgui.ImBool(false)
-local select_menu = {true, false, false, false, false, false, false, false, false} -- äëÿ ïåðåêëþ÷åíèÿ ìåíþ
+local select_menu = {true, false, false, false, false, false, false, false, false} -- для переключения меню
 
 
 
@@ -209,14 +209,14 @@ local num_sex		= imgui.ImInt(0)
 local num_rank	= imgui.ImInt(0)
 local chgName = {}
 chgName.inp = imgui.ImBuffer(100)
-chgName.org = {u8"Áîëüíèöà ËÑ", u8"Áîëüíèöà ÑÔ", u8"Áîëüíèöà ËÂ"}
-chgName.rank = {u8"Èíòåðí", u8"Ó÷àñòêîâûé âðà÷", u8"Òåðàïåâò", u8"Íàðêîëîã", u8"Îêóëèñò", u8"Õèðóðã", u8"Ïñèõîëîã", u8"Çàâåä. îòäåëåíèåì", u8"Çàì.Ãë.Âðà÷à", u8"Ãëàâ.Âðà÷", u8"Ìèíèñòð Çäðàâîîõðàíåíèÿ"}
+chgName.org = {u8"Больница ЛС", u8"Больница СФ", u8"Больница ЛВ"}
+chgName.rank = {u8"Интерн", u8"Участковый врач", u8"Терапевт", u8"Нарколог", u8"Окулист", u8"Хирург", u8"Психолог", u8"Завед. отделением", u8"Зам.Гл.Врача", u8"Глав.Врач", u8"Министр Здравоохранения"}
 
-local list_org_BL = {"Áîëüíèöà LS", "Áîëüíèöà SF", "Áîëüíèöà LV"} 
-local list_org	= {u8"Áîëüíèöà ËÑ", u8"Áîëüíèöà ÑÔ", u8"Áîëüíèöà ËÂ"}
+local list_org_BL = {"Больница LS", "Больница SF", "Больница LV"} 
+local list_org	= {u8"Больница ЛС", u8"Больница СФ", u8"Больница ЛВ"}
 local list_org_en = {"Los-Santos Medical Center","San-Fierro Medical Center","Las-Venturas Medical Center"}
-local list_sex	= {fa.ICON_MALE .. u8" Ìóæñêîé", fa.ICON_FEMALE .. u8" Æåíñêèé"} --ICON_MALE ICON_FEMALE 
-local list_rank	= {u8"Èíòåðí", u8"Ó÷àñòêîâûé âðà÷", u8"Òåðàïåâò", u8"Íàðêîëîã", u8"Îêóëèñò", u8"Õèðóðã", u8"Ïñèõîëîã", u8"Çàâåä. îòäåëåíèåì", u8"Çàì.Ãë.Âðà÷à", u8"Ãëàâ.Âðà÷", u8"Ìèíèñòð Çäðàâîîõðàíåíèÿ"}
+local list_sex	= {fa.ICON_MALE .. u8" Мужской", fa.ICON_FEMALE .. u8" Женский"} --ICON_MALE ICON_FEMALE 
+local list_rank	= {u8"Интерн", u8"Участковый врач", u8"Терапевт", u8"Нарколог", u8"Окулист", u8"Хирург", u8"Психолог", u8"Завед. отделением", u8"Зам.Гл.Врача", u8"Глав.Врач", u8"Министр Здравоохранения"}
 --chat
 local cb_chat1	= imgui.ImBool(false)
 local cb_chat2	= imgui.ImBool(false)
@@ -254,7 +254,7 @@ function PlayerSet.name()
 	if buf_nick.v ~= "" then
 		return buf_nick.v
 	else
-		return u8"Íå óêàçàíû"
+		return u8"Не указаны"
 	end
 end
 function PlayerSet.org()
@@ -291,19 +291,19 @@ local helpd = {}
 helpd.exp = imgui.ImBuffer(256)
 helpd.exp.v =  u8[[
 {dialog}
-[name]=Âûäà÷à ìåä.êàðòû
-[1]=Ïîëíîñòüþ çäîðîâûé
-Îòûãðîâêà ¹1
-Îòûãðîâêà ¹2
-[2]=Èìåþòñÿ îòêëîíåíèÿ 
-Îòûãðîâêà ¹1
-Îòûãðîâêà ¹2
+[name]=Выдача мед.карты
+[1]=Полностью здоровый
+Отыгровка №1
+Отыгровка №2
+[2]=Имеются отклонения 
+Отыгровка №1
+Отыгровка №2
 {dialogEnd}
 ]]
 helpd.key = {
-	{k = "MBUTTON", n = 'Êíîïêà ìûøè'},
-	{k = "XBUTTON1", n = 'Áîêîâàÿ êíîïêà ìûøè 1'},
-	{k = "XBUTTON2", n = 'Áîêîâàÿ êíîïêà ìûøè 2'},
+	{k = "MBUTTON", n = 'Кнопка мыши'},
+	{k = "XBUTTON1", n = 'Боковая кнопка мыши 1'},
+	{k = "XBUTTON2", n = 'Боковая кнопка мыши 2'},
 	{k = "BACK", n = 'Backspace'},
 	{k = "SHIFT", n = 'Shift'},
 	{k = "CONTROL", n = 'Ctrl'},
@@ -314,10 +314,10 @@ helpd.key = {
 	{k = "NEXT", n = 'Page Down'},
 	{k = "END", n = 'End'},
 	{k = "HOME", n = 'Home'},
-	{k = "LEFT", n = 'Ñòðåëêà âëåâî'},
-	{k = "UP", n = 'Ñòðåëêà ââåðõ'},
-	{k = "RIGHT", n = 'Ñòðåëêà âïðàâî'},
-	{k = "DOWN", n = 'Ñòðåëêà âíèç'},
+	{k = "LEFT", n = 'Стрелка влево'},
+	{k = "UP", n = 'Стрелка вверх'},
+	{k = "RIGHT", n = 'Стрелка вправо'},
+	{k = "DOWN", n = 'Стрелка вниз'},
 	{k = "SNAPSHOT", n = 'Print Screen'},
 	{k = "INSERT", n = 'Insert'},
 	{k = "DELETE", n = 'Delete'},
@@ -397,12 +397,12 @@ helpd.key = {
 	{k = "F22", n = 'F22'},
 	{k = "F23", n = 'F23'},
 	{k = "F24", n = 'F24'},
-	{k = "LSHIFT", n = 'Ëåâûé Shift'},
-	{k = "RSHIFT", n = 'Ïðàâûé Shift'},
-	{k = "LCONTROL", n = 'Ëåâûé Ctrl'},
-	{k = "RCONTROL", n = 'Ïðàâûé Ctrl'},
-	{k = "LMENU", n = 'Ëåâûé Alt'},
-	{k = "RMENU", n = 'Ïðàâûé Alt'},
+	{k = "LSHIFT", n = 'Левый Shift'},
+	{k = "RSHIFT", n = 'Правый Shift'},
+	{k = "LCONTROL", n = 'Левый Ctrl'},
+	{k = "RCONTROL", n = 'Правый Ctrl'},
+	{k = "LMENU", n = 'Левый Alt'},
+	{k = "RMENU", n = 'Правый Alt'},
 	{k = "OEM_1", n = '; :'},
 	{k = "OEM_PLUS", n = '= +'},
 	{k = "OEM_MINUS", n = '- _'},
@@ -428,11 +428,11 @@ local sobes = {
 -- buf_nick
 --Departament
 local dep = {
-	list = {"[100,3 KHz] - Âñå Ãîñ. Ñòóêòóðû", "[102,7 KHz] - Ýêñòðåííàÿ", "[104,8] - Äëÿ ñâÿçè ñ ÌÎ/ÌÞ", "[109,6 kHz] - Äëÿ ñâÿçè ñ Ò.Ñ.Ð", "[103,9 kHz] - Ñîáåñåäîâàíèå", "[Èíôîðìàöèÿ] - Òåõ. íåïîëàäêè","/gov - Íîâîñòè"},
-	sel_all = {u8"Àðìèÿ ËÑ", u8"ÂÌÑ", u8"Òþðüìà ËÂ", u8"Ïîëèöèÿ ËÑ", u8"Ïîëèöèÿ ÑÔ", u8"Ïîëèöèÿ ËÂ", u8"Îáëàñòíàÿ ïîëèöèÿ", u8"ÔÁÐ", u8"Áîëüíèöà ËÑ", u8"Áîëüíèöà ÑÔ", u8"Áîëüíèöà ËÂ", u8"ÑÌÈ ËÑ", u8"ÑÌÈ ÑÔ", u8"ÑÌÈ ËÂ", u8"Áàíê", u8"Ïðàâèòåëüñòâî", u8"Àâòîøêîëà", u8"Ìèíèñòð Çäðàâîîõðàíåíèÿ", u8"Ìèíèñòð Îáîðîíû", u8"Ìèíèñòð Þñòèöèé"},
-	sel_chp = {u8"Àðìèÿ ËÑ", u8"ÂÌÑ", u8"Òþðüìà ËÂ", u8"Ïîëèöèÿ ËÑ", u8"Ïîëèöèÿ ÑÔ", u8"Ïîëèöèÿ ËÂ", u8"Îáëàñòíàÿ ïîëèöèÿ", u8"ÔÁÐ", u8"Áîëüíèöà ËÑ", u8"Áîëüíèöà ÑÔ", u8"Áîëüíèöà ËÂ", u8"ÑÌÈ ËÑ", u8"ÑÌÈ ÑÔ", u8"ÑÌÈ ËÂ", u8"Áàíê", u8"Ïðàâèòåëüñòâî", u8"Àâòîøêîëà", u8"Ìèíèñòð Çäðàâîîõðàíåíèÿ", u8"Ìèíèñòð Îáîðîíû", u8"Ìèíèñòð Þñòèöèé"},
-	sel_tsr = {u8"Òþðüìà ËÂ", u8"Ìèíèñòð Îáîðîíû"},
-	sel_mzmomu = {u8"Àðìèÿ ËÑ", u8"ÂÌÑ", u8"Òþðüìà ËÂ", u8"Ïîëèöèÿ ËÑ", u8"Ïîëèöèÿ ÑÔ", u8"Ïîëèöèÿ ËÂ", u8"Îáëàñòíàÿ ïîëèöèÿ", u8"ÔÁÐ", u8"Ìèíèñòð Îáîðîíû", u8"Ìèíèñòð Þñòèöèé"},
+	list = {"[100,3 KHz] - Все Гос. Стуктуры", "[102,7 KHz] - Экстренная", "[104,8] - Для связи с МО/МЮ", "[109,6 kHz] - Для связи с Т.С.Р", "[103,9 kHz] - Собеседование", "[Информация] - Тех. неполадки","/gov - Новости"},
+	sel_all = {u8"Армия ЛС", u8"ВМС", u8"Тюрьма ЛВ", u8"Полиция ЛС", u8"Полиция СФ", u8"Полиция ЛВ", u8"Областная полиция", u8"ФБР", u8"Больница ЛС", u8"Больница СФ", u8"Больница ЛВ", u8"СМИ ЛС", u8"СМИ СФ", u8"СМИ ЛВ", u8"Банк", u8"Правительство", u8"Автошкола", u8"Министр Здравоохранения", u8"Министр Обороны", u8"Министр Юстиций"},
+	sel_chp = {u8"Армия ЛС", u8"ВМС", u8"Тюрьма ЛВ", u8"Полиция ЛС", u8"Полиция СФ", u8"Полиция ЛВ", u8"Областная полиция", u8"ФБР", u8"Больница ЛС", u8"Больница СФ", u8"Больница ЛВ", u8"СМИ ЛС", u8"СМИ СФ", u8"СМИ ЛВ", u8"Банк", u8"Правительство", u8"Автошкола", u8"Министр Здравоохранения", u8"Министр Обороны", u8"Министр Юстиций"},
+	sel_tsr = {u8"Тюрьма ЛВ", u8"Министр Обороны"},
+	sel_mzmomu = {u8"Армия ЛС", u8"ВМС", u8"Тюрьма ЛВ", u8"Полиция ЛС", u8"Полиция СФ", u8"Полиция ЛВ", u8"Областная полиция", u8"ФБР", u8"Министр Обороны", u8"Министр Юстиций"},
 	sel = imgui.ImInt(0),
 	select_dep = {0, 0},
 	input = imgui.ImBuffer(101),
@@ -468,8 +468,8 @@ lua_thread.create(function()
 	end
 end)
 --Xyinya
-local week = {"Âîñêðåñåíüå", "Ïîíåäåëüíèê", "Âòîðíèê", "Ñðåäà", "×åòâåðã", "Ïÿòíèöà", "Ñóááîòà"}
-local month = {"ßíâàðü", "Ôåâðàëü", "Ìàðò", "Àïðåëü", "Ìàé", "Èþíü", "Èþëü", "Àâãóñò", "Ñåíòÿáðü", "Îêòÿáðü", "Íîÿáðü", "Äåêàáðü"}
+local week = {"Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"}
+local month = {"Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"}
 editKey = false
 keysList = {}
 arep = false
@@ -545,154 +545,154 @@ cmdBind = {
 	[1] = {
 		cmd = "/mh",
 		key = {},
-		desc = "Ãëàâíîå ìåíþ ñêðèïòà",
+		desc = "Главное меню скрипта",
 		rank = 1,
 		rb = false
 	},
 	[2] = {
 		cmd = "/r",
 		key = {},
-		desc = "Êîìàíäà äëÿ âûçîâà ðàöèè ñ òåãîì (åñëè ïðîïèñàí)",
+		desc = "Команда для вызова рации с тегом (если прописан)",
 		rank = 1,
 		rb = false
 	},
 	[3] = {
 		cmd = "/rb",
 		key = {},
-		desc = "Êîìàíäà äëÿ íàïèñàíèÿ ÍîíÐï ñîîáùåíèÿ â ðàöèþ. ",
+		desc = "Команда для написания НонРп сообщения в рацию. ",
 		rank = 1,
 		rb = false
 	},
 	[4] = {
 		cmd = "/mb",
 		key = {},
-		desc = "Ñîêðàù¸ííàÿ êîìàíäà /members",
+		desc = "Сокращённая команда /members",
 		rank = 1,
 		rb = false
 	},
 	[5] = {
 		cmd = "/hl",
 		key = {},
-		desc = "Ëå÷åíèå ñ àâòîìàòè÷åñêîé ÐÏ îòûãðîâêîé",
+		desc = "Лечение с автоматической РП отыгровкой",
 		rank = 1,
 		rb = false
 	},
 	[6] = {
 		cmd = "/post",
 		key = {},
-		desc = "Äîêëàä ñ ìîáèëüíîãî ïîñòà. Òàêæå èíôîðìàöèÿ î ïîñòàõ.",
+		desc = "Доклад с мобильного поста. Также информация о постах.",
 		rank = 2,
 		rb = false
 	},
 	[7] = {
 		cmd = "/mc",
 		key = {},
-		desc = "Âûäà÷à èëè îáíîâëåíèå ìåä.êàðòû",
+		desc = "Выдача или обновление мед.карты",
 		rank = 2,
 		rb = false
 	},
 	[8] = {
 		cmd = "/narko",
 		key = {},
-		desc = "Ëå÷åíèå îò íàðêîçàâèñèìîñòè",
+		desc = "Лечение от наркозависимости",
 		rank = 4,
 		rb = false
 	},
 	[9] = {
 		cmd = "/rec",
 		key = {},
-		desc = "Âûäà÷à ðåöåïòîâ",
+		desc = "Выдача рецептов",
 		rank = 4,
 		rb = false
 	},
 	[10] = {
 		cmd = "/osm",
 		key = {},
-		desc = "Ïðîèçâåñòè ìåäèöèíñêèé îñìîòð",
+		desc = "Произвести медицинский осмотр",
 		rank = 5,
 		rb = false
 	},
 	[11] = {
 		cmd = "/dep",
 		key = {},
-		desc = "Ìåíþ ðàöèè äåïîðòàìåíòà",
+		desc = "Меню рации депортамента",
 		rank = 5,
 		rb = false
 	},
 	[12] = {
 		cmd = "/sob",
 		key = {},
-		desc = "Ìåíþ ñîáåñåäîâàíèÿ ñ ÷åëîâåêîì",
+		desc = "Меню собеседования с человеком",
 		rank = 5,
 		rb = false
 	},
 	[13] = {
 		cmd = "/tatu",
 		key = {},
-		desc = "Óäàëåíèå òàòóèðîâêè",
+		desc = "Удаление татуировки",
 		rank = 7,
 		rb = false
 	},
 	[14] = {
 		cmd = "/+warn",
 		key = {},
-		desc = "Âûäà÷à âûãîâîðà ñîòðóäíèêó",
+		desc = "Выдача выговора сотруднику",
 		rank = 8,
 		rb = false
 	},
 	[15] = {
 		cmd = "/-warn",
 		key = {},
-		desc = "Ñíÿòü âûãîâîð ñîòðóäíèêó",
+		desc = "Снять выговор сотруднику",
 		rank = 8,
 		rb = false
 	},
 	[16] = {
 		cmd = "/+mute",
 		key = {},
-		desc = "Âûäàòü ìóò ñîòðóäíèêó",
+		desc = "Выдать мут сотруднику",
 		rank = 8,
 		rb = false
 	},
 	[17] = {
 		cmd = "/-mute",
 		key = {},
-		desc = "Ñíÿòü ìóò ñîòðóäíèêó",
+		desc = "Снять мут сотруднику",
 		rank = 8,
 		rb = false
 	},
 	[18] = {
 		cmd = "/gr",
 		key = {},
-		desc = "Èçìåíèòü ðàíã (äîëæíîñòü) ñîòðóäíèêó",
+		desc = "Изменить ранг (должность) сотруднику",
 		rank = 9,
 		rb = false
 	},
 	[19] = {
 		cmd = "/inv",
 		key = {},
-		desc = "Ïðèíÿòü â îðãàíèçàöèþ èãðîêà",
+		desc = "Принять в организацию игрока",
 		rank = 9,
 		rb = false
 	},
 	[20] = {
 		cmd = "/unv",
 		key = {},
-		desc = "Óâîëèòü ñîòðóäíèêà èç îðãàíèçàöèè",
+		desc = "Уволить сотрудника из организации",
 		rank = 9,
 		rb = false
 	},
 	[21] = {
 		cmd = "/ts",
 		key = {},
-		desc = "Áûñòðûé ñêðèíøîò ñ àâòîìàòè÷åñêèì ââîäîì /time",
+		desc = "Быстрый скриншот с автоматическим вводом /time",
 		rank = 1,
 		rb = false
 	},
 	[22] = {
 		cmd = "/exp",
 		key = {},
-		desc = "Èñêëþ÷åíèå èãðîêà èç ïîìåùåíèÿ áîëüíèöû",
+		desc = "Исключение игрока из помещения больницы",
 		rank = 5,
 		rb = false
 	}
@@ -763,7 +763,7 @@ end
 styleWin()
 
 
-function ButtonMenu(desk, bool) -- ïîäñâåòêà êíîïêè âûáðàííîãî ìåíþ
+function ButtonMenu(desk, bool) -- подсветка кнопки выбранного меню
 	local retBool = false
 	if bool then
 		imgui.PushStyleColor(imgui.Col.Button, imgui.ImColor(230, 73, 45, 220):GetVec4())
@@ -815,165 +815,165 @@ function main()
 	end)  
 	------------
 		
-		print("{82E28C}Ïðîâåðêà èçîáðàæåíèé..")
-		if not doesFileExist(dirml.."/MedicalHelper/files/logo-medicalhelper.png") then print("{FF2525}Îøèáêà: {FFD825}Îòñóòñòâóåò èçîáðàæåíèå logo-medicalhelper.png"); scr:unload() end
-		if not  doesFileExist(dirml.."/MedicalHelper/files/discord-logo.png") then print("{FF2525}Îøèáêà: {FFD825}Îòñóòñòâóåò èçîáðàæåíèå discord-logo.png") end
-		if not  doesFileExist(dirml.."/MedicalHelper/files/discord-site.png") then print("{FF2525}Îøèáêà: {FFD825}Îòñóòñòâóåò èçîáðàæåíèå discord-site.png") end
-		if not  doesFileExist(dirml.."/MedicalHelper/files/discord-role.png") then print("{FF2525}Îøèáêà: {FFD825}Îòñóòñòâóåò èçîáðàæåíèå discord-role.png") end
-		if not  doesFileExist(dirml.."/MedicalHelper/files/discord-med.png") then print("{FF2525}Îøèáêà: {FFD825}Îòñóòñòâóåò èçîáðàæåíèå discord-med.png") end
-		if not  doesFileExist(dirml.."/MedicalHelper/files/discord-nick.png") then print("{FF2525}Îøèáêà: {FFD825}Îòñóòñòâóåò èçîáðàæåíèå discord-nick.png") end
+		print("{82E28C}Проверка изображений..")
+		if not doesFileExist(dirml.."/MedicalHelper/files/logo-medicalhelper.png") then print("{FF2525}Ошибка: {FFD825}Отсутствует изображение logo-medicalhelper.png"); scr:unload() end
+		if not  doesFileExist(dirml.."/MedicalHelper/files/discord-logo.png") then print("{FF2525}Ошибка: {FFD825}Отсутствует изображение discord-logo.png") end
+		if not  doesFileExist(dirml.."/MedicalHelper/files/discord-site.png") then print("{FF2525}Ошибка: {FFD825}Отсутствует изображение discord-site.png") end
+		if not  doesFileExist(dirml.."/MedicalHelper/files/discord-role.png") then print("{FF2525}Ошибка: {FFD825}Отсутствует изображение discord-role.png") end
+		if not  doesFileExist(dirml.."/MedicalHelper/files/discord-med.png") then print("{FF2525}Ошибка: {FFD825}Отсутствует изображение discord-med.png") end
+		if not  doesFileExist(dirml.."/MedicalHelper/files/discord-nick.png") then print("{FF2525}Ошибка: {FFD825}Отсутствует изображение discord-nick.png") end
 		logoMH = imgui.CreateTextureFromFile(dirml.."/MedicalHelper/files/logo-medicalhelper.png") 
 		logoDis = imgui.CreateTextureFromFile(dirml.."/MedicalHelper/files/discord-logo.png")
 		
-		--Ïðîâåðêà íà ñóùåñòâîâàíèå ïàïêîê
+		--Проверка на существование папкок
 		if not doesDirectoryExist(dirml.."/MedicalHelper/files/") then
-			print("{F54A4A}Îøèáêà. Îòñóòñòâóåò ïàïêà. {82E28C}Ñîçäàíèå ïàïêè ïîä ôàéëû")
+			print("{F54A4A}Ошибка. Отсутствует папка. {82E28C}Создание папки под файлы")
 			createDirectory(dirml.."/MedicalHelper/files/")
 		end
 		if not doesDirectoryExist(dirml.."/MedicalHelper/Binder/") then
-			print("{F54A4A}Îøèáêà. Îòñóòñòâóåò ïàïêà. {82E28C}Ñîçäàíèå ïàïêè äëÿ áèíäåðà.")
+			print("{F54A4A}Ошибка. Отсутствует папка. {82E28C}Создание папки для биндера.")
 			createDirectory(dirml.."/MedicalHelper/Binder/")
 		end
-		if not doesDirectoryExist(dirml.."/MedicalHelper/Øïàðãàëêè/") then
-			print("{F54A4A}Îøèáêà. Îòñóòñòâóåò ïàïêà. {82E28C}Ñîçäàíèå ïàïêè äëÿ øïîð")
-			createDirectory(dirml.."/MedicalHelper/Øïàðãàëêè/")
+		if not doesDirectoryExist(dirml.."/MedicalHelper/Шпаргалки/") then
+			print("{F54A4A}Ошибка. Отсутствует папка. {82E28C}Создание папки для шпор")
+			createDirectory(dirml.."/MedicalHelper/Шпаргалки/")
 		end
-		if not doesDirectoryExist(dirml.."/MedicalHelper/Äåïàðòàìåíò/") then
-			print("{F54A4A}Îøèáêà. Îòñóòñòâóåò ïàïêà. {82E28C}Ñîçäàíèå ïàïêè äëÿ íîâîñòåé â äåïàðòàìåíò")
-			createDirectory(dirml.."/MedicalHelper/Äåïàðòàìåíò/")
+		if not doesDirectoryExist(dirml.."/MedicalHelper/Департамент/") then
+			print("{F54A4A}Ошибка. Отсутствует папка. {82E28C}Создание папки для новостей в департамент")
+			createDirectory(dirml.."/MedicalHelper/Департамент/")
 		end
-		--Çàãðóçêà ôàéëà íàñòðîåê
-		if doesDirectoryExist(dirml.."/MedicalHelper/Äåïàðòàìåíò/") then
+		--Загрузка файла настроек
+		if doesDirectoryExist(dirml.."/MedicalHelper/Департамент/") then
 			getGovFile()
 		end
 		if doesFileExist(dirml.."/MedicalHelper/rp-medcard.txt") then
 			local f = io.open(dirml.."/MedicalHelper/rp-medcard.txt")
 			buf_mcedit.v =  u8(f:read("*a"))
 			f:close()
-			print("{82E28C}×òåíèå îòûãðîâêè ìåä.êàðòû...")
+			print("{82E28C}Чтение отыгровки мед.карты...")
 		else 
 			local textrp = [[
-// Öåíû íà âûäà÷ó íîâîé ìåä.êàðòû
+// Цены на выдачу новой мед.карты
 #med7=10.000$
 #med14=20.000$
 #med30=32.500$
 #med60=65.000$
-// Öåíû íà îáíîâëåíèå ìåä.êàðòû
+// Цены на обновление мед.карты
 #medup7=15.000$
 #medup14=25.000$
 #medup30=38.000$
 #medup60=70.000$
 
 {sleep:0}
-Çäðàâñòâóéòå, Âû õîòèòå ïîëó÷èòü ìåäèöèíñêóþ êàðòó âïåðâûå èëè îáíîâèòü ñóùåñòâóþùóþ?
-Ïðåäîñòàâüòå, ïîæàëóéñòà, Âàø ïàñïîðò
+Здравствуйте, Вы хотите получить медицинскую карту впервые или обновить существующую?
+Предоставьте, пожалуйста, Ваш паспорт
 /b /showpass {myID}
 {pause}
-/todo Áëàãîäîðþ âàñ!*âçÿâ ïàñïîðò â ðóêè è {sex:íà÷àë|íà÷àëà} åãî èçó÷àòü.
+/todo Благодорю вас!*взяв паспорт в руки и {sex:начал|начала} его изучать.
 {dialog}
-[name]=Âûäà÷à ìåä.êàðòû
-[1]=Íîâàÿ ìåä.êàðòà
-Õîðîøî, ÿ Âàñ {sex:ïîíÿë|ïîíÿëà}. Âàì íóæíî îôîðìèòü íîâóþ ìåä.êàðòó.
-Äëÿ îôîðìëåíèÿ êàðòû íåîáõîäèìî çàïëàòèòü ãîñ.ïîøëèíó, êîòîðàÿ çàâèñèò îò ñðîêà êàðòû.
-Íà 7 äíåé - #med7, íà 14 äíåé - #med14
-Íà 30 äíåé #med30, íà 60 äíåé - #med60.
-Âû ñîãëàñíû?
-Åñëè ñîãëàñíû, òî îïëàòèòå è ìû ïðîäîëæèì ïðîöåññ îôîðìëåíèÿ.
-/b Îïëàòèòü ìîæíî ÷åðåç /pay {myID} èëè /trade {myID}
+[name]=Выдача мед.карты
+[1]=Новая мед.карта
+Хорошо, я Вас {sex:понял|поняла}. Вам нужно оформить новую мед.карту.
+Для оформления карты необходимо заплатить гос.пошлину, которая зависит от срока карты.
+На 7 дней - #med7, на 14 дней - #med14
+На 30 дней #med30, на 60 дней - #med60.
+Вы согласны?
+Если согласны, то оплатите и мы продолжим процесс оформления.
+/b Оплатить можно через /pay {myID} или /trade {myID}
 
 {dialog}
-[name]=Ñðîê âûäà÷è
-[1]=7 äíåé
+[name]=Срок выдачи
+[1]=7 дней
 #timeID=0
-[2]=14 äíåé
+[2]=14 дней
 #timeID=1
-[3]=30 äíåé
+[3]=30 дней
 #timeID=2
-[4]=60 äåé
+[4]=60 дей
 #timeID=3
 {dialogEnd}
 
-Õîðîøî, òîãäà ïðèñòóïèì ê îôîðìëåíèþ.
-/me {sex:âûòàùèë|âûòàùèëà} èç íàãðóäíîãî êàðìàíà øàðèêîâóþ ðó÷êó
-/do Ðó÷êà â ïðàâîé ðóêå.
-/me îòêðûë{sex:|à} øêàô÷èê, çàòåì äîñòàë{sex:|à} îòòóäà ïóñòûå áëàíêè äëÿ ìåä.êàðòû
-/me ðàçëîæèë{sex:|à} ïàëüöàìè ïðàâîé ðóêè ïàñïîðò íà íóæíîé ñòðàíè÷êå è íà÷àë{sex:|à} ïåðåïèñûâàòü äàííûå â áëàíê
-/me îòêðûë{sex:|à} ïóñòóþ ìåä.êàðòó è ïàñïîðò, çàòåì íà÷àë{sex:|à} ïåðåïèñûâàòü äàííûå èç ïàñïîðòà
-/do Ñïóñòÿ ìèíóòó äàííûå ïàñïîðòà áûëè ïåðåïèñàíû íà áëàíê.
+Хорошо, тогда приступим к оформлению.
+/me {sex:вытащил|вытащила} из нагрудного кармана шариковую ручку
+/do Ручка в правой руке.
+/me открыл{sex:|а} шкафчик, затем достал{sex:|а} оттуда пустые бланки для мед.карты
+/me разложил{sex:|а} пальцами правой руки паспорт на нужной страничке и начал{sex:|а} переписывать данные в бланк
+/me открыл{sex:|а} пустую мед.карту и паспорт, затем начал{sex:|а} переписывать данные из паспорта
+/do Спустя минуту данные паспорта были переписаны на бланк.
 
-[2]=Îáíîâëåíèå äàííûõ
-Õîðîøî, ÿ Âàñ ïîíÿë{sex:|à}. Âàì íóæíî îáíîâèòü äàííûå â ìåä.êàðòå.
-Äëÿ îáíîâëåíèÿ äàííûõ íåîáõîäèìî çàïëàòèòü ãîñ.ïîøëèíó, êîòîðàÿ çàâèñèò îò ñðîêà êàðòû.
-Íà 7 äíåé - #medup7, íà 14 äíåé - #medup14
-Íà 30 äíåé #medup30, íà 60 äíåé - #medup60.
-Âû ñîãëàñíû?
-Åñëè ñîãëàñíû, òî îïëàòèòå è ìû ïðîäîëæèì ïðîöåññ îôîðìëåíèÿ.
-/b Îïëàòèòü ìîæíî ÷åðåç /pay {myID} èëè /trade {myID}
+[2]=Обновление данных
+Хорошо, я Вас понял{sex:|а}. Вам нужно обновить данные в мед.карте.
+Для обновления данных необходимо заплатить гос.пошлину, которая зависит от срока карты.
+На 7 дней - #medup7, на 14 дней - #medup14
+На 30 дней #medup30, на 60 дней - #medup60.
+Вы согласны?
+Если согласны, то оплатите и мы продолжим процесс оформления.
+/b Оплатить можно через /pay {myID} или /trade {myID}
 
 {dialog}
-[name]=Ñðîê âûäà÷è
-[1]=7 äíåé
+[name]=Срок выдачи
+[1]=7 дней
 #timeID=0
-[2]=14 äíåé
+[2]=14 дней
 #timeID=1
-[3]=30 äíåé
+[3]=30 дней
 #timeID=2
-[4]=60 äåé
+[4]=60 дей
 #timeID=3
 {dialogEnd}
 
-Õîðîøî, òîãäà ïðèñòóïèì ê îôîðìëåíèþ.
-/me âûòàùèë{sex:|à} èç íàãðóäíîãî êàðìàíà øàðèêîâóþ ðó÷êó
-/do Ðó÷êà â ïðàâîé ðóêå.
-/me îòêðûë{sex:|à} øêàô÷èê, çàòåì íà÷àë{sex:|à} èñêàòü ìåä.êàðòó c èíäèôèêàòîðîì ¹#playerID
-/me ðàçëîæèë{sex:|à} ïàëüöàìè ïðàâîé ðóêè ïàñïîðò íà íóæíîé ñòðàíè÷êå è íà÷àë ïåðåïèñûâàòü äàííûå â áëàíê
-/me îòêðûë{sex:|à} ïóñòóþ ìåä.êàðòó è ïàñïîðò, çàòåì íà÷àë ïåðåïèñûâàòü äàííûå èç ïàñïîðòà
-/do Ñïóñòÿ ìèíóòó äàííûå ïàñïîðòà áûëè ïåðåïèñàíû íà áëàíê.
+Хорошо, тогда приступим к оформлению.
+/me вытащил{sex:|а} из нагрудного кармана шариковую ручку
+/do Ручка в правой руке.
+/me открыл{sex:|а} шкафчик, затем начал{sex:|а} искать мед.карту c индификатором №#playerID
+/me разложил{sex:|а} пальцами правой руки паспорт на нужной страничке и начал переписывать данные в бланк
+/me открыл{sex:|а} пустую мед.карту и паспорт, затем начал переписывать данные из паспорта
+/do Спустя минуту данные паспорта были переписаны на бланк.
 {dialogEnd}
-/me îòëîæèë{sex:|à} ïàñïîðò â ñòîðîíó åãî õîçÿèíà è ïðèãîòîâèë{sex:ñÿ|àñü} ê ïðîäîëæåíèþ çàíåñåíèÿ èíôîðìàöèè
-Òàê, ñåé÷àñ çàäàì íåñêîëüêî âîïðîñîâ êàñàåìî çäîðîâüÿ...
-Æàëîáû íà çäîðîâüå èìåþòñÿ?
+/me отложил{sex:|а} паспорт в сторону его хозяина и приготовил{sex:ся|ась} к продолжению занесения информации
+Так, сейчас задам несколько вопросов касаемо здоровья...
+Жалобы на здоровье имеются?
 {pause}
-Èìåþòñÿ ëè âðåäíûå ïðèâû÷êè, à òàêæå àëëåðãè÷åñêèå ðåàêöèè?
+Имеются ли вредные привычки, а также аллергические реакции?
 {pause}
-Õîðîøî, ñåé÷àñ ñïðîøó ïàðó âîïðîñîâ ïî îöåíêå ïñèõè÷åñêîãî ñîñòîÿíèÿ.
+Хорошо, сейчас спрошу пару вопросов по оценке психического состояния.
 {dialog}
-[name]=Âîïðîñû ïñèõ.ñîñò.
-[1]=Ìûñëè î ñóèöèäå.
-Áûëè ëè ó âàñ ìûñëè î ñóèöèäå?
-[2]=Íàñòðîåíèå óòðîì.
-Êàê âû ïðîñûïàåòåñü óòðîì, êàêîå ó âàñ íàñòðîåíèå?
-[3]=Ïðèñòóïû áåñêîíòðîëüíîãî ñìåõà.
-Áûâàþò ëè ó âàñ áåñêîíòðîëüíûå ïðèñòóïû ñìåõà? Åñëè äà, òî êàê ÷àñòî?
-[4]=Ñèòóàöèÿ íà äîðîãå.
-Ïðåäñòàâüòå, ÷òî Âû íàõîäèòåñü â öåíòðå äîðîãè è íà âàñ åäåò ñ...
-...áîëüøîé ñêîðîñòüþ ìàññèâíîå àâòî.
-×òî âû ñäåëàåòå?
-[5]=Ïðèñòóïû àãðåññèè.
-Áûâàþò ëè ó âàñ áåñêîíòðîëüíûå ïðèñòóïû àãðåññèè? Åñëè äà, òî êàê ÷àñòî?
-[6]=Ëåæàùèé íà çåìëå
-×òî âû áóäåòå äåëàòü, åñëè Âû óâèäåëè ÷åëîâåêà ëåæàùåãî íà çåìëå?
+[name]=Вопросы псих.сост.
+[1]=Мысли о суициде.
+Были ли у вас мысли о суициде?
+[2]=Настроение утром.
+Как вы просыпаетесь утром, какое у вас настроение?
+[3]=Приступы бесконтрольного смеха.
+Бывают ли у вас бесконтрольные приступы смеха? Если да, то как часто?
+[4]=Ситуация на дороге.
+Представьте, что Вы находитесь в центре дороги и на вас едет с...
+...большой скоростью массивное авто.
+Что вы сделаете?
+[5]=Приступы агрессии.
+Бывают ли у вас бесконтрольные приступы агрессии? Если да, то как часто?
+[6]=Лежащий на земле
+Что вы будете делать, если Вы увидели человека лежащего на земле?
 {dialogEnd}
 {pause}
-/me çàïèñàë{sex:|à} âñå ñêàçàííîå ïàöèåíòîì â ìåä.êàðòó
+/me записал{sex:|а} все сказанное пациентом в мед.карту
 {dialog}
-[name]=Ñîñò. çäîðîâüÿ
-[1]=Ïîëíîcòüþ çäîðîâ(àÿ)
+[name]=Сост. здоровья
+[1]=Полноcтью здоров(ая)
 #healID=3
-/me ñäåëàë{sex:|à} çàïèñü íàïðîòèâ ïóíêòà 'Ïñèõ. Çäîðîâüå.' - 'Ïîëíîñòüþ çäîðîâ(à).'
-[2]=Íàáëþäàþòñÿ îòêëîíåíèÿþòñÿ
+/me сделал{sex:|а} запись напротив пункта 'Псих. Здоровье.' - 'Полностью здоров(а).'
+[2]=Наблюдаются отклоненияются
 #healID=2
-/me ñäåëàë{sex:|à} çàïèñü íàïðîòèâ ïóíêòà 'Ïñèõ. Çäîðîâüå.' - 'Èìåþòñÿ îòêëîíåíèÿ.'
-[3]=Ïñèõè÷åñêè íå çäîðîâ(àÿ)
+/me сделал{sex:|а} запись напротив пункта 'Псих. Здоровье.' - 'Имеются отклонения.'
+[3]=Психически не здоров(ая)
 #healID=1
-/me ñäåëàë{sex:|à} çàïèñü íàïðîòèâ ïóíêòà 'Ïñèõ. Çäîðîâüå.' - 'Ïñèõ. íåçäîðîâ.'
+/me сделал{sex:|а} запись напротив пункта 'Псих. Здоровье.' - 'Псих. нездоров.'
 {dialogEnd}
-/me âçÿë{sex:|à} øòàìï {myHospEn} â ïðàâóþ ðóêó èç ÿùèêà ñòîëà è íàíåñ{sex:|ëà} îòòèñê â óãëó áëàíêà
-/do Ïå÷àòü íàíåñåíà.
-/me îòëîæèâ øòàìï â ñòîðîíó è ïîñòàâèë{sex:|à} ñâîþ ïîäïèñü, è ñåãîäíÿøíþþ äàòó
-/do Ñòðàíèöà ìåä.êàðòû çàïîëíåíà.
-Âñ¸ ãîòîâî, äåðæèòå ñâîþ ìåä.êàðòó, íå áîëåéòå.
-Óäà÷íîãî äíÿ.
+/me взял{sex:|а} штамп {myHospEn} в правую руку из ящика стола и нанес{sex:|ла} оттиск в углу бланка
+/do Печать нанесена.
+/me отложив штамп в сторону и поставил{sex:|а} свою подпись, и сегодняшнюю дату
+/do Страница мед.карты заполнена.
+Всё готово, держите свою мед.карту, не болейте.
+Удачного дня.
 /medcard #playerID #healID #timeID 1000]]  
 			local f = io.open(dirml.."/MedicalHelper/rp-medcard.txt", "w")
 			f:write(textrp) 
@@ -981,7 +981,7 @@ function main()
 			buf_mcedit.v = u8(textrp)
 		end
 		if doesFileExist(dirml.."/MedicalHelper/MainSetting.med") then
-		print("{82E28C}×òåíèå íàñòðîåê...")
+		print("{82E28C}Чтение настроек...")
 		local f = io.open(dirml.."/MedicalHelper/MainSetting.med")
 			local setf = f:read("*a")
 			f:close()
@@ -1024,8 +1024,8 @@ function main()
 				end
 			else
 				os.remove(dirml.."/MedicalHelper/MainSetting.med")
-				print("{F54A4A}Îøèáêà. Ôàéë íàñòðîåê ïîâðåæä¸í.")
-				print("{82E28C}Ñîçäàíèå íîâûõ ñîáñòâåííûõ íàñòðîåê...")
+				print("{F54A4A}Ошибка. Файл настроек повреждён.")
+				print("{82E28C}Создание новых собственных настроек...")
 				buf_lec.v = "1000"
 				buf_med.v = "3000"
 				buf_upmed.v = "21000"
@@ -1033,12 +1033,12 @@ function main()
 				buf_tatu.v = "7000"
 				buf_rec.v = "1500"
 				
-				buf_time.v = u8"/me ïîñìîòðåë íà ÷àñû ñ ãðàâèðîâêîé \"Made in China\""
-				buf_rac.v = u8"/me ñíÿâ ðàöèþ ñ ïîÿñà, ÷òî-òî ñêàçàë â íå¸"
+				buf_time.v = u8"/me посмотрел на часы с гравировкой \"Made in China\""
+				buf_rac.v = u8"/me сняв рацию с пояса, что-то сказал в неё"
 			end
 		else
-			print("{F54A4A}Îøèáêà. Ôàéë íàñòðîåê íå íàéäåí.")
-			print("{82E28C}Ñîçäàíèå ñîáñòâåííûõ íàñòðîåê...")
+			print("{F54A4A}Ошибка. Файл настроек не найден.")
+			print("{82E28C}Создание собственных настроек...")
 			buf_lec.v = "1000"
 			buf_med.v = "3000"
 			buf_upmed.v = "21000"
@@ -1046,8 +1046,8 @@ function main()
 			buf_tatu.v = "7000"
 			buf_rec.v = "1500"
 			
-			buf_time.v = u8"/me ïîñìîòðåë íà ÷àñû ñ ãðàâèðîâêîé \"Made in China\""
-			buf_rac.v = u8"/me ñíÿâ ðàöèþ ñ ïîÿñà, ÷òî-òî ñêàçàë â íå¸"
+			buf_time.v = u8"/me посмотрел на часы с гравировкой \"Made in China\""
+			buf_rac.v = u8"/me сняв рацию с пояса, что-то сказал в неё"
 			
 		end
 		if not cb_imageDis.v then
@@ -1057,7 +1057,7 @@ function main()
 			disNick = imgui.CreateTextureFromFile(dirml.."/MedicalHelper/files/discord-nick.png")
 		end
 
-	print("{82E28C}×òåíèå íàñòðîåê êîìàíä...")
+	print("{82E28C}Чтение настроек команд...")
 	if doesFileExist(dirml.."/MedicalHelper/cmdSetting.med") then
 	--register cmd
 		local f = io.open(dirml.."/MedicalHelper/cmdSetting.med")
@@ -1074,17 +1074,17 @@ function main()
 				end
 			end
 		else
-			print("{F54A4A}Îøèáêà. Ôàéë íàñòðîåê êîìàíä ïîâðåæä¸í.")
-			print("{82E28C}Ïðèìåíèíû ñòàíäàðòíûå íàñòðîéêè")
+			print("{F54A4A}Ошибка. Файл настроек команд повреждён.")
+			print("{82E28C}Применины стандартные настройки")
 			os.remove(dirml.."/MedicalHelper/cmdSetting.med")
 		end
 	else
-		print("{F54A4A}Îøèáêà. Ôàéë íàñòðîåê êîìàíä íå íàéäåí.")
-		print("{82E28C}Ïðèìåíèíû ñòàíäàðòíûå íàñòðîéêè")
+		print("{F54A4A}Ошибка. Файл настроек команд не найден.")
+		print("{82E28C}Применины стандартные настройки")
 	end
 	
 	--register binder 
-	print("{82E28C}×òåíèå íàñòðîåê áèíäåðà...")
+	print("{82E28C}Чтение настроек биндера...")
 	if doesFileExist(dirml.."/MedicalHelper/bindSetting.med") then
 		local f = io.open(dirml.."/MedicalHelper/bindSetting.med")
 		local res, list = pcall(decodeJson, f:read("*a"))
@@ -1101,12 +1101,12 @@ function main()
 			end
 		else
 			os.remove(dirml.."/MedicalHelper/bindSetting.med")
-			print("{F54A4A}Îøèáêà. Ôàéë íàñòðîåê áèíäåðà ïîâðåæä¸í.")
-			print("{82E28C}Ïðèìåíèíû ñòàíäàðòíûå íàñòðîéêè")
+			print("{F54A4A}Ошибка. Файл настроек биндера повреждён.")
+			print("{82E28C}Применины стандартные настройки")
 		end
 	else 
-		print("{F54A4A}Îøèáêà. Ôàéë íàñòðîåê áèíäåðà íå íàéäåí.")
-		print("{82E28C}Ïðèìåíèíû ñòàíäàðòíûå íàñòðîéêè")
+		print("{F54A4A}Ошибка. Файл настроек биндера не найден.")
+		print("{82E28C}Применины стандартные настройки")
 	end
 	
 	lockPlayerControl(false)
@@ -1145,16 +1145,16 @@ function main()
 		sampRegisterChatCommand("downloadupd", downloadupd)
 		sampRegisterChatCommand("openupd", funCMD.openupd)
 		sampRegisterChatCommand("mh-delete", funCMD.del)
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Ñêðèïò èíèöèàëèçèðîâàí.", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Скрипт инициализирован.", 0xEE4848)
 		repeat wait(100) until sampIsLocalPlayerSpawned()
 		_, myid = sampGetPlayerIdByCharHandle(PLAYER_PED)
 		myNick = sampGetPlayerNickname(myid)
 		
-		sampAddChatMessage(string.format("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Ïðèâåòñòâóþ, %s. Äëÿ àêòèâàöèè ãëàâíîãî ìåíþ ïðîïèøèòå â ÷àò {22E9E3}/mh.", sampGetPlayerNickname(myid):gsub("_"," ")), 0xEE4848)
+		sampAddChatMessage(string.format("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Приветствую, %s. Для активации главного меню пропишите в чат {22E9E3}/mh.", sampGetPlayerNickname(myid):gsub("_"," ")), 0xEE4848)
 		wait(200)
 		if buf_nick.v == "" then 
-			sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Ïîõîæå ó òåáÿ íå íàñòðîåíà îñíîâíàÿ èíôîðìàöèÿ. ", 0xEE4848)
-			sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Çàéäè â ãëàâíîì ìåíþ â ðàçäåë \"Íàñòðîéêè\" è íàñòðîé ñåáå âñ¸ ïî \"ôýí-øóþ\".", 0xEE4848)
+			sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Похоже у тебя не настроена основная информация. ", 0xEE4848)
+			sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Зайди в главном меню в раздел \"Настройки\" и настрой себе всё по \"фэн-шую\".", 0xEE4848)
 		end
 		lua_thread.create(funCMD.updateCheck)
   while true do
@@ -1168,7 +1168,7 @@ function main()
 		mainWin.v = not mainWin.v 
 	end
 	if thread:status() ~= "dead" and not isGamePaused() then 
-		renderFontDrawText(fontPD, "Îòûãðîâêà: [{F25D33}Page Down{FFFFFF}] - Ïðèîñòàíîâèòü", 20, sy-30, 0xFFFFFFFF)
+		renderFontDrawText(fontPD, "Отыгровка: [{F25D33}Page Down{FFFFFF}] - Приостановить", 20, sy-30, 0xFFFFFFFF)
 		if isKeyJustPressed(VK_NEXT) and not sampIsChatInputActive() and not sampIsDialogActive() then
 			thread:terminate()
 		end
@@ -1205,48 +1205,48 @@ function mainSet()
 	imgui.SetCursorPosX(25)
 	imgui.BeginGroup()
 	imgui.PushItemWidth(300);
-		if imgui.InputText(u8"Èìÿ è Ôàìèëèÿ: ", buf_nick, imgui.InputTextFlags.CallbackCharFilter, filter(1, "[à-ß%s]+")) then needSave = true end
+		if imgui.InputText(u8"Имя и Фамилия: ", buf_nick, imgui.InputTextFlags.CallbackCharFilter, filter(1, "[а-Я%s]+")) then needSave = true end
 
 			if not imgui.IsItemActive() and buf_nick.v == "" then
 				imgui.SameLine()
-				ShowHelpMarker(u8"Èìÿ è Ôàìèëèÿ çàïîëíÿåòñÿ íà \nðóññêîì áåç íèæíåãî ïîä÷¸ðêèâàíèÿ.\n\n  Ïðèìåð: Êåâèí Õàòèêî")
+				ShowHelpMarker(u8"Имя и Фамилия заполняется на \nрусском без нижнего подчёркивания.\n\n  Пример: Кевин Хатико")
 				imgui.SameLine()
 				imgui.SetCursorPosX(30)
-				imgui.TextColored(imgui.ImColor(200, 200, 200, 200):GetVec4(), u8"Ââåäèòå Âàøå Èìÿ è Ôàìèëèþ");
+				imgui.TextColored(imgui.ImColor(200, 200, 200, 200):GetVec4(), u8"Введите Ваше Имя и Фамилию");
 			else
 			imgui.SameLine()
-			ShowHelpMarker(u8"Èìÿ è Ôàìèëèÿ çàïîëíÿåòñÿ íà \nðóññêîì áåç íèæíåãî ïîä÷¸ðêèâàíèÿ.\n\n  Ïðèìåð: Êåâèí Õàòèêî")
+			ShowHelpMarker(u8"Имя и Фамилия заполняется на \nрусском без нижнего подчёркивания.\n\n  Пример: Кевин Хатико")
 			end
-		if imgui.InputText(u8"Òåã â ðàöèþ ", buf_teg) then needSave = true end
-		imgui.SameLine(); ShowHelpMarker(u8"Òåã äëÿ ðàöèè ìîæåò áûòü íåîáÿçàòåëüíûì,\n óòî÷íèòå ó äðóãèõ ñîòðóäíèêîâ èëè Ëèäåðà.\n\nÏðèìåð: [Âàø Òåã]")
+		if imgui.InputText(u8"Тег в рацию ", buf_teg) then needSave = true end
+		imgui.SameLine(); ShowHelpMarker(u8"Тег для рации может быть необязательным,\n уточните у других сотрудников или Лидера.\n\nПример: [Ваш Тег]")
 		imgui.PushItemWidth(278);
 			imgui.PushStyleVar(imgui.StyleVar.FramePadding, imgui.ImVec2(1, 3))
 				if imgui.Button(fa.ICON_COG.."##1", imgui.ImVec2(21,20)) then
 					chgName.inp.v = chgName.org[num_org.v+1]
-					imgui.OpenPopup(u8"MH | Èçìåíåíèå íàçâàíèÿ áîëüíèöû")
+					imgui.OpenPopup(u8"MH | Изменение названия больницы")
 				end
 			imgui.PopStyleVar(1)
 			imgui.SameLine(22)
-			if imgui.Combo(u8"Îðãàíèçàöèÿ ", num_org, chgName.org) then needSave = true end
+			if imgui.Combo(u8"Организация ", num_org, chgName.org) then needSave = true end
 			imgui.PushStyleVar(imgui.StyleVar.FramePadding, imgui.ImVec2(1, 3))
 				if imgui.Button(fa.ICON_COG.."##2", imgui.ImVec2(21,20)) then
 					chgName.inp.v = chgName.rank[num_rank.v+1]
-					imgui.OpenPopup(u8"MH | Èçìåíåíèå íàçâàíèÿ äîëæíîñòè")
+					imgui.OpenPopup(u8"MH | Изменение названия должности")
 				end
 			imgui.PopStyleVar(1)
 			imgui.SameLine(22)
-			if imgui.Combo(u8"Äîëæíîñòü ", num_rank, chgName.rank) then needSave = true end
+			if imgui.Combo(u8"Должность ", num_rank, chgName.rank) then needSave = true end
 		imgui.PopItemWidth()						
-		if imgui.Combo(u8"Âàø ïîë ", num_sex, list_sex) then needSave = true end
+		if imgui.Combo(u8"Ваш пол ", num_sex, list_sex) then needSave = true end
 	imgui.PopItemWidth()
 	imgui.EndGroup()
-	if imgui.BeginPopupModal(u8"MH | Èçìåíåíèå íàçâàíèÿ áîëüíèöû", null, imgui.WindowFlags.AlwaysAutoResize + imgui.WindowFlags.NoMove) then
-		imgui.Text(u8"Íàçâàíèå áîëüíèöû áóäåò ïðèìåíåíî ê òåêóùåìó íàçâàíèþ")
+	if imgui.BeginPopupModal(u8"MH | Изменение названия больницы", null, imgui.WindowFlags.AlwaysAutoResize + imgui.WindowFlags.NoMove) then
+		imgui.Text(u8"Название больницы будет применено к текущему названию")
 
 		imgui.PushItemWidth(390)
 			imgui.InputText(u8"##inpcastname", chgName.inp, 512, filter(1, "[%s%a%-]+"))
 		imgui.PopItemWidth()
-		if imgui.Button(u8"Ñîõðàíèòü", imgui.ImVec2(126,23)) then
+		if imgui.Button(u8"Сохранить", imgui.ImVec2(126,23)) then
 			local exist = false
 			for i,v in ipairs(chgName.org) do
 				if v == chgName.inp.v and i ~= num_org.v+1 then
@@ -1260,24 +1260,24 @@ function mainSet()
 			end
 		end
 		imgui.SameLine()
-		if imgui.Button(u8"Ñáðîñèòü", imgui.ImVec2(128,23)) then
+		if imgui.Button(u8"Сбросить", imgui.ImVec2(128,23)) then
 			chgName.org[num_org.v+1] = list_org[num_org.v+1]
 			needSave = true
 			imgui.CloseCurrentPopup()
 		end
 		imgui.SameLine()
-		if imgui.Button(u8"Îòìåíà", imgui.ImVec2(126,23)) then
+		if imgui.Button(u8"Отмена", imgui.ImVec2(126,23)) then
 			imgui.CloseCurrentPopup()
 		end
 		imgui.EndPopup()
 	end
-	if imgui.BeginPopupModal(u8"MH | Èçìåíåíèå íàçâàíèÿ äîëæíîñòè", null, imgui.WindowFlags.AlwaysAutoResize + imgui.WindowFlags.NoMove) then
-		imgui.Text(u8"Íàçâàíèå äîëæíîñòè áóäåò ïðèìåíåíî ê òåêóùåìó íàçâàíèþ")
+	if imgui.BeginPopupModal(u8"MH | Изменение названия должности", null, imgui.WindowFlags.AlwaysAutoResize + imgui.WindowFlags.NoMove) then
+		imgui.Text(u8"Название должности будет применено к текущему названию")
 
 		imgui.PushItemWidth(200)
 			imgui.InputText(u8"##inpcastname", chgName.inp, 512, filter(1, "[%s%a%-]+"))
 		imgui.PopItemWidth()
-		if imgui.Button(u8"Ñîõðàíèòü", imgui.ImVec2(126,23)) then
+		if imgui.Button(u8"Сохранить", imgui.ImVec2(126,23)) then
 			local exist = false
 			for i,v in ipairs(chgName.rank) do
 				if v == chgName.inp.v and i ~= num_rank.v+1 then
@@ -1291,13 +1291,13 @@ function mainSet()
 			end
 		end
 		imgui.SameLine()
-		if imgui.Button(u8"Ñáðîñèòü", imgui.ImVec2(128,23)) then
+		if imgui.Button(u8"Сбросить", imgui.ImVec2(128,23)) then
 			chgName.rank[num_rank.v+1] = list_rank[num_rank.v+1]
 			needSave = true
 			imgui.CloseCurrentPopup()
 		end
 		imgui.SameLine()
-		if imgui.Button(u8"Îòìåíà", imgui.ImVec2(126,23)) then
+		if imgui.Button(u8"Отмена", imgui.ImVec2(126,23)) then
 			imgui.CloseCurrentPopup()
 		end
 		imgui.EndPopup()
@@ -1313,15 +1313,15 @@ function imgui.OnDrawFrame()
 			--imgui.SetWindowFontScale(1.1)
 			--///// Func menu button
 			imgui.BeginChild("Mine menu", imgui.ImVec2(155, 0), true)
-				if ButtonMenu(fa.ICON_USERS .. u8"  Ãëàâíîå", select_menu[1]) then select_menu = {true, false, false, false, false, false, false, false, false}; end
+				if ButtonMenu(fa.ICON_USERS .. u8"  Главное", select_menu[1]) then select_menu = {true, false, false, false, false, false, false, false, false}; end
 					imgui.Spacing()
 				imgui.Separator()
 					imgui.Spacing()
-				if ButtonMenu(fa.ICON_WRENCH .. u8"  Íàñòðîéêè", select_menu[2]) then select_menu = {false, true, false, false, false, false, false, false, false} end
+				if ButtonMenu(fa.ICON_WRENCH .. u8"  Настройки", select_menu[2]) then select_menu = {false, true, false, false, false, false, false, false, false} end
 					imgui.Spacing()
 				imgui.Separator()
 					imgui.Spacing()
-				if ButtonMenu(fa.ICON_FILE .. u8"  Øïîðû", select_menu[3]) then 
+				if ButtonMenu(fa.ICON_FILE .. u8"  Шпоры", select_menu[3]) then 
 					select_menu = {false, false, true, false, false, false, false, false, false}; 
 					getSpurFile() 
 					spur.name.v = ""
@@ -1333,23 +1333,23 @@ function imgui.OnDrawFrame()
 					imgui.Spacing()
 				imgui.Separator()
 					imgui.Spacing()
-				if ButtonMenu(fa.ICON_TERMINAL .. u8"  Êîìàíäû", select_menu[4]) then select_menu = {false, false, false, true , false, false, false, false, false} end	
+				if ButtonMenu(fa.ICON_TERMINAL .. u8"  Команды", select_menu[4]) then select_menu = {false, false, false, true , false, false, false, false, false} end	
 					imgui.Spacing()
 				imgui.Separator()
 					imgui.Spacing()
-				if ButtonMenu(fa.ICON_KEYBOARD_O .. u8"  Áèíäåð", select_menu[5]) then select_menu = {false, false, false, false, true, false, false, false, false} end
+				if ButtonMenu(fa.ICON_KEYBOARD_O .. u8"  Биндер", select_menu[5]) then select_menu = {false, false, false, false, true, false, false, false, false} end
 					imgui.Spacing()
 				imgui.Separator()
 					imgui.Spacing()
-				if ButtonMenu(fa.ICON_QUESTION .. u8"  Ïîìîùü", select_menu[6]) then select_menu = {false, false, false, false, false, true, false, false, false} end
+				if ButtonMenu(fa.ICON_QUESTION .. u8"  Помощь", select_menu[6]) then select_menu = {false, false, false, false, false, true, false, false, false} end
 					imgui.Spacing()
 				imgui.Separator()
 					imgui.Spacing()
-				if ButtonMenu(fa.ICON_CODE .. u8"  Î ñêðèïòå", select_menu[7]) then select_menu = {false, false, false, false, false, false, true, false, false} end
+				if ButtonMenu(fa.ICON_CODE .. u8"  О скрипте", select_menu[7]) then select_menu = {false, false, false, false, false, false, true, false, false} end
 					imgui.Spacing()
 				imgui.Separator()
 					imgui.Spacing()
-				if ButtonMenu(fa.ICON_HEADPHONES .. u8"  Äèñêîðä", select_menu[9]) then select_menu = {false, false, false, false, false, false, false, false, true} end
+				if ButtonMenu(fa.ICON_HEADPHONES .. u8"  Дискорд", select_menu[9]) then select_menu = {false, false, false, false, false, false, false, false, true} end
 			imgui.EndChild();
 			--///// Main menu
 			if select_menu[1] then
@@ -1361,22 +1361,22 @@ function imgui.OnDrawFrame()
 				local colorInfo = imgui.ImColor(240, 170, 40, 255):GetVec4()
 				imgui.Separator()
 				imgui.SetCursorPosX(425)
-				imgui.Text(u8"Èíôîðìàèÿ î ñîòðóäíèêå");
+				imgui.Text(u8"Информаия о сотруднике");
 					imgui.Dummy(imgui.ImVec2(0, 25))
 					imgui.Indent(10)
-					imgui.Text(fa.ICON_ADDRESS_CARD .. u8"  Èìÿ Ôàìèëèÿ ñîòðóäíèêà: ");
+					imgui.Text(fa.ICON_ADDRESS_CARD .. u8"  Имя Фамилия сотрудника: ");
 						imgui.SameLine();
 						imgui.TextColored(colorInfo, PlayerSet.name())
 						imgui.Dummy(imgui.ImVec2(0, 5))
-					imgui.Text(fa.ICON_HOSPITAL_O .. u8"  Ñîñòîèò â îðãàíèçàöèè: ");
+					imgui.Text(fa.ICON_HOSPITAL_O .. u8"  Состоит в организации: ");
 						imgui.SameLine();
 						imgui.TextColored(colorInfo, PlayerSet.org());
 						imgui.Dummy(imgui.ImVec2(0, 5))
-					imgui.Text(fa.ICON_USER .. u8"  Äîëæíîñòü: ");
+					imgui.Text(fa.ICON_USER .. u8"  Должность: ");
 						imgui.SameLine();
 						imgui.TextColored(colorInfo, PlayerSet.rank());
 						imgui.Dummy(imgui.ImVec2(0, 5))
-					imgui.Text(fa.ICON_TRANSGENDER .. u8"  Ïîë: ");
+					imgui.Text(fa.ICON_TRANSGENDER .. u8"  Пол: ");
 						imgui.SameLine();
 						imgui.TextColored(colorInfo, PlayerSet.sex())
 				imgui.EndGroup()
@@ -1386,78 +1386,78 @@ function imgui.OnDrawFrame()
 			imgui.SameLine()
 			imgui.BeginGroup()
 			imgui.BeginChild("settig", imgui.ImVec2(0, 390), true)
-				imgui.Text(fa.ICON_ANGLE_RIGHT .. u8" Äàííûé ðàçäåë ïðåäíàçíà÷åí äëÿ ïîëíîé íàñòðîéêè ñêðèïòà ïîä ñâîé âêóñ");
+				imgui.Text(fa.ICON_ANGLE_RIGHT .. u8" Данный раздел предназначен для полной настройки скрипта под свой вкус");
 				imgui.Separator()
 				imgui.Dummy(imgui.ImVec2(0, 5))
 				imgui.Indent(10) -- imgui.SetCursorPosX
-				if imgui.CollapsingHeader(u8"Îñíîâíàÿ èíôîðìàöèÿ") then
+				if imgui.CollapsingHeader(u8"Основная информация") then
 					mainSet()
 				end
 				imgui.Dummy(imgui.ImVec2(0, 3))
-				if imgui.CollapsingHeader(u8"Íàñòðîéêè ÷àòà") then
+				if imgui.CollapsingHeader(u8"Настройки чата") then
 					imgui.SetCursorPosX(25)
 					imgui.BeginGroup()
-						if imgui.Checkbox(u8"Ñêðûòü îáúÿâëåíèÿ", cb_chat1) then needSave = true end
-						if imgui.Checkbox(u8"Ñêðûòü ïîäñêàçêè ñåðâåðà", cb_chat2) then needSave = true end
-						if imgui.Checkbox(u8"Ñêðûòü íîâîñòè ÑÌÈ", cb_chat3) then needSave = true end
+						if imgui.Checkbox(u8"Скрыть объявления", cb_chat1) then needSave = true end
+						if imgui.Checkbox(u8"Скрыть подсказки сервера", cb_chat2) then needSave = true end
+						if imgui.Checkbox(u8"Скрыть новости СМИ", cb_chat3) then needSave = true end
 						if imgui.Checkbox(u8"ChatHUD", cb_hud) then needSave = true end;
-						imgui.SameLine(); ShowHelpMarker(u8"Ïîëåçíàÿ èíôîðìàöèÿ ïîä \nîêíîì ââîäà ÷àòà")
+						imgui.SameLine(); ShowHelpMarker(u8"Полезная информация под \nокном ввода чата")
 						if imgui.Checkbox(u8"TimeHUD", cb_hudTime) then needSave = true end
-						imgui.SameLine(); ShowHelpMarker(u8"Îòîáðæåíèå âðåìåíè, ÿçûêà è Caps Lock\n â íèæíåé ëåâîé ÷àñòè ýêðàíà")
+						imgui.SameLine(); ShowHelpMarker(u8"Отобржение времени, языка и Caps Lock\n в нижней левой части экрана")
 					imgui.EndGroup()
 				end
 				imgui.Dummy(imgui.ImVec2(0, 3))
-				if imgui.CollapsingHeader(u8"Îòûãðîâêè") then
+				if imgui.CollapsingHeader(u8"Отыгровки") then
 					imgui.Separator()
 					imgui.SetCursorPosX(25)
 					imgui.BeginGroup()
 						imgui.PushItemWidth(400); 
 							imgui.SetCursorPosX(255)
-							imgui.Text(u8"×àñû")
-							if imgui.Checkbox(u8"Îòûãðîâêà /me", cb_time) then needSave = true end
-							if imgui.Checkbox(u8"Îòûãðîâêà /do", cb_timeDo) then needSave = true end
-							if imgui.InputText(u8"Òåêñò îòûãðîâêè", buf_time) then needSave = true end
+							imgui.Text(u8"Часы")
+							if imgui.Checkbox(u8"Отыгровка /me", cb_time) then needSave = true end
+							if imgui.Checkbox(u8"Отыгровка /do", cb_timeDo) then needSave = true end
+							if imgui.InputText(u8"Текст отыгровки", buf_time) then needSave = true end
 							imgui.Separator()
 							imgui.SetCursorPosX(255)
-							imgui.Text(u8"Ðàöèÿ")
-							if imgui.Checkbox(u8"Îòûãðîâêà /me##1", cb_rac) then needSave = true end
-							if imgui.InputText(u8"Òåêñò îòûãðîâêè##1", buf_rac) then needSave = true end
+							imgui.Text(u8"Рация")
+							if imgui.Checkbox(u8"Отыгровка /me##1", cb_rac) then needSave = true end
+							if imgui.InputText(u8"Текст отыгровки##1", buf_rac) then needSave = true end
 						imgui.PopItemWidth()
 						imgui.Spacing()
-						if imgui.Button(u8"Ðåäàêòèðîâàòü îòûãðîâêó Ìåä.êàðòû", imgui.ImVec2(250, 25)) then 
+						if imgui.Button(u8"Редактировать отыгровку Мед.карты", imgui.ImVec2(250, 25)) then 
 							mcEditWin.v = not mcEditWin.v
 						end
 					imgui.EndGroup();
 				end
 				imgui.Dummy(imgui.ImVec2(0, 3)) 
-				if imgui.CollapsingHeader(u8"Öåíîâàÿ ïîëèòèêà") then
+				if imgui.CollapsingHeader(u8"Ценовая политика") then
 					imgui.SetCursorPosX(25);
 					imgui.BeginGroup()
 						imgui.PushItemWidth(100); 
-							if imgui.InputText(u8"Ëå÷åíèå", buf_lec, imgui.InputTextFlags.CharsDecimal) then needSave = true end
-						--	if imgui.InputText(u8"Âûäà÷à íîâîé ìåä.êàðòû", buf_med, imgui.InputTextFlags.CharsDecimal) then needSave = true end
-						--	if imgui.InputText(u8"Îáíîâëåíèå ìåä.êàðòû", buf_upmed, imgui.InputTextFlags.CharsDecimal) then needSave = true end
-							if imgui.InputText(u8"Âûäà÷à ðåöåïòîâ", buf_rec, imgui.InputTextFlags.CharsDecimal) then needSave = true end
-							if imgui.InputText(u8"Ëå÷åíèå îò íàðêîçàâèñèìîñòè", buf_narko, imgui.InputTextFlags.CharsDecimal) then needSave = true end
-							if imgui.InputText(u8"Ñâåäåíèå òàòó", buf_tatu, imgui.InputTextFlags.CharsDecimal) then needSave = true end
-							imgui.Text(u8"Öåíû íà ìåä.êàðòó âûñòàâëÿþòñÿ â ñàìîé îòûãðîâêå ìåä.êàðòû ÷åðåç ïåðåìåííûå â ïîäðàçäåëå 'Îòûãðîâêè'")
+							if imgui.InputText(u8"Лечение", buf_lec, imgui.InputTextFlags.CharsDecimal) then needSave = true end
+						--	if imgui.InputText(u8"Выдача новой мед.карты", buf_med, imgui.InputTextFlags.CharsDecimal) then needSave = true end
+						--	if imgui.InputText(u8"Обновление мед.карты", buf_upmed, imgui.InputTextFlags.CharsDecimal) then needSave = true end
+							if imgui.InputText(u8"Выдача рецептов", buf_rec, imgui.InputTextFlags.CharsDecimal) then needSave = true end
+							if imgui.InputText(u8"Лечение от наркозависимости", buf_narko, imgui.InputTextFlags.CharsDecimal) then needSave = true end
+							if imgui.InputText(u8"Сведение тату", buf_tatu, imgui.InputTextFlags.CharsDecimal) then needSave = true end
+							imgui.Text(u8"Цены на мед.карту выставляются в самой отыгровке мед.карты через переменные в подразделе 'Отыгровки'")
 							imgui.Spacing()
 						imgui.PopItemWidth()
 					imgui.EndGroup();
-					imgui.TextWrapped(u8"Áîëåå ïîäðîáíî ìîæåòå óçíàòü íà ôîðóìå ïî ïóòè forum.arizona-rp.com -> Èãðîâûå ñåðâðà: Âàø òåêóùèé ñåðâåð -> Ãîñ. ñòóðêòóðû -> Ìèí.Çäðàâ.")
+					imgui.TextWrapped(u8"Более подробно можете узнать на форуме по пути forum.arizona-rp.com -> Игровые сервра: Ваш текущий сервер -> Гос. стурктуры -> Мин.Здрав.")
 				end
 				imgui.Dummy(imgui.ImVec2(0, 3))
-				if imgui.CollapsingHeader(u8"Çàãðóçêà èçîáðàæåíèé") then
-					imgui.TextWrapped(u8"Âû ìîæåòå îòêëþ÷èòü áîëüøóþ ÷àñòü êàðòèíîê âî âêîàäêàõ \"Äèñêîðä\", ÷òîáû ëèøíèé ðàç íå íàãðóæàòü èãðó.")
+				if imgui.CollapsingHeader(u8"Загрузка изображений") then
+					imgui.TextWrapped(u8"Вы можете отключить большую часть картинок во вкоадках \"Дискорд\", чтобы лишний раз не нагружать игру.")
 					imgui.Spacing()
-					if imgui.Checkbox(u8"Îòêëþ÷èòü èçîáðàæåíèÿ âî âêëàäêå - Äèñêîðä", cb_imageDis) then needSave = true end
+					if imgui.Checkbox(u8"Отключить изображения во вкладке - Дискорд", cb_imageDis) then needSave = true end
 				end
 				
 
 			imgui.EndChild();
 			
 			imgui.PushStyleColor(imgui.Col.Button, needSaveColor) -- 
-			if imgui.Button(u8"Ñîõðàíèòü", imgui.ImVec2(672, 20)) then
+			if imgui.Button(u8"Сохранить", imgui.ImVec2(672, 20)) then
 		
 			setting.nick = u8:decode(buf_nick.v)
 			setting.teg = u8:decode(buf_teg.v)
@@ -1496,7 +1496,7 @@ function imgui.OnDrawFrame()
 				f:write(encodeJson(setting))
 				f:flush()
 				f:close()
-				sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Íàñòðîéêè ñîõðàíåíû.", 0xEE4848)
+				sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Настройки сохранены.", 0xEE4848)
 				needSave = false
 			end
 			imgui.PopStyleColor(1)
@@ -1508,7 +1508,7 @@ function imgui.OnDrawFrame()
 				imgui.BeginGroup()
 					imgui.BeginChild("spur list", imgui.ImVec2(140, 390), true)
 						imgui.SetCursorPosX(10)
-						imgui.Text(u8"Ñïèñîê øïàðãàëîê")
+						imgui.Text(u8"Список шпаргалок")
 						imgui.Separator()
 							for i,v in ipairs(spur.list) do
 								if imgui.Selectable(u8(spur.list[i]), spur.select_spur == i) then 
@@ -1520,17 +1520,17 @@ function imgui.OnDrawFrame()
 								end
 							end
 					imgui.EndChild()
-					if imgui.Button(u8"Äîáàâèòü", imgui.ImVec2(140, 20)) then
+					if imgui.Button(u8"Добавить", imgui.ImVec2(140, 20)) then
 						if #spur.list ~= 20 then
 							for i = 1, 20 do
-								if not table.concat(spur.list, "|"):find("Øïàðãàëêà '"..i.."'") then
-									table.insert(spur.list, "Øïàðãàëêà '"..i.."'")
+								if not table.concat(spur.list, "|"):find("Шпаргалка '"..i.."'") then
+									table.insert(spur.list, "Шпаргалка '"..i.."'")
 									spur.edit = true
 									spur.select_spur = #spur.list
 									spur.name.v = ""
 									spur.text.v = ""
 									spurBig.v = false
-									local f = io.open(dirml.."/MedicalHelper/Øïàðãàëêè/Øïàðãàëêà '"..i.."'.txt", "w")
+									local f = io.open(dirml.."/MedicalHelper/Шпаргалки/Шпаргалка '"..i.."'.txt", "w")
 									f:write("")
 									f:flush()
 									f:close()
@@ -1545,22 +1545,22 @@ function imgui.OnDrawFrame()
 					--	
 						if spur.edit and not spurBig.v then
 							imgui.SetCursorPosX(515)
-							imgui.Text(u8"Ïîëå äëÿ çàïîëíåíèÿ")
+							imgui.Text(u8"Поле для заполнения")
 							imgui.PushStyleColor(imgui.Col.FrameBg, imgui.ImColor(70, 70, 70, 200):GetVec4())
 							imgui.InputTextMultiline("##spur", spur.text, imgui.ImVec2(525, 315))
 							imgui.PopStyleColor(1)
 							imgui.PushItemWidth(400)
 						--	imgui.SetCursorPosX(155+140+110)
-							if imgui.Button(u8"Îòêðûòü áîëüøîé ðåäàêòîð/ïðîñìîòð", imgui.ImVec2(525, 20)) then spurBig.v = not spurBig.v end
+							if imgui.Button(u8"Открыть большой редактор/просмотр", imgui.ImVec2(525, 20)) then spurBig.v = not spurBig.v end
 							imgui.Spacing() 
 						--	imgui.SetCursorPosX(445)
-							imgui.InputText(u8"Íàçâàíèå øïîðû", spur.name, imgui.InputTextFlags.CallbackCharFilter, filter(1, "[%wà-ß%+%¹%#%(%)]"))
+							imgui.InputText(u8"Название шпоры", spur.name, imgui.InputTextFlags.CallbackCharFilter, filter(1, "[%wа-Я%+%№%#%(%)]"))
 							imgui.Spacing()
 							imgui.PopItemWidth()
 						--	imgui.SetCursorPosX(415)
-							if imgui.Button(u8"Óäàëèòü", imgui.ImVec2(260, 20)) then
-								if doesFileExist(dirml.."/MedicalHelper/Øïàðãàëêè/"..spur.list[spur.select_spur]..".txt") then
-									os.remove(dirml.."/MedicalHelper/Øïàðãàëêè/"..spur.list[spur.select_spur]..".txt")
+							if imgui.Button(u8"Удалить", imgui.ImVec2(260, 20)) then
+								if doesFileExist(dirml.."/MedicalHelper/Шпаргалки/"..spur.list[spur.select_spur]..".txt") then
+									os.remove(dirml.."/MedicalHelper/Шпаргалки/"..spur.list[spur.select_spur]..".txt")
 								end
 								table.remove(spur.list, spur.select_spur) 
 								spur.edit = false
@@ -1569,23 +1569,23 @@ function imgui.OnDrawFrame()
 								spur.text.v = ""
 							end
 							imgui.SameLine()
-							if imgui.Button(u8"Ñîõðàíèòü", imgui.ImVec2(260, 20)) then
+							if imgui.Button(u8"Сохранить", imgui.ImVec2(260, 20)) then
 								local name = ""
 								local bool = false
 								if spur.name.v ~= "" then 
 										name = u8:decode(spur.name.v)
-										if doesFileExist(dirml.."/MedicalHelper/Øïàðãàëêè/"..name..".txt") and spur.list[spur.select_spur] ~= name then
+										if doesFileExist(dirml.."/MedicalHelper/Шпаргалки/"..name..".txt") and spur.list[spur.select_spur] ~= name then
 											bool = true
-											imgui.OpenPopup(u8"Îøèáêà")
+											imgui.OpenPopup(u8"Ошибка")
 										else
-											os.remove(dirml.."/MedicalHelper/Øïàðãàëêè/"..spur.list[spur.select_spur]..".txt")
+											os.remove(dirml.."/MedicalHelper/Шпаргалки/"..spur.list[spur.select_spur]..".txt")
 											spur.list[spur.select_spur] = u8:decode(spur.name.v)
 										end
 								else
 									name = spur.list[spur.select_spur]
 								end
 								if not bool then
-									local f = io.open(dirml.."/MedicalHelper/Øïàðãàëêè/"..name..".txt", "w")
+									local f = io.open(dirml.."/MedicalHelper/Шпаргалки/"..name..".txt", "w")
 									f:write(u8:decode(spur.text.v))
 									f:flush()
 									f:close()
@@ -1597,31 +1597,31 @@ function imgui.OnDrawFrame()
 						elseif spurBig.v then
 							imgui.Dummy(imgui.ImVec2(0, 150))
 							imgui.SetCursorPosX(500)
-							imgui.TextColoredRGB("Âêëþ÷åíî áîëüøîå îêíî")
+							imgui.TextColoredRGB("Включено большое окно")
 						elseif not spurBig.v and (spur.select_spur >= 1 and spur.select_spur <= 20) then
 							imgui.Dummy(imgui.ImVec2(0, 150))
 							imgui.SetCursorPosX(515)
-							imgui.Text(u8"Âûáåðåòå äåéñòâèå")
+							imgui.Text(u8"Выберете действие")
 							imgui.Spacing()
 							imgui.Spacing()
 							imgui.SetCursorPosX(490)
-							if imgui.Button(u8"Îòêðûòü äëÿ ïðîñìîòðà", imgui.ImVec2(170, 20)) then
+							if imgui.Button(u8"Открыть для просмотра", imgui.ImVec2(170, 20)) then
 								spurBig.v = true
 							end
 							imgui.Spacing()
 							imgui.SetCursorPosX(490)
-							if imgui.Button(u8"Ðåäàêòèðîâàòü", imgui.ImVec2(170, 20)) then
+							if imgui.Button(u8"Редактировать", imgui.ImVec2(170, 20)) then
 								spur.edit = true
-								local f = io.open(dirml.."/MedicalHelper/Øïàðãàëêè/"..spur.list[spur.select_spur]..".txt", "r")
+								local f = io.open(dirml.."/MedicalHelper/Шпаргалки/"..spur.list[spur.select_spur]..".txt", "r")
 								spur.text.v = u8(f:read("*a"))
 								f:close()
 								spur.name.v = u8(spur.list[spur.select_spur])
 							end
 							imgui.Spacing()
 							imgui.SetCursorPosX(490)
-							if imgui.Button(u8"Óäàëèòü", imgui.ImVec2(170, 20)) then
-								if doesFileExist(dirml.."/MedicalHelper/Øïàðãàëêè/"..spur.list[spur.select_spur]..".txt") then
-									os.remove(dirml.."/MedicalHelper/Øïàðãàëêè/"..spur.list[spur.select_spur]..".txt")
+							if imgui.Button(u8"Удалить", imgui.ImVec2(170, 20)) then
+								if doesFileExist(dirml.."/MedicalHelper/Шпаргалки/"..spur.list[spur.select_spur]..".txt") then
+									os.remove(dirml.."/MedicalHelper/Шпаргалки/"..spur.list[spur.select_spur]..".txt")
 								end
 								table.remove(spur.list, spur.select_spur) 
 								spur.select_spur = -1
@@ -1629,7 +1629,7 @@ function imgui.OnDrawFrame()
 						else
 						imgui.Dummy(imgui.ImVec2(0, 150))
 						imgui.SetCursorPosX(370)
-						imgui.TextColoredRGB("Íàæìèòå íà êíîïêó {FF8400}\"Äîáàâèòü\"{FFFFFF}, ÷òîáû ñîçäàòü íîâóþ øïîðãàëêó\n\t\t\t\t\t\t\t\t\tèëè âûáåðåòå óæå ñóùåñòâóþùèé.")
+						imgui.TextColoredRGB("Нажмите на кнопку {FF8400}\"Добавить\"{FFFFFF}, чтобы создать новую шпоргалку\n\t\t\t\t\t\t\t\t\tили выберете уже существующий.")
 						end
 
 				imgui.EndGroup()
@@ -1638,18 +1638,18 @@ function imgui.OnDrawFrame()
 			if select_menu[4] then
 			imgui.SameLine()
 			imgui.BeginGroup()
-				imgui.Text(u8"Çäåñü íàõîäèòñÿ ñïèñîê íîâûõ êîìàíä, ê êîòîðûì ìîæåòå ïðèìåíèòü êëàâèøó àêòèâàöèè.")
+				imgui.Text(u8"Здесь находится список новых команд, к которым можете применить клавишу активации.")
 				imgui.Separator();
 				imgui.Dummy(imgui.ImVec2(0, 5))
 				imgui.BeginChild("cmd list", imgui.ImVec2(0, 335), true)
 					imgui.Columns(3, "keybinds", true); 
 					imgui.SetColumnWidth(-1, 80); 
-					imgui.Text(u8"Êîìàíäà"); 
+					imgui.Text(u8"Команда"); 
 					imgui.NextColumn();
 					imgui.SetColumnWidth(-1, 450); 
-					imgui.Text(u8"Îïèñàíèå"); 
+					imgui.Text(u8"Описание"); 
 					imgui.NextColumn(); 
-					imgui.Text(u8"Êëàâèøà"); 
+					imgui.Text(u8"Клавиша"); 
 					imgui.NextColumn(); 
 					imgui.Separator();
 					for i,v in ipairs(cmdBind) do
@@ -1658,7 +1658,7 @@ function imgui.OnDrawFrame()
 							imgui.NextColumn(); 
 							imgui.Text(u8(v.desc)); 
 							imgui.NextColumn();
-							if #v.key == 0 then imgui.Text(u8"Íåò") else imgui.Text(table.concat(rkeys.getKeysName(v.key), " + ")) end	
+							if #v.key == 0 then imgui.Text(u8"Нет") else imgui.Text(table.concat(rkeys.getKeysName(v.key), " + ")) end	
 							imgui.NextColumn()
 						else
 							imgui.PushStyleColor(imgui.Col.Text, imgui.ImColor(228, 70, 70, 202):GetVec4())
@@ -1666,21 +1666,21 @@ function imgui.OnDrawFrame()
 							imgui.NextColumn(); 
 							imgui.Text(u8(v.desc)); 
 							imgui.NextColumn(); 
-							if #v.key == 0 then imgui.Text(u8"Íåò") else imgui.Text(table.concat(rkeys.getKeysName(v.key), " + ")) end	
+							if #v.key == 0 then imgui.Text(u8"Нет") else imgui.Text(table.concat(rkeys.getKeysName(v.key), " + ")) end	
 							imgui.NextColumn()
 							imgui.PopStyleColor(1)
 						end
 					end
 				imgui.EndChild();
 					if cmdBind[selected_cmd].rank <= num_rank.v+1 then
-						imgui.Text(u8"Âûáåðåòå ñíà÷àëà èíòåðåñóþùóþ Âàñ êîìàíäó, ïîñëå ÷åãî ìîæåòå ïðîèçâîäèòü ðåäàêòèðîâàíèå.")
-						if imgui.Button(u8"Íàçíà÷èòü êëàâèøó", imgui.ImVec2(140, 20)) then 
-							imgui.OpenPopup(u8"MH | Óñòàíîâêà êëàâèøè äëÿ àêòèâàöèè");
+						imgui.Text(u8"Выберете сначала интересующую Вас команду, после чего можете производить редактирование.")
+						if imgui.Button(u8"Назначить клавишу", imgui.ImVec2(140, 20)) then 
+							imgui.OpenPopup(u8"MH | Установка клавиши для активации");
 							lockPlayerControl(true)
 							editKey = true
 						end
 						imgui.SameLine();
-						if imgui.Button(u8"Î÷èñòèòü àêòèâàöèþ", imgui.ImVec2(140, 20)) then 
+						if imgui.Button(u8"Очистить активацию", imgui.ImVec2(140, 20)) then 
 							rkeys.unRegisterHotKey(cmdBind[selected_cmd].key)
 							unRegisterHotKey(cmdBind[selected_cmd].key)
 							cmdBind[selected_cmd].key = {}
@@ -1691,8 +1691,8 @@ function imgui.OnDrawFrame()
 						end
 						imgui.SameLine();
 					else
-						imgui.Text(u8"Äàííàÿ êîìàíäà Âàì íåäîñòóïíà. Äîñòóïíà òîëüêî îò " .. cmdBind[selected_cmd].rank .. u8" ðàíãà")
-						imgui.Text(u8"Åñëè Âàø ðàíã ñîîòâåòñòâóåò òðåáîâàíèÿì, ïîæàëóéñòà èçìåíèòå äîëæíîñòü â íàñòðîéêàõ.")
+						imgui.Text(u8"Данная команда Вам недоступна. Доступна только от " .. cmdBind[selected_cmd].rank .. u8" ранга")
+						imgui.Text(u8"Если Ваш ранг соответствует требованиям, пожалуйста измените должность в настройках.")
 					end
 					
 			imgui.EndGroup()
@@ -1704,7 +1704,7 @@ function imgui.OnDrawFrame()
 				imgui.BeginGroup()
 					imgui.BeginChild("bind list", imgui.ImVec2(140, 390), true)
 						imgui.SetCursorPosX(20)
-						imgui.Text(u8"Ñïèñîê áèíäîâ")
+						imgui.Text(u8"Список биндов")
 						imgui.Separator()
 							for i,v in ipairs(binder.list) do
 								if imgui.Selectable(u8(binder.list[i].name), binder.select_bind == i) then 
@@ -1723,7 +1723,7 @@ function imgui.OnDrawFrame()
 								end
 							end
 					imgui.EndChild()
-					if imgui.Button(u8"Äîáàâèòü", imgui.ImVec2(140, 20)) then
+					if imgui.Button(u8"Добавить", imgui.ImVec2(140, 20)) then
 						if #binder.list < 100 then
 							for i = 1, 100 do
 								local bool = false
@@ -1750,29 +1750,29 @@ function imgui.OnDrawFrame()
 					--	
 						if binder.edit then
 							imgui.SetCursorPosX(500)
-							imgui.Text(u8"Ïîëå äëÿ çàïîëíåíèÿ")
+							imgui.Text(u8"Поле для заполнения")
 							imgui.PushStyleColor(imgui.Col.FrameBg, imgui.ImColor(70, 70, 70, 200):GetVec4())
 							imgui.InputTextMultiline("##bind", binder.text, imgui.ImVec2(525, 301))
 							imgui.PopStyleColor(1)
 							imgui.PushItemWidth(150)
-							imgui.InputText(u8"Íàçâàíèå áèíäà", binder.name, imgui.InputTextFlags.CallbackCharFilter, filter(1, "[%wà-ß%+%¹%#%(%)]"))
+							imgui.InputText(u8"Название бинда", binder.name, imgui.InputTextFlags.CallbackCharFilter, filter(1, "[%wа-Я%+%№%#%(%)]"))
 							
-							if imgui.Button(u8"Íàçíà÷èòü êëàâèøó", imgui.ImVec2(150, 20)) then 
-								imgui.OpenPopup(u8"MH | Óñòàíîâêà êëàâèøè äëÿ àêòèâàöèè")
+							if imgui.Button(u8"Назначить клавишу", imgui.ImVec2(150, 20)) then 
+								imgui.OpenPopup(u8"MH | Установка клавиши для активации")
 								editKey = true
 							end 
 							imgui.SameLine()
-							imgui.TextColoredRGB("Àêòèâàöèÿ: "..table.concat(rkeys.getKeysName(binder.key), " + "))
-							imgui.DragFloat("##sleep", binder.sleep, 0.1, 0.5, 10.0, u8"Çàäåðæêà = %.1f ñåê.")
+							imgui.TextColoredRGB("Активация: "..table.concat(rkeys.getKeysName(binder.key), " + "))
+							imgui.DragFloat("##sleep", binder.sleep, 0.1, 0.5, 10.0, u8"Задержка = %.1f сек.")
 							imgui.SameLine()
 							if imgui.Button("-", imgui.ImVec2(20, 20)) and binder.sleep.v ~= 0.5 then binder.sleep.v = binder.sleep.v - 0.1 end
 							imgui.SameLine()
 							if imgui.Button("+", imgui.ImVec2(20, 20)) and binder.sleep.v ~= 10 then binder.sleep.v = binder.sleep.v + 0.1 end
 							imgui.PopItemWidth()
 							imgui.SameLine()
-							imgui.Text(u8"Èíòåðâàë âðåìåíè ìåæäó ïðîèãðûâàíèåì ñòðîê")
+							imgui.Text(u8"Интервал времени между проигрыванием строк")
 						--	imgui.SetCursorPosX(345)
-							if imgui.Button(u8"Óäàëèòü", imgui.ImVec2(127, 20)) then
+							if imgui.Button(u8"Удалить", imgui.ImVec2(127, 20)) then
 								binder.text.v = ""
 								binder.sleep.v = 0.5
 								binder.name.v = ""
@@ -1792,7 +1792,7 @@ function imgui.OnDrawFrame()
 								binder.select_bind = -1 
 							end
 							imgui.SameLine()
-							if imgui.Button(u8"Ñîõðàíèòü", imgui.ImVec2(127, 20)) then
+							if imgui.Button(u8"Сохранить", imgui.ImVec2(127, 20)) then
 								local bool = false
 									if binder.name.v ~= "" then
 										for i,v in ipairs(binder.list) do
@@ -1801,7 +1801,7 @@ function imgui.OnDrawFrame()
 										if not bool then
 											binder.list[binder.select_bind].name = u8:decode(binder.name.v)
 										else
-											imgui.OpenPopup(u8"Îøèáêà")
+											imgui.OpenPopup(u8"Ошибка")
 										end
 									end
 								if not bool then
@@ -1822,16 +1822,16 @@ function imgui.OnDrawFrame()
 								end
 							end
 							imgui.SameLine()
-							if imgui.Button(u8"Òåã-ôóíêöèè", imgui.ImVec2(127, 20)) then paramWin.v = not paramWin.v end
+							if imgui.Button(u8"Тег-функции", imgui.ImVec2(127, 20)) then paramWin.v = not paramWin.v end
 							imgui.SameLine()
-							if imgui.Button(u8"Ðàñøèðåííûå ôóíêöèîíàë", imgui.ImVec2(127, 20)) then profbWin.v = not profbWin.v end
+							if imgui.Button(u8"Расширенные функционал", imgui.ImVec2(127, 20)) then profbWin.v = not profbWin.v end
 							
 							
 						else
 						
 						imgui.Dummy(imgui.ImVec2(0, 150))
 						imgui.SetCursorPosX(380)
-						imgui.TextColoredRGB("Íàæìèòå íà êíîïêó {FF8400}\"Äîáàâèòü\"{FFFFFF}, ÷òîáû ñîçäàòü íîâûé áèíä\n\t\t\t\t\t\t\t\tèëè âûáåðåòå óæå ñóùåñòâóþùèé.")
+						imgui.TextColoredRGB("Нажмите на кнопку {FF8400}\"Добавить\"{FFFFFF}, чтобы создать новый бинд\n\t\t\t\t\t\t\t\tили выберете уже существующий.")
 						end
 
 				imgui.EndGroup()
@@ -1840,41 +1840,41 @@ function imgui.OnDrawFrame()
 			if select_menu[6] then
 				imgui.SameLine()
 				imgui.BeginChild("help but", imgui.ImVec2(0,0), true)
-					imgui.Text(u8"Íåìíîãî èíôîðìàöèè, êîòîðàÿ ìîæåò ïîìî÷ü Âàì.")
+					imgui.Text(u8"Немного информации, которая может помочь Вам.")
 					imgui.Separator()
 					--
 					imgui.Bullet(); imgui.SameLine()
-					imgui.TextColoredRGB("{FFB700}Âêëàäêà \"Íàñòðîéêè\"")
-					imgui.TextWrapped(u8"\tÁàçîâûå íàñòðîéêè, êîòîðûå òðåáóåòñÿ âûñòàâèòü ïåðåä íà÷àëîì ðàáîòû, ñàìûå ãëàâíûå êîòîðûå èç íèõ \"Îñíîâíàÿ èíôîðìàöèÿ\".")
-					imgui.TextWrapped(u8"\tÖåíîâàÿ ïîëèòèêà àêòóàëüíà äëÿ ñåðâåðà Saint Rose, åñëè ó Âàñ ñåðâåð äðóãîé, ïîæàëóéñòà èçìåíèòå çíà÷åíèÿ.")
+					imgui.TextColoredRGB("{FFB700}Вкладка \"Настройки\"")
+					imgui.TextWrapped(u8"\tБазовые настройки, которые требуется выставить перед началом работы, самые главные которые из них \"Основная информация\".")
+					imgui.TextWrapped(u8"\tЦеновая политика актуальна для сервера Saint Rose, если у Вас сервер другой, пожалуйста измените значения.")
 					--
 					imgui.Bullet(); imgui.SameLine()
-					imgui.TextColoredRGB("{FFB700}Âêëàäêà \"Øïîðû\"")
-					imgui.TextWrapped(u8"\tÌîæíî çàïîëíÿòü ëþáîãî ðîäà èíôîðìàöèåé, òàêæå ìîæíî ñàìîìó ñîçäàòü òåêñòîâûé ôàéë â ïàïêå øïàðãàëîê.")
-					imgui.TextColoredRGB("{5BF165}Îòêðûòü ïàïêó Øïàðãàëîê")
+					imgui.TextColoredRGB("{FFB700}Вкладка \"Шпоры\"")
+					imgui.TextWrapped(u8"\tМожно заполнять любого рода информацией, также можно самому создать текстовый файл в папке шпаргалок.")
+					imgui.TextColoredRGB("{5BF165}Открыть папку Шпаргалок")
 					if imgui.IsItemHovered() then 
-						imgui.SetTooltip(u8"Êëèêíèòå, ÷òîáû îòêðûòü ïàïêó.")
+						imgui.SetTooltip(u8"Кликните, чтобы открыть папку.")
 					end
 					if imgui.IsItemClicked(0) then
-						print(shell32.ShellExecuteA(nil, 'open', dirml.."/MedicalHelper/Øïàðãàëêè/", nil, nil, 1))
+						print(shell32.ShellExecuteA(nil, 'open', dirml.."/MedicalHelper/Шпаргалки/", nil, nil, 1))
 					end
 					--
 					imgui.Bullet(); imgui.SameLine()
-					imgui.TextColoredRGB("{FFB700}Âêëàäêà \"Êîìàíäû\"")
-					imgui.TextWrapped(u8"\tÎñîáåííîñòüþ àêòèâàöèåé êîìàíä ÿâëÿåòñÿ â òîì, ÷òî êîìàíäû òðåáóþùèå â óêàçàíèè id èãðîêà, ìîãóò áûòü àêòèâèðîâàíû ïðè ñî÷åòàíèè íàâåäíèè ìûøêè íà èãðîêà è íàæàòèè áèíä-àêòèâàöèè. Â ðåçóëüàòå ÷åãî, êîìàíäà àâòîìàòè÷åñêè ââåä¸òñÿ ñ óêàçàííûì id èãðîêà èëè îòêðîåòñÿ ÷àò ñ ââåä¸ííûì id.")
-					imgui.TextColoredRGB("\t\tÄîïîëíèòåëüíûå êîìàíäû, íå âíåñ¸ííûå â ðàçäåë:")
-					imgui.TextColoredRGB("{FF5F29}/reload {FFFFFF}- êîìàíäà äëÿ ïåðåçàãðóçêè ñêðèïòà.")
-					imgui.TextColoredRGB("{FF5F29}/rl {FFFFFF}- íåçàâèñèìàÿ êîìàíäà îò ñêðèïòà, ïðåäíàçíà÷åííàÿ äëÿ ïåðåçàãðóçêè âñåé ïàïêè moonlaoder.")
-					imgui.TextColoredRGB("{FF5F29}/update {FFFFFF}- êîìàíäà äëÿ ïîëó÷åíèÿ èíôîðìàöèè îá îáíîâëåíèé.")
-					imgui.TextColoredRGB("{FF5F29}/mh-delete {FFFFFF} - óäàëèòü ñêðèïò")
+					imgui.TextColoredRGB("{FFB700}Вкладка \"Команды\"")
+					imgui.TextWrapped(u8"\tОсобенностью активацией команд является в том, что команды требующие в указании id игрока, могут быть активированы при сочетании наведнии мышки на игрока и нажатии бинд-активации. В резульате чего, команда автоматически введётся с указанным id игрока или откроется чат с введённым id.")
+					imgui.TextColoredRGB("\t\tДополнительные команды, не внесённые в раздел:")
+					imgui.TextColoredRGB("{FF5F29}/reload {FFFFFF}- команда для перезагрузки скрипта.")
+					imgui.TextColoredRGB("{FF5F29}/rl {FFFFFF}- независимая команда от скрипта, предназначенная для перезагрузки всей папки moonlaoder.")
+					imgui.TextColoredRGB("{FF5F29}/update {FFFFFF}- команда для получения информации об обновлений.")
+					imgui.TextColoredRGB("{FF5F29}/mh-delete {FFFFFF} - удалить скрипт")
 					--
 					imgui.Bullet(); imgui.SameLine()
-					imgui.TextColoredRGB("{FFB700}Âêëàäêà \"Äèñêîðä\"")
-					imgui.TextWrapped(u8"\tÈíñòðóêöèÿ ïî ïîëüçîâàíèþ äèñêîðäà.")
+					imgui.TextColoredRGB("{FFB700}Вкладка \"Дискорд\"")
+					imgui.TextWrapped(u8"\tИнструкция по пользованию дискорда.")
 					--
 					imgui.Separator()
 					imgui.Spacing()
-					imgui.TextColoredRGB("Â ñëó÷àå âîçíèêíîâåíèÿ ïðîáëåìû ñ çàïóñêîì ñêðèïòà ïîïðîáóéòå óäàëèòü ôàéëû íàñòðîåê ïîñëå\n ÷åãî ïåðåçàãðóçèòü ïàïêó moonloader êîìàíäîé {67EE7E}/rl:\n\t{FF5F29}MainSetting.med \n\t{FF5F29}cmdSetting.med \n\t{FF5F29}bindSetting.med \n\tÒàêæå ïàïêó {FF5F29}Binder")
+					imgui.TextColoredRGB("В случае возникновения проблемы с запуском скрипта попробуйте удалить файлы настроек после\n чего перезагрузить папку moonloader командой {67EE7E}/rl:\n\t{FF5F29}MainSetting.med \n\t{FF5F29}cmdSetting.med \n\t{FF5F29}bindSetting.med \n\tТакже папку {FF5F29}Binder")
 				imgui.EndChild()
 			end
 			--//////About
@@ -1884,51 +1884,51 @@ function imgui.OnDrawFrame()
 					imgui.SetCursorPosX(280)
 					imgui.Text(u8"Medical Helper")
 					imgui.Spacing()
-					imgui.TextWrapped(u8"\tÑêðèïò áûë ðàçðàáîòàí äëÿ ïðîåêòà Ariona Role Play ñ ïîääåðæêîé ðàáîòû íà ñåðâåðå Saint Rose äëÿ îáëåã÷åíèÿ ðàáîòû ñîòðóäíèêàì áîëüíèö. Áëàãîäàðÿ ýòîìó ïðèëîæåíèþ Âû ïîëó÷èòå ïîëíûé êîìïëåêñ àâòîìàòèçàöèè ìíîãèõ äåéñòâèé è íàñëàæäåíèå îò ïîëüçîâàíèÿ.\nÎáíîâëåíèÿ âûõîäÿò ïî ìåðå äîáàâëåíèÿ íîâîââåäåíèé è èñïðàâëåíèé îøèáîê.")
+					imgui.TextWrapped(u8"\tСкрипт был разработан для проекта Ariona Role Play с поддержкой работы на сервере Saint Rose для облегчения работы сотрудникам больниц. Благодаря этому приложению Вы получите полный комплекс автоматизации многих действий и наслаждение от пользования.\nОбновления выходят по мере добавления нововведений и исправлений ошибок.")
 					imgui.Dummy(imgui.ImVec2(0, 10))
 					imgui.Bullet()
-					imgui.TextColoredRGB("Ðàçðàáîò÷èê - {FFB700}Kevin Hatiko")
+					imgui.TextColoredRGB("Разработчик - {FFB700}Kevin Hatiko")
 					imgui.Bullet()
-					imgui.TextColoredRGB("Âåðñèÿ ñêðèïòà - {FFB700}".. scr.version)
+					imgui.TextColoredRGB("Версия скрипта - {FFB700}".. scr.version)
 					imgui.Bullet()
-					imgui.TextColoredRGB("Áëàãîäàðíîñòü blast.hk çà ìåòîäè÷åñêóþ èíôîðìàöèþ è åãî ïîëüçîâàòåëÿì â ðåøåíèè âîïðîñîâ.")
+					imgui.TextColoredRGB("Благодарность blast.hk за методическую информацию и его пользователям в решении вопросов.")
 						imgui.Dummy(imgui.ImVec2(0, 20))
 						imgui.SetCursorPosX(20)
 						imgui.Text(fa.ICON_BUG)
 						imgui.SameLine()
-						imgui.TextColoredRGB("Íàøëè áàã èëè îøèáêó, èëè æå õîòèòå âèäåòü ÷òî-òî íîâîå, íàïèøè â ãðóïïó"); imgui.SameLine(); imgui.Text(fa.ICON_ARROW_DOWN)
+						imgui.TextColoredRGB("Нашли баг или ошибку, или же хотите видеть что-то новое, напиши в группу"); imgui.SameLine(); imgui.Text(fa.ICON_ARROW_DOWN)
 						imgui.SetCursorPosX(20)
 						imgui.Text(fa.ICON_LINK)
 						imgui.SameLine()
-						imgui.TextColoredRGB("Äëÿ ñâÿçè: VK: {74BAF4}vk.com/hatiko_scripts") --èëè Discord - {74BAF4}TheVitek#2160")
-							if imgui.IsItemHovered() then imgui.SetTooltip(u8"Êëèêíèòå ËÊÌ, ÷òîáû ñêîïèðîâàòü, èëè ÏÊÌ, ÷òîáû îòêðûòü â áðàóçåðå")  end
+						imgui.TextColoredRGB("Для связи: VK: {74BAF4}vk.com/hatiko_scripts") --или Discord - {74BAF4}TheVitek#2160")
+							if imgui.IsItemHovered() then imgui.SetTooltip(u8"Кликните ЛКМ, чтобы скопировать, или ПКМ, чтобы открыть в браузере")  end
 							if imgui.IsItemClicked(0) then setClipboardText("https://vk.com/hatiko_scripts") end
 							if imgui.IsItemClicked(1) then print(shell32.ShellExecuteA(nil, 'open', 'https://vk.com/hatiko_scripts', nil, nil, 1)) end
 							imgui.SameLine()
-							imgui.TextColoredRGB("{68E15D}(íàâåäè){FFFFFF}  Íàæàâ â ãðóïïå íà {74BAF4}\"Íàïèñàòü ñîîáùåíèå\"")
+							imgui.TextColoredRGB("{68E15D}(наведи){FFFFFF}  Нажав в группе на {74BAF4}\"Написать сообщение\"")
 						imgui.Spacing()
 						imgui.SetCursorPosX(20)
 						imgui.TextColored(imgui.ImColor(18, 220, 0, 200):GetVec4(), fa.ICON_MONEY)
 						imgui.SameLine()
-						imgui.TextColoredRGB("Æåëàþùèå ïîääåðæàòü ðàçðàáîòêó äåíþøêîé - ".."{68E15D}\"Îòêðûòü\"")
-							if imgui.IsItemHovered() then imgui.SetTooltip(u8"Êëèêíèòå, ÷òîáû îòêðûòü ññûëêó")  end
+						imgui.TextColoredRGB("Желающие поддержать разработку денюшкой - ".."{68E15D}\"Открыть\"")
+							if imgui.IsItemHovered() then imgui.SetTooltip(u8"Кликните, чтобы открыть ссылку")  end
 							if imgui.IsItemClicked(0) then print(shell32.ShellExecuteA(nil, 'open', 'https://qiwi.me/56481f57-738e-4476-afde-cee364eb7f46', nil, nil, 1)) end
 							
 						imgui.Dummy(imgui.ImVec2(0, 130))
-						if imgui.Button(u8"Îòêëþ÷èòü", imgui.ImVec2(160, 20)) then showCursor(false); scr:unload() end
+						if imgui.Button(u8"Отключить", imgui.ImVec2(160, 20)) then showCursor(false); scr:unload() end
 						imgui.SameLine()
-						if imgui.Button(u8"Ïåðåçàãðóçèòü", imgui.ImVec2(160, 20)) then showCursor(false); scr:reload() end
+						if imgui.Button(u8"Перезагрузить", imgui.ImVec2(160, 20)) then showCursor(false); scr:reload() end
 						imgui.SameLine()
-						if imgui.Button(u8"Ïðîâåðèòü îáíîâëåíèå", imgui.ImVec2(160, 20)) then funCMD.updateCheck() end
+						if imgui.Button(u8"Проверить обновление", imgui.ImVec2(160, 20)) then funCMD.updateCheck() end
 						imgui.SameLine()
-						if imgui.Button(u8"Óäàëèòü ñêðèïò", imgui.ImVec2(160, 20)) then 
+						if imgui.Button(u8"Удалить скрипт", imgui.ImVec2(160, 20)) then 
 							addOneOffSound(0, 0, 0, 1058)
 							sampAddChatMessage("", 0xEE4848)
 							sampAddChatMessage("", 0xEE4848)
 							sampAddChatMessage("", 0xEE4848)
-							sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Âíèìàíèå! Ïîäòâåðäèòå óäàëåíèå êîìàíäîé {77DF63}/mh-delete.", 0xEE4848)
+							sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Внимание! Подтвердите удаление командой {77DF63}/mh-delete.", 0xEE4848)
 							mainWin.v = false
-						--	sampShowDialog(1002, "{E94C4C}MedicalHelper | {8EE162}Óäàëåíèå", remove, "Ïðèíÿë", "")
+						--	sampShowDialog(1002, "{E94C4C}MedicalHelper | {8EE162}Удаление", remove, "Принял", "")
 						end
 				imgui.EndChild()
 				
@@ -1944,52 +1944,52 @@ function imgui.OnDrawFrame()
 				end
 				imgui.Dummy(imgui.ImVec2(0, 5))
 				imgui.SetCursorPosX(145)
-				imgui.TextColoredRGB("Íåáîëüøîé ãàéä ïî ïîëüçîâàíèþ ãîëîñîâîé ïðîãðàììû {3EB2FF}Discrod")
+				imgui.TextColoredRGB("Небольшой гайд по пользованию голосовой программы {3EB2FF}Discrod")
 				imgui.Dummy(imgui.ImVec2(0, 20))
 				imgui.SetCursorPosX(10)
-				imgui.TextColoredRGB("{3EB2FF}Discord{FFFFFF} - ýòî î÷åíü óäîáíàÿ ïðîãðàììà, ïðåäíàçíà÷åííàÿ äëÿ ïåðåäà÷è, êàê ãîëîñîâûõ, òàê è\n òåêñòîâûõ ñîîáùåíèé äðóãèì ïîëüçîâàòåëÿì. Â íàøå âðåìÿ, äàííàÿ ïðîãðàììà ÿâëÿåòñÿ ñàìîé \nïðîäâèíóòîé è ïîïóëÿðíîé ñ äðóãèìè ñõîæèìè åé ïðèëîæåíèÿìè.")
+				imgui.TextColoredRGB("{3EB2FF}Discord{FFFFFF} - это очень удобная программа, предназначенная для передачи, как голосовых, так и\n текстовых сообщений другим пользователям. В наше время, данная программа является самой \nпродвинутой и популярной с другими схожими ей приложениями.")
 				imgui.Dummy(imgui.ImVec2(0, 10))
 				imgui.Bullet()
-				imgui.TextColoredRGB("{FAB428}Ïåðâîå.\n\t{FFFFFF}Âàì íóæíî áóäåò çàðåãèñòðèðîâàòüñÿ è äëÿ óäîáñòâà ñêà÷àòü ïðîãðàììó íà êîìïüþòåð.")
+				imgui.TextColoredRGB("{FAB428}Первое.\n\t{FFFFFF}Вам нужно будет зарегистрироваться и для удобства скачать программу на компьютер.")
 				imgui.SameLine()
-				imgui.TextColoredRGB("{29EB2F}Ïåðåéòè")
+				imgui.TextColoredRGB("{29EB2F}Перейти")
 				if imgui.IsItemHovered() then 
-					imgui.SetTooltip(u8"Êëèêíèòå, ÷òîáû îòêðûòü ññûëêó.")
+					imgui.SetTooltip(u8"Кликните, чтобы открыть ссылку.")
 				end
 				if imgui.IsItemClicked(0) then
 					print(shell32.ShellExecuteA(nil, 'open', 'https://discordapp.com/', nil, nil, 1))
 				end
-				imgui.TextWrapped(u8"Íàæìèòå 'Çàãðóçèòü äëÿ Window', åñëè õîòèòå èñïîëüçîâàòü ïðîãðàììó íà êîìïüþòåðå, èëè 'Îòêðûòü â áðàóçåðå', åñëè õîòèòå ïîëüçîâàòüñÿ Äèñêîðäîì ïðÿìî â áðàóçåðå, íî ó÷òèòå, ÷òî â áðàóçåðå Âû íå ñìîæåòå ãîâîðèòü ïî àêòèâàöèè íà êëàâèøó.")
+				imgui.TextWrapped(u8"Нажмите 'Загрузить для Window', если хотите использовать программу на компьютере, или 'Открыть в браузере', если хотите пользоваться Дискордом прямо в браузере, но учтите, что в браузере Вы не сможете говорить по активации на клавишу.")
 				if disSite then
 					imgui.SetCursorPosX(100)
 					imgui.Image(disSite, imgui.ImVec2(462, 212))
 				end
 				imgui.Bullet()
-				imgui.TextColoredRGB("{FAB428}Âòîðîå.\n\t{FFFFFF}Âàì íåîáõîäèìî äîáàâèòü ãîëîñîâîé êàíàë ñåðâåðà, íà êîòîðîì Âû íàõîäèòåñü.")
+				imgui.TextColoredRGB("{FAB428}Второе.\n\t{FFFFFF}Вам необходимо добавить голосовой канал сервера, на котором Вы находитесь.")
 				imgui.SameLine()
-				imgui.TextColoredRGB("{29EB2F}Ïåðåéòè")
+				imgui.TextColoredRGB("{29EB2F}Перейти")
 				if imgui.IsItemHovered() then 
-					imgui.SetTooltip(u8"Êëèêíèòå, ÷òîáû îòêðûòü ññûëêó.")
+					imgui.SetTooltip(u8"Кликните, чтобы открыть ссылку.")
 				end
 				if imgui.IsItemClicked(0) then
-					print(shell32.ShellExecuteA(nil, 'open', 'http://forum.arizona-rp.com/index.php?threads/saint-rose-Íàøà-ãðóïïà-vk-Âêîíòàêòå-è-discord.373395/', nil, nil, 1))
+					print(shell32.ShellExecuteA(nil, 'open', 'http://forum.arizona-rp.com/index.php?threads/saint-rose-Наша-группа-vk-Вконтакте-и-discord.373395/', nil, nil, 1))
 				end
-				imgui.TextColoredRGB("Äëÿ ýòîãî ïåðåéäèòå ïî âûøå ïðèâåä¸ííîé ññûëêå, ãäå Âû ñìîæåòå îòêðûòü ññûëêó íà êàíàë \nñåðâåðà. Ïîñëå ïåðåõîäà Âàñ ïåðåáðîñèò íà ïðîãðàììó, åñëè Âû å¸ ñêà÷èâàëè, ãäå äîáàâèòñÿ \nñîîòâåñòâóþùèé êàíàë. Òàê êàê Âû ÿâëÿåòåñü íîâå÷êîì íà êàíàëå, ïðèä¸òñÿ ïîäîæäàòü 10 ìèíóò \n{FAA158}ïåðåä òåì, êàê ñìîæåòå ÷òî ëèáî ïèñàòü.")   
+				imgui.TextColoredRGB("Для этого перейдите по выше приведённой ссылке, где Вы сможете открыть ссылку на канал \nсервера. После перехода Вас перебросит на программу, если Вы её скачивали, где добавится \nсоотвествующий канал. Так как Вы являетесь новечком на канале, придётся подождать 10 минут \n{FAA158}перед тем, как сможете что либо писать.")   
 				imgui.Bullet()
-				imgui.TextColoredRGB("{FAB428}Òðåòüå.\n\t{FFFFFF}Ïî èñòå÷åíèþ 10 ìèíóò Âû ñìîæåòå ïèñàòü â äîñòóïíûå êàíàëû. Òàê êàê Âû ÿâëÿåòåñü \nñîòðóäíèêîì Áîëüíèöû, íåîáõîäèìî çàïðîñèòü ðîëü äëÿ äîñòóïà ê ãîëîñîâîìó êàíàëó. \nÄëÿ ýòîãî òðåáóåòñÿ:")
+				imgui.TextColoredRGB("{FAB428}Третье.\n\t{FFFFFF}По истечению 10 минут Вы сможете писать в доступные каналы. Так как Вы являетесь \nсотрудником Больницы, необходимо запросить роль для доступа к голосовому каналу. \nДля этого требуется:")
 
-				imgui.TextColoredRGB("\t1. Íàæìèòå íà òåêñòîâûé êàíàë, óêàçàííûé ëåâîé êðàñíîé ñòðåëêîé. \n\t2. Óçíàéòå, åñëè ëè ñåé÷àñ â èãðå ñîòðóäíèê îò 9 ðàíãà è âûøå. Ïîñìîòðåòü ìîæíî, ââåäÿ \n\t\têîìàíäó /mb \n\t3. Åñëè â èãðå åñòü ñîòðóäíèê(è) îò 9 ðàíãà, òî íóæíî â äèñêîðäå ïðîïèñàòü êîìàíäó.\n\t\t{F24545}Äëÿ Áîëüíèöû ËÑ - /lsmc123 \n\t\t{F24545}Äëÿ Áîëüíèöû ÑÔ - /sfmc123\n\t\t{F24545}Äëÿ Áîëüíèöû ËÂ - /lvmc123\n{FFFFFF}Ïîñëå ââîäà êîìàíäû äîëæíî ïîëó÷èòüñÿ òàê(Ïîêàçàíî ïðàâîé ñòðåëêîé):")
+				imgui.TextColoredRGB("\t1. Нажмите на текстовый канал, указанный левой красной стрелкой. \n\t2. Узнайте, если ли сейчас в игре сотрудник от 9 ранга и выше. Посмотреть можно, введя \n\t\tкоманду /mb \n\t3. Если в игре есть сотрудник(и) от 9 ранга, то нужно в дискорде прописать команду.\n\t\t{F24545}Для Больницы ЛС - /lsmc123 \n\t\t{F24545}Для Больницы СФ - /sfmc123\n\t\t{F24545}Для Больницы ЛВ - /lvmc123\n{FFFFFF}После ввода команды должно получиться так(Показано правой стрелкой):")
 				if disRole then
 					imgui.SetCursorPosX(25)
 					imgui.Image(disRole, imgui.ImVec2(586, 340))
 				end
-				imgui.TextColoredRGB("\t4. Ïîïðîñèòå â èãðå ñîòðóäíèêà îò 9 ðàíãà è âûøå, ÷òîáû âûäàëè ðîëü Âàì, íàïèñàâ, ÷òî Âû\n çàïðîñèëè óæå.")
-				imgui.TextColoredRGB("Ïîñëå âûäà÷è ðîëè Âàì îòêðîþòñÿ íîâûå êàíàëû. Äëÿ ýòîãî ñëåâà ëèñòàåòå â ñàìûé íèç. \nÍà ñêðèíøîòå âèäíî, ÷òî èìååòñÿ Òåêñòîâûé êàíàë, ãäå ìîæíî îáùàòüñÿ ìåæäó ñîòðóäíèêàìè, \nòàêæå ãîëîñîâîé, ãäå Âû ñìîæåòå îáùàòüñÿ ãîëîñîì, íî ñîâåòóåì óñòàíîâèòü àêòèâàöèþ ìèêðîôîíà\n ïî êëàâèøå.")
+				imgui.TextColoredRGB("\t4. Попросите в игре сотрудника от 9 ранга и выше, чтобы выдали роль Вам, написав, что Вы\n запросили уже.")
+				imgui.TextColoredRGB("После выдачи роли Вам откроются новые каналы. Для этого слева листаете в самый низ. \nНа скриншоте видно, что имеется Текстовый канал, где можно общаться между сотрудниками, \nтакже голосовой, где Вы сможете общаться голосом, но советуем установить активацию микрофона\n по клавише.")
 				if disMed then
 					imgui.SetCursorPosX(25)
 					imgui.Image(disMed, imgui.ImVec2(581, 301))
 				end
-				imgui.TextColoredRGB("\t5. Èçìåíèòå ñåáå íèêíåéì. Äëÿ ýòîãî â êàíàëå êëèêíèòå ïî ñåáå ÏÊÌ (ïðàêâîé êíîïêîé ìûøè). \nÏîñëå ÷åãî âûáåðåòå ïóíêò {F2D045}'Èçìåíèòü íèêíåéì'. {FFFFFF}Íèê äåëàåì ïî ôîðìå, ê ïðèìåðó Âû ñîòðóäíèê \náîëüíèöû ËÂ, äåëàåì íèê: {B3F637}[LVMC][Âàø ðàíã] Íèê Íåéì")
+				imgui.TextColoredRGB("\t5. Измените себе никнейм. Для этого в канале кликните по себе ПКМ (праквой кнопкой мыши). \nПосле чего выберете пункт {F2D045}'Изменить никнейм'. {FFFFFF}Ник делаем по форме, к примеру Вы сотрудник \nбольницы ЛВ, делаем ник: {B3F637}[LVMC][Ваш ранг] Ник Нейм")
 				if disNick then
 					imgui.SetCursorPosX(25)
 					imgui.Image(disNick, imgui.ImVec2(354, 204))
@@ -1997,26 +1997,26 @@ function imgui.OnDrawFrame()
 				imgui.EndChild()
 			end
 
-			--///Óñòàíîâêà êëàâèøè
+			--///Установка клавиши
 				imgui.PushStyleColor(imgui.Col.PopupBg, imgui.ImVec4(0.06, 0.06, 0.06, 0.94))
-				if imgui.BeginPopupModal(u8"MH | Óñòàíîâêà êëàâèøè äëÿ àêòèâàöèè", null, imgui.WindowFlags.AlwaysAutoResize + imgui.WindowFlags.NoMove) then
+				if imgui.BeginPopupModal(u8"MH | Установка клавиши для активации", null, imgui.WindowFlags.AlwaysAutoResize + imgui.WindowFlags.NoMove) then
 					
-					imgui.Text(u8"Íàæìèòå íà êëàâèøó èëè ñî÷åòàíèå êëàâèø äëÿ óñòàíîâêè àêòèâàöèè."); imgui.Separator()
-					imgui.Text(u8"Äîïóñêàþòñÿ êëàâèøè:")
-					imgui.Bullet()	imgui.TextDisabled(u8"Êëàâèøè äëÿ ñî÷åòàíèé - Alt, Ctrl, Shift")
-					imgui.Bullet()	imgui.TextDisabled(u8"Àíãëèéñêèå áóêâû")
-					imgui.Bullet()	imgui.TextDisabled(u8"Ôóíêöèîíàëüíûå êëàâèøè F1-F12")
-					imgui.Bullet()	imgui.TextDisabled(u8"Öèôðû âåðõíåé ïàíåëè")
-					imgui.Bullet()	imgui.TextDisabled(u8"Áîêîâàÿ ïàíåëü Numpad")
-					imgui.Checkbox(u8"Èñïîëüçîâàòü ÏÊÌ â êîìáèíàöèè ñ êëàâèøàìè", cb_RBUT)
+					imgui.Text(u8"Нажмите на клавишу или сочетание клавиш для установки активации."); imgui.Separator()
+					imgui.Text(u8"Допускаются клавиши:")
+					imgui.Bullet()	imgui.TextDisabled(u8"Клавиши для сочетаний - Alt, Ctrl, Shift")
+					imgui.Bullet()	imgui.TextDisabled(u8"Английские буквы")
+					imgui.Bullet()	imgui.TextDisabled(u8"Функциональные клавиши F1-F12")
+					imgui.Bullet()	imgui.TextDisabled(u8"Цифры верхней панели")
+					imgui.Bullet()	imgui.TextDisabled(u8"Боковая панель Numpad")
+					imgui.Checkbox(u8"Использовать ПКМ в комбинации с клавишами", cb_RBUT)
 					imgui.Separator()
-					if imgui.TreeNode(u8"Äëÿ ïîëüçîâàòåëåé 5-êíîïî÷íîé ìûøè") then
+					if imgui.TreeNode(u8"Для пользователей 5-кнопочной мыши") then
 						imgui.Checkbox(u8"X Button 1", cb_x1)
 						imgui.Checkbox(u8"X Button 2", cb_x2)
 						imgui.Separator()
 					imgui.TreePop();
 					end
-					imgui.Text(u8"Òåêóùàÿ êëàâèøà(è): ");
+					imgui.Text(u8"Текущая клавиша(и): ");
 					imgui.SameLine();
 					
 					if imgui.IsMouseClicked(0) then
@@ -2040,9 +2040,9 @@ function imgui.OnDrawFrame()
  
 					imgui.TextColored(imgui.ImColor(255, 205, 0, 200):GetVec4(), currentKey[1])
 						if isHotKeyDefined then
-							imgui.TextColored(imgui.ImColor(45, 225, 0, 200):GetVec4(), u8"Äàííûé áèíä óæå ñóùåñòâóåò!")
+							imgui.TextColored(imgui.ImColor(45, 225, 0, 200):GetVec4(), u8"Данный бинд уже существует!")
 						end
-						if imgui.Button(u8"Óñòàíîâèòü", imgui.ImVec2(150, 0)) then
+						if imgui.Button(u8"Установить", imgui.ImVec2(150, 0)) then
 							if select_menu[4] then
 								if cb_RBUT.v then table.insert(currentKey[2], 1, vkeys.VK_RBUTTON) end
 								if cb_x1.v then table.insert(currentKey[2], vkeys.VK_XBUTTON1) end
@@ -2088,7 +2088,7 @@ function imgui.OnDrawFrame()
 							end
 						end
 						imgui.SameLine();
-						if imgui.Button(u8"Çàêðûòü", imgui.ImVec2(150, 0)) then 
+						if imgui.Button(u8"Закрыть", imgui.ImVec2(150, 0)) then 
 							imgui.CloseCurrentPopup(); 
 							currentKey = {"",{}}
 							cb_RBUT.v = false
@@ -2098,7 +2098,7 @@ function imgui.OnDrawFrame()
 							editKey = false
 						end 
 						imgui.SameLine()
-						if imgui.Button(u8"Î÷èñòèòü", imgui.ImVec2(150, 0)) then
+						if imgui.Button(u8"Очистить", imgui.ImVec2(150, 0)) then
 							currentKey = {"",{}}
 							cb_x1.v, cb_x2.v = false, false
 							cb_RBUT.v = false
@@ -2108,13 +2108,13 @@ function imgui.OnDrawFrame()
 				end
 				--remove script
 				--[[
-				if imgui.BeginPopupModal(u8"Óäàëåíèå ñêðèïòà", null, imgui.WindowFlags.AlwaysAutoResize + imgui.WindowFlags.NoMove) then
+				if imgui.BeginPopupModal(u8"Удаление скрипта", null, imgui.WindowFlags.AlwaysAutoResize + imgui.WindowFlags.NoMove) then
 					
-					imgui.Text(u8"Âû òî÷íî óâåðåíû, ÷òî õîòèòå óäàëèòü ñêðèïò?");
+					imgui.Text(u8"Вы точно уверены, что хотите удалить скрипт?");
 
-						if imgui.Button(u8"Óäàëèòü", imgui.ImVec2(150, 0)) then
+						if imgui.Button(u8"Удалить", imgui.ImVec2(150, 0)) then
 						end
-						if imgui.Button(u8"Îòìåíà", imgui.ImVec2(150, 0)) then
+						if imgui.Button(u8"Отмена", imgui.ImVec2(150, 0)) then
 							imgui.CloseCurrentPopup(); 
 						end
 				imgui.EndPopup()
@@ -2122,10 +2122,10 @@ function imgui.OnDrawFrame()
 				]]
 			
 				
-				if imgui.BeginPopupModal(u8"Îøèáêà", null, imgui.WindowFlags.AlwaysAutoResize + imgui.WindowFlags.NoMove) then
-					imgui.Text(u8"Äàííîå íàçâàíèå óæå ñóùåñòâóåò")
+				if imgui.BeginPopupModal(u8"Ошибка", null, imgui.WindowFlags.AlwaysAutoResize + imgui.WindowFlags.NoMove) then
+					imgui.Text(u8"Данное название уже существует")
 					imgui.SetCursorPosX(60)
-					if imgui.Button(u8"Îê", imgui.ImVec2(120, 20)) then imgui.CloseCurrentPopup() end
+					if imgui.Button(u8"Ок", imgui.ImVec2(120, 20)) then imgui.CloseCurrentPopup() end
 				imgui.EndPopup()
 				end
 				
@@ -2149,156 +2149,156 @@ function imgui.OnDrawFrame()
 		imgui.SetNextWindowSize(imgui.ImVec2(820, 580), imgui.Cond.FirstUseEver)
 		imgui.SetNextWindowPos(imgui.ImVec2(sw / 2, sh / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 		
-		imgui.Begin(u8"Êîä-ïàðàìåòðû äëÿ áèíäåðà", paramWin, imgui.WindowFlags.NoResize);
+		imgui.Begin(u8"Код-параметры для биндера", paramWin, imgui.WindowFlags.NoResize);
 		imgui.SetWindowFontScale(1.1)
 		imgui.SetCursorPosX(50)
-		imgui.TextColoredRGB("[center]{FFFF41}Êëèêíè ìûøêîé ïî ñàìîìó òåãó, ÷òîáû ñêîïèðîâàòü åãî.", imgui.GetMaxWidthByText("Êëèêíè ìûøêîé ïî ñàìîìó òåãó, ÷òîáû ñêîïèðîâàòü åãî."))
+		imgui.TextColoredRGB("[center]{FFFF41}Кликни мышкой по самому тегу, чтобы скопировать его.", imgui.GetMaxWidthByText("Кликни мышкой по самому тегу, чтобы скопировать его."))
 		imgui.Dummy(imgui.ImVec2(0, 15))
 		
 		imgui.TextColored(imgui.ImVec4(1,0.52,0,1), "{myID}")
 		imgui.SameLine()
 		if imgui.IsItemHovered(0) then setClipboardText("{myID}") end
-		imgui.TextColoredRGB("{C1C1C1} - Âàø id - {ACFF36}"..tostring(myid))
+		imgui.TextColoredRGB("{C1C1C1} - Ваш id - {ACFF36}"..tostring(myid))
 		
 		imgui.Spacing()	
 		imgui.TextColored(imgui.ImVec4(1,0.52,0,1), "{myNick}")
 		imgui.SameLine()
 		if imgui.IsItemClicked(0) then setClipboardText("{myNick}");  end
-		imgui.TextColoredRGB("{C1C1C1} - Âàø ïîëíûé íèê (ïî àíã.) - {ACFF36}"..tostring(myNick:gsub("_"," ")))
+		imgui.TextColoredRGB("{C1C1C1} - Ваш полный ник (по анг.) - {ACFF36}"..tostring(myNick:gsub("_"," ")))
 		
 		imgui.Spacing()	
 		imgui.TextColored(imgui.ImVec4(1,0.52,0,1), "{myRusNick}")
 		imgui.SameLine()
 		if imgui.IsItemClicked(0) then setClipboardText("{myRusNick}") end
-		imgui.TextColoredRGB("{C1C1C1} - Âàø íèê, óêàçàííûé â íàñòðîéêàõ - {ACFF36}"..tostring(u8:decode(buf_nick.v)))
+		imgui.TextColoredRGB("{C1C1C1} - Ваш ник, указанный в настройках - {ACFF36}"..tostring(u8:decode(buf_nick.v)))
 		
 		imgui.Spacing()	
 		imgui.TextColored(imgui.ImVec4(1,0.52,0,1), "{myHP}")
 		imgui.SameLine()
 		if imgui.IsItemClicked(0) then setClipboardText("{myHP}") end
-		imgui.TextColoredRGB("{C1C1C1} - Âàø óðîâåíü ÕÏ - {ACFF36}"..tostring(getCharHealth(PLAYER_PED)))
+		imgui.TextColoredRGB("{C1C1C1} - Ваш уровень ХП - {ACFF36}"..tostring(getCharHealth(PLAYER_PED)))
 		
 		imgui.Spacing()	
 		imgui.TextColored(imgui.ImVec4(1,0.52,0,1), "{myArmo}")
 		imgui.SameLine()
 		if imgui.IsItemClicked(0) then setClipboardText("{myArmo}") end
-		imgui.TextColoredRGB("{C1C1C1} - Âàø òåêóùèé óðîâåíü áðîíè - {ACFF36}"..tostring(getCharArmour(PLAYER_PED)))
+		imgui.TextColoredRGB("{C1C1C1} - Ваш текущий уровень брони - {ACFF36}"..tostring(getCharArmour(PLAYER_PED)))
 		
 		imgui.Spacing()	
 		imgui.TextColored(imgui.ImVec4(1,0.52,0,1), "{myHosp}")
 		imgui.SameLine()
 		if imgui.IsItemClicked(0) then setClipboardText("{myHosp}") end
-		imgui.TextColoredRGB("{C1C1C1} - íàçâàíèå Âàøåé áîëüíèöû - {ACFF36}"..tostring(u8:decode(chgName.org[num_org.v+1])))
+		imgui.TextColoredRGB("{C1C1C1} - название Вашей больницы - {ACFF36}"..tostring(u8:decode(chgName.org[num_org.v+1])))
 		
 		imgui.Spacing()	
 		imgui.TextColored(imgui.ImVec4(1,0.52,0,1), "{myHospEn}")
 		imgui.SameLine()
 		if imgui.IsItemClicked(0) then setClipboardText("{myHospEn}") end
-		imgui.TextColoredRGB("{C1C1C1} - ïîëíîå íàçâàíèå Âàøåé áîëüíèöû íà àíã. - {ACFF36}"..tostring(u8:decode(list_org_en[num_org.v+1])))
+		imgui.TextColoredRGB("{C1C1C1} - полное название Вашей больницы на анг. - {ACFF36}"..tostring(u8:decode(list_org_en[num_org.v+1])))
 		
 		imgui.Spacing()	
 		imgui.TextColored(imgui.ImVec4(1,0.52,0,1), "{myTag}")
 		imgui.SameLine()
 		if imgui.IsItemClicked(0) then setClipboardText("{myTag}") end
-		imgui.TextColoredRGB("{C1C1C1} - Âàø òåã  - {ACFF36}"..tostring(u8:decode(buf_teg.v)))
+		imgui.TextColoredRGB("{C1C1C1} - Ваш тег  - {ACFF36}"..tostring(u8:decode(buf_teg.v)))
 		
 		imgui.Spacing()		
 		imgui.TextColored(imgui.ImVec4(1,0.52,0,1), "{myRank}")
 		imgui.SameLine()
 		if imgui.IsItemClicked(0) then setClipboardText("{myRank}") end
-		imgui.TextColoredRGB("{C1C1C1} - Âàøà òåêóùàÿ äîëæíîñòü - {ACFF36}"..tostring(u8:decode(chgName.rank[num_rank.v+1])))
+		imgui.TextColoredRGB("{C1C1C1} - Ваша текущая должность - {ACFF36}"..tostring(u8:decode(chgName.rank[num_rank.v+1])))
 		
 		imgui.Spacing()	
 		imgui.TextColored(imgui.ImVec4(1,0.52,0,1), "{time}")
 		imgui.SameLine()
 		if imgui.IsItemClicked(0) then setClipboardText("{time}") end
-		imgui.TextColoredRGB("{C1C1C1} - âðåìÿ â ôîðìàòå ÷àñû:ìèíóòû:ñåêóíäû - {ACFF36}"..tostring(os.date("%X")))
+		imgui.TextColoredRGB("{C1C1C1} - время в формате часы:минуты:секунды - {ACFF36}"..tostring(os.date("%X")))
 		
 		imgui.Spacing()
 		imgui.TextColored(imgui.ImVec4(1,0.52,0,1), "{day}")
 		imgui.SameLine()
 		if imgui.IsItemClicked(0) then setClipboardText("{day}") end
-		imgui.TextColoredRGB("{C1C1C1} - òåêóùèé äåíü ìåñÿöà - {ACFF36}"..tostring(os.date("%d")))
+		imgui.TextColoredRGB("{C1C1C1} - текущий день месяца - {ACFF36}"..tostring(os.date("%d")))
 
 		imgui.Spacing()
 		imgui.TextColored(imgui.ImVec4(1,0.52,0,1), "{week}")
 		imgui.SameLine()
 		if imgui.IsItemClicked(0) then setClipboardText("{week}") end
-		imgui.TextColoredRGB("{C1C1C1} - òåêóùàÿ íåäåëÿ - {ACFF36}"..tostring(week[tonumber(os.date("%w"))+1]))
+		imgui.TextColoredRGB("{C1C1C1} - текущая неделя - {ACFF36}"..tostring(week[tonumber(os.date("%w"))+1]))
 
 		imgui.Spacing()
 		imgui.TextColored(imgui.ImVec4(1,0.52,0,1), "{month}")
 		imgui.SameLine()
 		if imgui.IsItemClicked(0) then setClipboardText("{month}") end
-		imgui.TextColoredRGB("{C1C1C1} - òåêóùèé ìåñÿö - {ACFF36}"..tostring(month[tonumber(os.date("%m"))]))
+		imgui.TextColoredRGB("{C1C1C1} - текущий месяц - {ACFF36}"..tostring(month[tonumber(os.date("%m"))]))
 		--
 		imgui.Spacing()
 		imgui.TextColored(imgui.ImVec4(1,0.52,0,1), "{getNickByTarget}")
 		imgui.SameLine()
 		if imgui.IsItemClicked(0) then setClipboardText("{getNickByTarget}") end
-		imgui.TextColoredRGB("{C1C1C1} - ïîëó÷àåò Íèê èãðîêà íà êîòîðîãî ïîñëåäíèé ðàç öåëèëñÿ.")
+		imgui.TextColoredRGB("{C1C1C1} - получает Ник игрока на которого последний раз целился.")
 		--
 		imgui.Spacing()
 		imgui.TextColored(imgui.ImVec4(1,0.52,0,1), "{target}")
 		imgui.SameLine()
 		if imgui.IsItemClicked(0) then setClipboardText("{target}") end
-		imgui.TextColoredRGB("{C1C1C1} - ïîñëåäíèé ID èãðîêà, íà êîòîðîãî öåëèëñÿ (íàâåäåíà ìûøü) - {ACFF36}"..tostring(targID))
+		imgui.TextColoredRGB("{C1C1C1} - последний ID игрока, на которого целился (наведена мышь) - {ACFF36}"..tostring(targID))
 		--
 		imgui.Spacing()
 		imgui.TextColored(imgui.ImVec4(1,0.52,0,1), "{pause}")
 		imgui.SameLine()
 		if imgui.IsItemClicked(0) then setClipboardText("{pause}") end
-		imgui.TextColoredRGB("{C1C1C1} - ñîçäàíèå ïàóçû ìåæäó îòïðàâêè ñòðîêè â ÷àò. {EC3F3F}Ïðîïèñûâàòü îòäåëüíî, ò.å. ñ íîâîé ñòðîêè.")
+		imgui.TextColoredRGB("{C1C1C1} - создание паузы между отправки строки в чат. {EC3F3F}Прописывать отдельно, т.е. с новой строки.")
 		--
 		imgui.Spacing()
-		imgui.TextColored(imgui.ImVec4(1,0.52,0,1), u8"{sleep:âðåìÿ}")
+		imgui.TextColored(imgui.ImVec4(1,0.52,0,1), u8"{sleep:время}")
 		imgui.SameLine()
 		if imgui.IsItemClicked(0) then setClipboardText("{sleep:1000}") end
-		imgui.TextColoredRGB("{C1C1C1} - Çàäà¸ò ñâîé èíòåðâàë âðåìåíè ìåæäó ñòðî÷êàìè. \n\tÏðèìåð: {sleep:2500}, ãäå 2500 âðåìÿ â ìñ (1 ñåê = 1000 ìñ)")
+		imgui.TextColoredRGB("{C1C1C1} - Задаёт свой интервал времени между строчками. \n\tПример: {sleep:2500}, где 2500 время в мс (1 сек = 1000 мс)")
 
 		imgui.Spacing()
-		imgui.TextColored(imgui.ImVec4(1,0.52,0,1), u8"{sex:òåêñò1|òåêñò2}")
+		imgui.TextColored(imgui.ImVec4(1,0.52,0,1), u8"{sex:текст1|текст2}")
 		imgui.SameLine()
 		if imgui.IsItemClicked(0) then setClipboardText("{sex:text1|text2}") end
-		imgui.TextColoredRGB("{C1C1C1} - Âîçâðàùàåò òåêñò â çàâèñèìîñòè îò âûáðàííîãî ïîëà.  \n\tÏðèìåð, {sex:ïîíÿë|ïîíÿëà}, âåðí¸ò 'ïîíÿë', åñëè âûáðàí ìóæñêîé ïîë èëè 'ïîíÿëà', åñëè æåíñêèé")
+		imgui.TextColoredRGB("{C1C1C1} - Возвращает текст в зависимости от выбранного пола.  \n\tПример, {sex:понял|поняла}, вернёт 'понял', если выбран мужской пол или 'поняла', если женский")
 
 		imgui.Spacing()
-		imgui.TextColored(imgui.ImVec4(1,0.52,0,1), u8"{getNickByID:èä èãðîêà}")
+		imgui.TextColored(imgui.ImVec4(1,0.52,0,1), u8"{getNickByID:ид игрока}")
 		imgui.SameLine()
 		if imgui.IsItemClicked(0) then setClipboardText("{getNickByID:}") end
-		imgui.TextColoredRGB("{C1C1C1} - Âîçðàùàåò íèê èãðîêà ïî åãî ID. \n\tÏðèìåð, {getNickByID:25}, âåðí¸ò íèê èãðîêà ïîä ID 25.)")
+		imgui.TextColoredRGB("{C1C1C1} - Возращает ник игрока по его ID. \n\tПример, {getNickByID:25}, вернёт ник игрока под ID 25.)")
 
 
 	--	imgui.TextColoredRGB("")
 			-- imgui.Spacing()
 			-- imgui.Bullet()
-			-- imgui.TextColoredRGB("{FF8400}{dialog}{C1C1C1} - ñîçäàíèå ñîáñòðâåííûõ äèàëîãîâ. Áîëåå ïîäðîáíî íèæå:")
+			-- imgui.TextColoredRGB("{FF8400}{dialog}{C1C1C1} - создание собстрвенных диалогов. Более подробно ниже:")
 			-- imgui.Spacing()
 			-- imgui.Spacing()
-			-- if imgui.TreeNode(u8"Èíòðóêöèÿ ïî ïîëüçîâàíèþ ïàðàìåòðîì {dialog}") then
+			-- if imgui.TreeNode(u8"Интрукция по пользованию параметром {dialog}") then
 			-- 	imgui.Separator()
 			-- 	imgui.Spacing()
-			-- 	imgui.Text(u8"Ñ ïîìîùüþ ñëåäóþùåãî ïàðàìåòðà ìîæíî ñîçäàâàòü ñîáñòâåííûå äèàëîãè ñ âûáîðîì äàëüíåéøåãî\n äåéñòâèÿ. Ïðèìåðîì òàêîãî äèàëîãà ìîæåò ïîñëóæèòü îòûãðîâêà âûäà÷è ìåä.êàðòû, ãäå íåîáõîäèìî\n âûáðàòü ðåçóëüòàò îáñëåäîâàíèÿ (Çäîðîâûé, èìåþòñÿ îòêëîíåíèÿ, ïñèõ. îòêëîíåíèÿ).")
+			-- 	imgui.Text(u8"С помощью следующего параметра можно создавать собственные диалоги с выбором дальнейшего\n действия. Примером такого диалога может послужить отыгровка выдачи мед.карты, где необходимо\n выбрать результат обследования (Здоровый, имеются отклонения, псих. отклонения).")
 			-- 	imgui.Spacing()
-			-- 	imgui.Text(u8"Ïðèìåð íàïèñàíèÿ äèàëîãà:")
+			-- 	imgui.Text(u8"Пример написания диалога:")
 			-- 	imgui.BeginGroup()
 			-- 		imgui.PushStyleColor(imgui.Col.FrameBg, imgui.ImColor(70, 70, 70, 200):GetVec4())
 			-- 		imgui.InputTextMultiline("##dialogPar", helpDialog, imgui.ImVec2(210, 180), 16384)
 			-- 		imgui.PopStyleColor(1)
-			-- 		imgui.TextDisabled(u8"Äëÿ êîïèðîâàíèÿ èñïîëüçóéòå\nCtrl + C. Âñòàâêà - Ctrl + V")
+			-- 		imgui.TextDisabled(u8"Для копирования используйте\nCtrl + C. Вставка - Ctrl + V")
 			-- 	imgui.EndGroup()
 			-- 	imgui.SameLine()
 			-- 	imgui.BeginGroup()
-			-- 			imgui.TextColoredRGB("{FF8400}{dialog}	{FFFFFF}- {EF5454}îáÿçàòåëüíûé ïàðàìåòð{FFFFFF}, óêàçûâàþùèé íà÷àëî êîíñòðóêöèè \näèàëîãà. Íàçâàíèå ïðîïèñûâàåòñÿ ïîñëå \"=\"(ðàâíî)")
-			-- 			imgui.TextColoredRGB("{FF8400}[name]=	{FFFFFF}- íåîáÿçàòåëüíûé ïàðàìåòð. Óêàçûâàåò íàçâàíèå ñàìîãî äèàëîãà.\n Íàçâàíèå ïðîïèñûâàåòñÿ ïîñëå \"=\"(ðàâíî)")
-			-- 			imgui.TextColoredRGB("{FF8400}[1]= 		{FFFFFF}- Êâàäðàòíûå ñêîðáè ñ íîìåðîì âûáîðîì ÿâëÿþòñÿ îáÿçÿòåëüíûì\n òðåáîâàíèåì. Äîñòóïíî äî 9 âàðèàíòîâ âûáîðà. Ïîñëå \"=\"(ðàâíî) óêàçûâàòü\n òåêñò íå îáÿçàòåëüíî.")
-			-- 			imgui.TextColoredRGB("{FF8400}{dialogEnd}	{FFFFFF}- {EF5454}îáÿçàòåëüíûé ïàðàìåòð{FFFFFF}, óêàçûâàþùèé íà êîíåö êîíñòðóêöèè \näèàëîãà.")
-			-- 			imgui.TextColoredRGB("Âñå íåîáÿçàòåëüíûå ïàðàìåòðû ÿâëÿþòñÿ íå êðèòè÷íûìè, íî ðåêîìåíäóåòñÿ\n èõ óêàçûâàòü äëÿ âèçóàëüíîãî ïîíèìàíèÿ.")
+			-- 			imgui.TextColoredRGB("{FF8400}{dialog}	{FFFFFF}- {EF5454}обязательный параметр{FFFFFF}, указывающий начало конструкции \nдиалога. Название прописывается после \"=\"(равно)")
+			-- 			imgui.TextColoredRGB("{FF8400}[name]=	{FFFFFF}- необязательный параметр. Указывает название самого диалога.\n Название прописывается после \"=\"(равно)")
+			-- 			imgui.TextColoredRGB("{FF8400}[1]= 		{FFFFFF}- Квадратные скорби с номером выбором являются обязятельным\n требованием. Доступно до 9 вариантов выбора. После \"=\"(равно) указывать\n текст не обязательно.")
+			-- 			imgui.TextColoredRGB("{FF8400}{dialogEnd}	{FFFFFF}- {EF5454}обязательный параметр{FFFFFF}, указывающий на конец конструкции \nдиалога.")
+			-- 			imgui.TextColoredRGB("Все необязательные параметры являются не критичными, но рекомендуется\n их указывать для визуального понимания.")
 						
 						
 			-- 			--imgui.TextColoredRGB("")
 			-- 	imgui.EndGroup()
-			-- 		imgui.TextColoredRGB("{F03636}Ïðèìå÷àíèÿ: \n{FFFFFF}1. Òåêñò äëÿ óêàçàííîãî íîìåðà îòûãðîâêè ïðîïèñûâàòü ñ íîâîé ñòðî÷êè ïîñëå íîìåðà ïóêíòà. \n(Óêàçàíî â ïðèìåðå)\n2. Ïåðåä è ïîñëå êîíñòðóêöèè äèàëîãà ìîæíî ïðîïèñûâàòü îáû÷íûå îòûãðîâêè, à òàêæå ñîçäàâàòü \näîïîëíèòåëüíûå äèàëîãè.\n3. Íå äîïóñêàåòñÿ ñîçäàâàòü äèàëîãè âíóòðè ñàìîé êîíñòðóêöèè äèàëîãà.")
+			-- 		imgui.TextColoredRGB("{F03636}Примечания: \n{FFFFFF}1. Текст для указанного номера отыгровки прописывать с новой строчки после номера пукнта. \n(Указано в примере)\n2. Перед и после конструкции диалога можно прописывать обычные отыгровки, а также создавать \nдополнительные диалоги.\n3. Не допускается создавать диалоги внутри самой конструкции диалога.")
 			-- 	imgui.TreePop()
 			---end
 		
@@ -2308,31 +2308,31 @@ function imgui.OnDrawFrame()
 		local sw, sh = getScreenResolution()
 		imgui.SetNextWindowSize(imgui.ImVec2(1098, 790), imgui.Cond.FirstUseEver)
 		imgui.SetNextWindowPos(imgui.ImVec2(sw / 2, sh / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
-		imgui.Begin(u8"Ðåäàêòîð Øïàðãàëêè", spurBig, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoTitleBar);
+		imgui.Begin(u8"Редактор Шпаргалки", spurBig, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoTitleBar);
 	--	imgui.SetWindowFontScale(1.1)
 		if spur.edit then
 				imgui.SetCursorPosX(350)
-				imgui.Text(u8"Áîëüøîå îêíî äëÿ ðåäàêòèðîâàíèÿ/ïðîñìîòðà øïîðãàëîê")
+				imgui.Text(u8"Большое окно для редактирования/просмотра шпоргалок")
 				imgui.PushStyleColor(imgui.Col.FrameBg, imgui.ImColor(70, 70, 70, 200):GetVec4())
 				imgui.InputTextMultiline("##spur", spur.text, imgui.ImVec2(1081, 700))
 				imgui.PopStyleColor(1)
-				if imgui.Button(u8"Ñîõðàíèòü", imgui.ImVec2(357, 20)) then
+				if imgui.Button(u8"Сохранить", imgui.ImVec2(357, 20)) then
 					local name = ""
 					local bool = false
 					if spur.name.v ~= "" then 
 							name = u8:decode(spur.name.v)
-							if doesFileExist(dirml.."/MedicalHelper/Øïàðãàëêè/"..name..".txt") and spur.list[spur.select_spur] ~= name then
+							if doesFileExist(dirml.."/MedicalHelper/Шпаргалки/"..name..".txt") and spur.list[spur.select_spur] ~= name then
 								bool = true
-								imgui.OpenPopup(u8"Îøèáêà")
+								imgui.OpenPopup(u8"Ошибка")
 							else
-								os.remove(dirml.."/MedicalHelper/Øïàðãàëêè/"..spur.list[spur.select_spur]..".txt")
+								os.remove(dirml.."/MedicalHelper/Шпаргалки/"..spur.list[spur.select_spur]..".txt")
 								spur.list[spur.select_spur] = u8:decode(spur.name.v)
 							end
 					else
 						name = spur.list[spur.select_spur]
 					end
 					if not bool then
-						local f = io.open(dirml.."/MedicalHelper/Øïàðãàëêè/"..name..".txt", "w")
+						local f = io.open(dirml.."/MedicalHelper/Шпаргалки/"..name..".txt", "w")
 						f:write(u8:decode(spur.text.v))
 						f:flush()
 						f:close()
@@ -2342,38 +2342,38 @@ function imgui.OnDrawFrame()
 					end
 				end
 				imgui.SameLine()
-				if imgui.Button(u8"Óäàëèòü", imgui.ImVec2(357, 20)) then
+				if imgui.Button(u8"Удалить", imgui.ImVec2(357, 20)) then
 					spur.text.v = ""
 					table.remove(spur.list, spur.select_spur) 
 					spur.select_spur = -1
-					if doesFileExist(dirml.."/MedicalHelper/Øïàðãàëêè/"..u8:decode(spur.select_spur)..".txt") then
-						os.remove(dirml.."/MedicalHelper/Øïàðãàëêè/"..u8:decode(spur.select_spur)..".txt")
+					if doesFileExist(dirml.."/MedicalHelper/Шпаргалки/"..u8:decode(spur.select_spur)..".txt") then
+						os.remove(dirml.."/MedicalHelper/Шпаргалки/"..u8:decode(spur.select_spur)..".txt")
 					end
 					spur.name.v = ""
 					spurBig.v = false
 					spur.edit = false
 				end
 				imgui.SameLine()
-				if imgui.Button(u8"Âêëþ÷èòü ïðîñìîòð", imgui.ImVec2(357, 20)) then spur.edit = false end
-				if imgui.Button(u8"Çàêðûòü", imgui.ImVec2(1081, 20)) then spurBig.v = not spurBig.v end
+				if imgui.Button(u8"Включить просмотр", imgui.ImVec2(357, 20)) then spur.edit = false end
+				if imgui.Button(u8"Закрыть", imgui.ImVec2(1081, 20)) then spurBig.v = not spurBig.v end
 		else
 			imgui.SetCursorPosX(380)
-			imgui.Text(u8"Áîëüøîå îêíî äëÿ ðåäàêòèðîâàíèÿ/ïðîñìîòðà øïîðãàëîê")
+			imgui.Text(u8"Большое окно для редактирования/просмотра шпоргалок")
 			imgui.BeginChild("spur spec", imgui.ImVec2(1081, 730), true)
-				if doesFileExist(dirml.."/MedicalHelper/Øïàðãàëêè/"..spur.list[spur.select_spur]..".txt") then
-					for line in io.lines(dirml.."/MedicalHelper/Øïàðãàëêè/"..spur.list[spur.select_spur]..".txt") do
+				if doesFileExist(dirml.."/MedicalHelper/Шпаргалки/"..spur.list[spur.select_spur]..".txt") then
+					for line in io.lines(dirml.."/MedicalHelper/Шпаргалки/"..spur.list[spur.select_spur]..".txt") do
 						imgui.TextWrapped(u8(line))
 					end
 				end
 			imgui.EndChild()
-			if imgui.Button(u8"Âêëþ÷èòü ðåäàêòèðîâàíèå", imgui.ImVec2(537, 20)) then 
+			if imgui.Button(u8"Включить редактирование", imgui.ImVec2(537, 20)) then 
 				spur.edit = true
-				local f = io.open(dirml.."/MedicalHelper/Øïàðãàëêè/"..spur.list[spur.select_spur]..".txt", "r")
+				local f = io.open(dirml.."/MedicalHelper/Шпаргалки/"..spur.list[spur.select_spur]..".txt", "r")
 				spur.text.v = u8(f:read("*a"))
 				f:close()
 			end
 			imgui.SameLine()
-			if imgui.Button(u8"Çàêðûòü", imgui.ImVec2(537, 20)) then spurBig.v = not spurBig.v end
+			if imgui.Button(u8"Закрыть", imgui.ImVec2(537, 20)) then spurBig.v = not spurBig.v end
 		end
 		imgui.End()
 	end
@@ -2382,7 +2382,7 @@ function imgui.OnDrawFrame()
 		local sw, sh = getScreenResolution()
 		imgui.SetNextWindowSize(imgui.ImVec2(880, 380), imgui.Cond.FirstUseEver)
 		imgui.SetNextWindowPos(imgui.ImVec2(sw / 2, sh / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
-		imgui.Begin(u8"Ìåíþ äëÿ ïðîâåäåíèÿ ñîáåñåäîâàíèÿ", sobWin, imgui.WindowFlags.NoResize);
+		imgui.Begin(u8"Меню для проведения собеседования", sobWin, imgui.WindowFlags.NoResize);
 		--	imgui.SetWindowFontScale(1.1)
 			imgui.BeginGroup()
 				imgui.PushItemWidth(140)
@@ -2391,41 +2391,41 @@ function imgui.OnDrawFrame()
 				if not imgui.IsItemActive() and sobes.selID.v == "" then
 					imgui.SameLine()
 					imgui.SetCursorPosX(13)
-					imgui.TextDisabled(u8"Óêàæèòå id èãðîêà") 
+					imgui.TextDisabled(u8"Укажите id игрока") 
 				end
 				imgui.SameLine()
 				imgui.SetCursorPosX(155)
-				if imgui.Button(u8"Íà÷àòü", imgui.ImVec2(60, 20)) then
+				if imgui.Button(u8"Начать", imgui.ImVec2(60, 20)) then
 					if sobes.selID.v ~= "" then
 						if #sobes.logChat == 0 then
 						sobes.num = sobes.num + 1
 						threadS = lua_thread.create(sobesRP, sobes.num);
-						table.insert(sobes.logChat, "{FFC000}Âû: {FFFFFF}Ïðîâåðêà äîêóìåíòîâ...")
+						table.insert(sobes.logChat, "{FFC000}Вы: {FFFFFF}Проверка документов...")
 						else
-						table.insert(sobes.logChat, "{E74E28}[Îøèáêà]{FFFFFF}: Ïðîâåðêà óæå íà÷àëà. Åñëè õîòèòå íà÷àòü íîâóþ, íàæìèòå íà êíîïêó \"Îñòàíîâèòü\" èëè \n\täîæäèòåñü îêîí÷àíèÿ ïðîâåðêè.")
+						table.insert(sobes.logChat, "{E74E28}[Ошибка]{FFFFFF}: Проверка уже начала. Если хотите начать новую, нажмите на кнопку \"Остановить\" или \n\tдождитесь окончания проверки.")
 						end
 					else
-						sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Óêàæèòå id èãðîêà äëÿ íà÷àëà ñîáåñåäîâàíèÿ.", 0xEE4848)
+						sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Укажите id игрока для начала собеседования.", 0xEE4848)
 					end
 				end
 				imgui.BeginChild("pass player", imgui.ImVec2(210, 170), true)
 					imgui.SetCursorPosX(30)
-					imgui.Text(u8"Èíôîðìàöèÿ î èãðîêå:")
+					imgui.Text(u8"Информация о игроке:")
 					imgui.Separator()
 					imgui.Bullet()
-					imgui.Text(u8"Èìÿ:")
+					imgui.Text(u8"Имя:")
 						if sobes.player.name == "" then
 							imgui.SameLine()
-							imgui.TextColoredRGB("{F55534}íåò")
+							imgui.TextColoredRGB("{F55534}нет")
 						else
 							imgui.SameLine()
 							imgui.TextColoredRGB("{FFCD00}"..sobes.player.name)
 						end
 					imgui.Bullet()
-					imgui.Text(u8"Ëåò â øòàòå:")
+					imgui.Text(u8"Лет в штате:")
 						if sobes.player.let == 0 then
 							imgui.SameLine()
-							imgui.TextColoredRGB("{F55534}íåò")
+							imgui.TextColoredRGB("{F55534}нет")
 						else
 							if sobes.player.let >= 3 then
 								imgui.SameLine()
@@ -2436,10 +2436,10 @@ function imgui.OnDrawFrame()
 							end
 						end
 					imgui.Bullet()
-					imgui.Text(u8"Çàêîíîïîñëóøíîñòü:")
+					imgui.Text(u8"Законопослушность:")
 						if sobes.player.zak == 0 then
 							imgui.SameLine()
-							imgui.TextColoredRGB("{F55534}íåò")
+							imgui.TextColoredRGB("{F55534}нет")
 						else
 							if sobes.player.zak >= 35 then
 								imgui.SameLine()
@@ -2450,12 +2450,12 @@ function imgui.OnDrawFrame()
 							end
 						end
 					imgui.Bullet()
-					imgui.Text(u8"Èìååò ðàáîòó:")
+					imgui.Text(u8"Имеет работу:")
 						if sobes.player.work == "" then
 							imgui.SameLine()
-							imgui.TextColoredRGB("{F55534}íåò")
+							imgui.TextColoredRGB("{F55534}нет")
 						else
-							if sobes.player.work == "Áåç ðàáîòû" then
+							if sobes.player.work == "Без работы" then
 								imgui.SameLine()
 								imgui.TextColoredRGB("{17E11D}"..sobes.player.work)
 							else
@@ -2464,12 +2464,12 @@ function imgui.OnDrawFrame()
 							end
 						end
 					imgui.Bullet()
-					imgui.Text(u8"Ñîñòîèò â ×Ñ:")
+					imgui.Text(u8"Состоит в ЧС:")
 						if sobes.player.bl == "" then
 							imgui.SameLine()
-							imgui.TextColoredRGB("{F55534}íåò")
+							imgui.TextColoredRGB("{F55534}нет")
 						else
-							if sobes.player.bl == "Íå íàéäåí(à)" then
+							if sobes.player.bl == "Не найден(а)" then
 								imgui.SameLine()
 								imgui.TextColoredRGB("{17E11D}"..sobes.player.bl)
 							else
@@ -2479,12 +2479,12 @@ function imgui.OnDrawFrame()
 						end
 					imgui.Spacing()
 					imgui.Bullet()
-					imgui.Text(u8"Çäîðîâüå:")
+					imgui.Text(u8"Здоровье:")
 						if sobes.player.heal == "" then
 							imgui.SameLine()
-							imgui.TextColoredRGB("{F55534}íåò")
+							imgui.TextColoredRGB("{F55534}нет")
 						else
-							if sobes.player.heal == "Çäîðîâ" then
+							if sobes.player.heal == "Здоров" then
 								imgui.SameLine()
 								imgui.TextColoredRGB("{17E11D}"..sobes.player.heal)
 							else
@@ -2493,10 +2493,10 @@ function imgui.OnDrawFrame()
 							end
 						end
 					imgui.Bullet()
-					imgui.Text(u8"Íàðêîçàâèñèìîñòü:")
+					imgui.Text(u8"Наркозависимость:")
 						if sobes.player.narko == 0.1 then
 							imgui.SameLine()
-							imgui.TextColoredRGB("{F55534}íåò")
+							imgui.TextColoredRGB("{F55534}нет")
 						else
 							if sobes.player.narko == 0 then
 								imgui.SameLine()
@@ -2507,10 +2507,10 @@ function imgui.OnDrawFrame()
 							end
 						end
 				imgui.EndChild()
-				if imgui.Button(u8"Âíåî÷åðåäíîé âîïðîñ", imgui.ImVec2(210, 30)) then imgui.OpenPopup("sobQN") end
+				if imgui.Button(u8"Внеочередной вопрос", imgui.ImVec2(210, 30)) then imgui.OpenPopup("sobQN") end
 				imgui.Spacing() --if #sobes.logChat == 0 then
 					if sobes.nextQ then
-						if imgui.Button(u8"Äàëüøå âîïðîñ", imgui.ImVec2(210, 30)) then
+						if imgui.Button(u8"Дальше вопрос", imgui.ImVec2(210, 30)) then
 							sobes.num = sobes.num + 1
 							lua_thread.create(sobesRP, sobes.num); 
 						end
@@ -2518,22 +2518,22 @@ function imgui.OnDrawFrame()
 						imgui.PushStyleColor(imgui.Col.Button, imgui.ImColor(156, 156, 156, 200):GetVec4())
 						imgui.PushStyleColor(imgui.Col.ButtonHovered, imgui.ImColor(156, 156, 156, 200):GetVec4())
 						imgui.PushStyleColor(imgui.Col.ButtonActive, imgui.ImColor(156, 156, 156, 200):GetVec4())
-						imgui.Button(u8"Äàëüøå âîïðîñ", imgui.ImVec2(210, 30))
+						imgui.Button(u8"Дальше вопрос", imgui.ImVec2(210, 30))
 						imgui.PopStyleColor(3)
 					end
 				imgui.Spacing()
 				if #sobes.logChat ~= 0 and sobes.selID.v ~= "" then
-					if imgui.Button(u8"Îïðåäåëèòü ãîäíîñòü", imgui.ImVec2(210, 30)) then imgui.OpenPopup("sobEnter") end
+					if imgui.Button(u8"Определить годность", imgui.ImVec2(210, 30)) then imgui.OpenPopup("sobEnter") end
 				else
 						imgui.PushStyleColor(imgui.Col.Button, imgui.ImColor(156, 156, 156, 200):GetVec4())
 						imgui.PushStyleColor(imgui.Col.ButtonHovered, imgui.ImColor(156, 156, 156, 200):GetVec4())
 						imgui.PushStyleColor(imgui.Col.ButtonActive, imgui.ImColor(156, 156, 156, 200):GetVec4())
-						imgui.Button(u8"Îïðåäåëèòü ãîäíîñòüñ", imgui.ImVec2(210, 30))
+						imgui.Button(u8"Определить годностьс", imgui.ImVec2(210, 30))
 						imgui.PopStyleColor(3)
 				end
 				imgui.Spacing()
 				if #sobes.logChat ~= 0 and sobes.selID.v ~= "" then 
-					if imgui.Button(u8"Îñòàíîâèòü/Î÷èñòèòü", imgui.ImVec2(210, 30)) then
+					if imgui.Button(u8"Остановить/Очистить", imgui.ImVec2(210, 30)) then
 						threadS:terminate()
 						sobes.input.v = ""
 						sobes.player = {name = "", let = 0, zak = 0, work = "", bl = "", heal = "", narko = 0.1}
@@ -2546,22 +2546,22 @@ function imgui.OnDrawFrame()
 						imgui.PushStyleColor(imgui.Col.Button, imgui.ImColor(156, 156, 156, 200):GetVec4())
 						imgui.PushStyleColor(imgui.Col.ButtonHovered, imgui.ImColor(156, 156, 156, 200):GetVec4())
 						imgui.PushStyleColor(imgui.Col.ButtonActive, imgui.ImColor(156, 156, 156, 200):GetVec4())
-						imgui.Button(u8"Îñòàíîâèòü/Î÷èñòèòü", imgui.ImVec2(210, 30))
+						imgui.Button(u8"Остановить/Очистить", imgui.ImVec2(210, 30))
 						imgui.PopStyleColor(3)
 				end
 			imgui.EndGroup()
 			imgui.SameLine()
 			imgui.BeginChild("log chat", imgui.ImVec2(0, 0), true)
 				imgui.SetCursorPosX(270)
-				imgui.Text(u8"Ëîêàëüíûé ÷àò")
-					if imgui.IsItemHovered() then imgui.SetTooltip(u8"Êëèêíèòå ÏÊÌ äëÿ î÷èñòêè") end
+				imgui.Text(u8"Локальный чат")
+					if imgui.IsItemHovered() then imgui.SetTooltip(u8"Кликните ПКМ для очистки") end
 					if imgui.IsItemClicked(1) then sobes.logChat = {} end
 				imgui.SameLine()
 				imgui.SetCursorPosX(580)
-				if imgui.SmallButton(u8"Ïîìîùü") then imgui.OpenPopup("helpsob") end
+				if imgui.SmallButton(u8"Помощь") then imgui.OpenPopup("helpsob") end
 				imgui.PushStyleColor(imgui.Col.PopupBg, imgui.ImVec4(0.06, 0.06, 0.06, 0.94))
 					if imgui.BeginPopup("helpsob") then
-						imgui.Text(u8"\t\t\t\t\t\tÍåáîëüøàÿ èíñòðóêöèÿ ïî ïîëüçîâàíèþ.")
+						imgui.Text(u8"\t\t\t\t\t\tНебольшая инструкция по пользованию.")
 						imgui.TextColoredRGB(helpsob)
 					imgui.EndPopup()
 					end
@@ -2573,62 +2573,62 @@ function imgui.OnDrawFrame()
 					imgui.SetScrollY(imgui.GetScrollMaxY())
 				imgui.EndChild()
 				imgui.Spacing()
-				imgui.Text(u8"Âû:");
+				imgui.Text(u8"Вы:");
 				imgui.SameLine()
 				imgui.PushItemWidth(515)
 				imgui.InputText("##chat", sobes.input)
 				imgui.PopItemWidth()
 				imgui.SameLine()
-				if imgui.Button(u8"Îòïðàâèòü", imgui.ImVec2(85, 20)) then sampSendChat(u8:decode(sobes.input.v)); sobes.input.v = "" end
+				if imgui.Button(u8"Отправить", imgui.ImVec2(85, 20)) then sampSendChat(u8:decode(sobes.input.v)); sobes.input.v = "" end
 			imgui.EndChild()
 				imgui.PushStyleColor(imgui.Col.PopupBg, imgui.ImVec4(0.06, 0.06, 0.06, 0.94)) 
 					if imgui.BeginPopup("sobEnter") then
-						if imgui.MenuItem(u8"Ïðèíÿòü") then lua_thread.create(sobesRP, 4) end
-						if imgui.BeginMenu(u8"Îòêëîíèòü") then
-							if imgui.MenuItem(u8"Îòïå÷àòêà â ïàñïîðòå (Íèê)") then lua_thread.create(sobesRP, 5) end
-							if imgui.MenuItem(u8"Ìàëî ëåò ïðîæèâàíèÿ") then lua_thread.create(sobesRP, 6) end
-							if imgui.MenuItem(u8"Ïðîáëåìû ñ çàêîíîì") then lua_thread.create(sobesRP, 7) end
-							if imgui.MenuItem(u8"Èìååò ðàáîòó") then lua_thread.create(sobesRP, 8) end
-							if imgui.MenuItem(u8"Ñîñòîèò â ×Ñ") then lua_thread.create(sobesRP, 9) end
-							if imgui.MenuItem(u8"Ïðîáëåìû ñî çäîðîâüåì") then lua_thread.create(sobesRP, 10) end
-							if imgui.MenuItem(u8"Èìååò íàðêîçàâèñèìîñòü") then lua_thread.create(sobesRP, 11) end
+						if imgui.MenuItem(u8"Принять") then lua_thread.create(sobesRP, 4) end
+						if imgui.BeginMenu(u8"Отклонить") then
+							if imgui.MenuItem(u8"Отпечатка в паспорте (Ник)") then lua_thread.create(sobesRP, 5) end
+							if imgui.MenuItem(u8"Мало лет проживания") then lua_thread.create(sobesRP, 6) end
+							if imgui.MenuItem(u8"Проблемы с законом") then lua_thread.create(sobesRP, 7) end
+							if imgui.MenuItem(u8"Имеет работу") then lua_thread.create(sobesRP, 8) end
+							if imgui.MenuItem(u8"Состоит в ЧС") then lua_thread.create(sobesRP, 9) end
+							if imgui.MenuItem(u8"Проблемы со здоровьем") then lua_thread.create(sobesRP, 10) end
+							if imgui.MenuItem(u8"Имеет наркозависимость") then lua_thread.create(sobesRP, 11) end
 						imgui.EndMenu()
 						end
 					imgui.EndPopup()
 					end
 					if imgui.BeginPopup("sobQN") then
-						if imgui.MenuItem(u8"Ïîïðîñèòü äîêóìåíòû") then 
-							sampSendChat("Ïðåäúÿâèòå ïîæàëóéñòà Âàø ïàêåò äîêóìåíòîâ, à èìåííî: ïàñïîðò è ìåä.êàðòó.") 
-							table.insert(sobes.logChat, "{FFC000}Âû: {FFFFFF}Âîïðîñ: Ïîâòîðíàÿ ïðîñüáà ïîêàçàòü äîêóìåíòû.")
+						if imgui.MenuItem(u8"Попросить документы") then 
+							sampSendChat("Предъявите пожалуйста Ваш пакет документов, а именно: паспорт и мед.карту.") 
+							table.insert(sobes.logChat, "{FFC000}Вы: {FFFFFF}Вопрос: Повторная просьба показать документы.")
 						end
-						if imgui.MenuItem(u8"Âûáîð áîëüíèöû") then 
-							sampSendChat("Ïî÷åìó Âû âûáðàëè èìåííî íàøó áîëüíèöó äëÿ òðóäîóñòðîéñòâà?") 
-							table.insert(sobes.logChat, "{FFC000}Âû: {FFFFFF}Âîïðîñ: .")
+						if imgui.MenuItem(u8"Выбор больницы") then 
+							sampSendChat("Почему Вы выбрали именно нашу больницу для трудоустройства?") 
+							table.insert(sobes.logChat, "{FFC000}Вы: {FFFFFF}Вопрос: .")
 						end
-						if imgui.MenuItem(u8"Ðàññêàçàòü î ñåáå") then 
-							sampSendChat("Ðàññêàæèòå, ïîæàëóéñòà, íåìíîãî î ñåáå.") 
-							table.insert(sobes.logChat, "{FFC000}Âû: {FFFFFF}Âîïðîñ: Ðàññêàæèòå, ïîæàëóéñòà, íåìíîãî î ñåáå.")
+						if imgui.MenuItem(u8"Рассказать о себе") then 
+							sampSendChat("Расскажите, пожалуйста, немного о себе.") 
+							table.insert(sobes.logChat, "{FFC000}Вы: {FFFFFF}Вопрос: Расскажите, пожалуйста, немного о себе.")
 						end
-						if imgui.MenuItem(u8"Èìååò ëè Discord") then 
-							sampSendChat("Èìååòñÿ ëè ó Âàñ ñïåö.ðàöèÿ \"Discord\"?") 
-							table.insert(sobes.logChat, "{FFC000}Âû: {FFFFFF}Âîïðîñ: Èìååòñÿ ëè ó Âàñ ñïåö.ðàöèÿ \"Discord\"?")
+						if imgui.MenuItem(u8"Имеет ли Discord") then 
+							sampSendChat("Имеется ли у Вас спец.рация \"Discord\"?") 
+							table.insert(sobes.logChat, "{FFC000}Вы: {FFFFFF}Вопрос: Имеется ли у Вас спец.рация \"Discord\"?")
 						end
-						if imgui.BeginMenu(u8"Âîïðîñû íà ïñèõèêó:") then
-							if imgui.MenuItem(u8"ÌÃ") then 
-								sampSendChat("×òî ìîæåò îçíà÷àòü àááðåâèàòóðà 'ÌÃ'?")
-								table.insert(sobes.logChat, "{FFC000}Âû: {FFFFFF}Âîïðîñ: ×òî ìîæåò îçíà÷àòü àááðåâèàòóðà 'ÌÃ'?")
+						if imgui.BeginMenu(u8"Вопросы на психику:") then
+							if imgui.MenuItem(u8"МГ") then 
+								sampSendChat("Что может означать аббревиатура 'МГ'?")
+								table.insert(sobes.logChat, "{FFC000}Вы: {FFFFFF}Вопрос: Что может означать аббревиатура 'МГ'?")
 							end
-							if imgui.MenuItem(u8"ÄÌ") then 
-								sampSendChat("×òî ìîæåò îçíà÷àòü àááðåâèàòóðà 'ÄÌ'?") 
-								table.insert(sobes.logChat, "{FFC000}Âû: {FFFFFF}Âîïðîñ: ×òî ìîæåò îçíà÷àòü àááðåâèàòóðà 'ÄÌ'?")
+							if imgui.MenuItem(u8"ДМ") then 
+								sampSendChat("Что может означать аббревиатура 'ДМ'?") 
+								table.insert(sobes.logChat, "{FFC000}Вы: {FFFFFF}Вопрос: Что может означать аббревиатура 'ДМ'?")
 							end
-							if imgui.MenuItem(u8"ÒÊ") then 
-								sampSendChat("×òî ìîæåò îçíà÷àòü àááðåâèàòóðà 'ÒÊ'?") 
-								table.insert(sobes.logChat, "{FFC000}Âû: {FFFFFF}Âîïðîñ: ×òî ìîæåò îçíà÷àòü àááðåâèàòóðà 'ÒÊ'?")
+							if imgui.MenuItem(u8"ТК") then 
+								sampSendChat("Что может означать аббревиатура 'ТК'?") 
+								table.insert(sobes.logChat, "{FFC000}Вы: {FFFFFF}Вопрос: Что может означать аббревиатура 'ТК'?")
 							end
-							if imgui.MenuItem(u8"ÐÏ") then 
-								sampSendChat("Êàê Âû äóìàåòå, ÷òî ìîæåò îçíà÷àòü àááðåâèàòóðà 'ÐÏ'?")
-								table.insert(sobes.logChat, "{FFC000}Âû: {FFFFFF}Âîïðîñ: Êàê Âû äóìàåòå, ÷òî ìîæåò îçíà÷àòü àááðåâèàòóðà 'ÐÏ'?.")								
+							if imgui.MenuItem(u8"РП") then 
+								sampSendChat("Как Вы думаете, что может означать аббревиатура 'РП'?")
+								table.insert(sobes.logChat, "{FFC000}Вы: {FFFFFF}Вопрос: Как Вы думаете, что может означать аббревиатура 'РП'?.")								
 							end
 						imgui.EndMenu()
 						end
@@ -2642,41 +2642,41 @@ function imgui.OnDrawFrame()
 		local sw, sh = getScreenResolution()
 		imgui.SetNextWindowSize(imgui.ImVec2(865, 360), imgui.Cond.FirstUseEver)
 		imgui.SetNextWindowPos(imgui.ImVec2(sw / 2, sh / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
-		imgui.Begin(fa.ICON_SIGNAL .. u8" Ìåíþ ðàöèè äåïàðòàìåíòà.", depWin, imgui.WindowFlags.NoResize);
+		imgui.Begin(fa.ICON_SIGNAL .. u8" Меню рации департамента.", depWin, imgui.WindowFlags.NoResize);
 		--imgui.SetWindowFontScale(1.1)
 			imgui.BeginGroup()
 				imgui.BeginChild("dep list", imgui.ImVec2(225, 215), true)
-					if ButtonDep(u8(dep.list[1]), dep.bool[1]) then-- âñå
+					if ButtonDep(u8(dep.list[1]), dep.bool[1]) then-- все
 						dep.bool = {true, false, false, false, false, false}
 						dep.select_dep[1] = 1
 						
 					end
-					if ButtonDep(u8(dep.list[2]), dep.bool[2]) then-- ÷ï
+					if ButtonDep(u8(dep.list[2]), dep.bool[2]) then-- чп
 						dep.bool = {false, true, false, false, false, false}
 						dep.select_dep[1] = 2
 						
 					end
-					if ButtonDep(u8(dep.list[3]), dep.bool[3]) then-- ìî/ìþ
+					if ButtonDep(u8(dep.list[3]), dep.bool[3]) then-- мо/мю
 						dep.bool = {false, false, true, false, false, false, false}
 						dep.select_dep[1] = 3
 						
 					end
-					if ButtonDep(u8(dep.list[4]), dep.bool[4]) then-- òñð
+					if ButtonDep(u8(dep.list[4]), dep.bool[4]) then-- тср
 						dep.bool = {false, false, false, true, false, false, false}
 						dep.select_dep[1] = 4
 						
 					end
-					if ButtonDep(u8(dep.list[5]), dep.bool[5]) then-- ñîáåñ
+					if ButtonDep(u8(dep.list[5]), dep.bool[5]) then-- собес
 						dep.bool = {false, false, false, false, true, false, false}
 						dep.select_dep[1] = 5
 						
 					end
-					if ButtonDep(u8(dep.list[6]), dep.bool[6]) then-- òåõ
+					if ButtonDep(u8(dep.list[6]), dep.bool[6]) then-- тех
 						dep.bool = {false, false, false, false, false, true, false}
 						dep.select_dep[1] = 6
 						
 					end
-					if ButtonDep(u8(dep.list[7]), dep.bool[7]) then-- íîâîñòè
+					if ButtonDep(u8(dep.list[7]), dep.bool[7]) then-- новости
 						dep.bool = {false, false, false, false, false, false, true}
 						dep.select_dep[1] = 7
 						getGovFile()
@@ -2685,24 +2685,24 @@ function imgui.OnDrawFrame()
 
 					if dep.select_dep[1] < 5 and dep.select_dep[1] ~= 0 and dep.select_dep[2] == 0 then
 						imgui.Dummy(imgui.ImVec2(0, 65)) 
-						if imgui.Button(u8"Ïîäêëþ÷èòüñÿ", imgui.ImVec2(225, 30)) then
+						if imgui.Button(u8"Подключиться", imgui.ImVec2(225, 30)) then
 							for i,v in ipairs(dep.bool) do
 								if v == true then 
 									dep.select_dep[2] = i
 								end
 							end
-							if dep.select_dep[2] == 1 then sampSendChat(string.format("/d [%s] - [Èíôîðìàöèÿ] Ïåðåøåë íà ÷àñòîòó 100,3.", rankFix())) end
-							if dep.select_dep[2] == 2 then sampSendChat(string.format("/d [%s] - [Èíôîðìàöèÿ] Ïåðåøåë íà ÷àñòîòó 102,7.", rankFix())) end
-							if dep.select_dep[2] == 3 then sampSendChat(string.format("/d [%s] - [Èíôîðìàöèÿ] Ïåðåøåë íà ÷àñòîòó 104,8.", rankFix())) end
-							if dep.select_dep[2] == 4 then sampSendChat(string.format("/d [%s] - [Èíôîðìàöèÿ] Ïåðåøåë íà ÷àñòîòó 109,6.", rankFix())) end
+							if dep.select_dep[2] == 1 then sampSendChat(string.format("/d [%s] - [Информация] Перешел на частоту 100,3.", rankFix())) end
+							if dep.select_dep[2] == 2 then sampSendChat(string.format("/d [%s] - [Информация] Перешел на частоту 102,7.", rankFix())) end
+							if dep.select_dep[2] == 3 then sampSendChat(string.format("/d [%s] - [Информация] Перешел на частоту 104,8.", rankFix())) end
+							if dep.select_dep[2] == 4 then sampSendChat(string.format("/d [%s] - [Информация] Перешел на частоту 109,6.", rankFix())) end
 						end
 					elseif dep.bool[5] then
 						imgui.SetCursorPosX(50)
-						imgui.Text(u8"Çàäàíî âðåìÿ:  "..dep.time[1]..":"..dep.time[2])
+						imgui.Text(u8"Задано время:  "..dep.time[1]..":"..dep.time[2])
 						imgui.Spacing()
 						imgui.Spacing()
 							imgui.SetCursorPosX(60)
-							imgui.Text(u8"×àñû\t\t   Ìèíóòû"); 
+							imgui.Text(u8"Часы\t\t   Минуты"); 
 							imgui.SetCursorPosX(45)
 							if imgui.SmallButton("<<") and dep.time[1] > 0 then dep.time[1] = dep.time[1] - 1 end
 							imgui.SameLine()
@@ -2718,12 +2718,12 @@ function imgui.OnDrawFrame()
 							if imgui.SmallButton(">>##1") and dep.time[2] < 55 then dep.time[2] = dep.time[2] + 5 end
 						imgui.Spacing()
 						imgui.Spacing()
-						if imgui.Button(u8"Îáúÿâèòü", imgui.ImVec2(225, 30)) then
+						if imgui.Button(u8"Объявить", imgui.ImVec2(225, 30)) then
 							lua_thread.create(function()
 							local inpSob = string.format("%d,%d,%s", dep.time[1], dep.time[2], u8:decode(list_org[num_org.v+1]))
-								sampSendChat(string.format("/d [%s] - [Èíôîðìàöèÿ] Ïåðåø¸ë íà ÷àñòîòó 103,9", u8:decode(list_org[num_org.v+1])))
+								sampSendChat(string.format("/d [%s] - [Информация] Перешёл на частоту 103,9", u8:decode(list_org[num_org.v+1])))
 								wait(1750)
-								sampSendChat(string.format("/d [%s] - [103,9] Çàíèìàþ ãîñ.âîëíó íîâîñòåé äëÿ ïðîâåäåíèÿ ñîáåñåäîâàíèÿ.", u8:decode(list_org[num_org.v+1])))
+								sampSendChat(string.format("/d [%s] - [103,9] Занимаю гос.волну новостей для проведения собеседования.", u8:decode(list_org[num_org.v+1])))
 								wait(500)
 								sampSendChat("/lmenu")
 								repeat wait(100) until sampIsDialogActive() and sampGetCurrentDialogId() == 1214
@@ -2740,13 +2740,13 @@ function imgui.OnDrawFrame()
 								wait(350)
 								sampCloseCurrentDialogWithButton(1)
 								wait(1700)
-								sampSendChat(string.format("/d [%s] - [Èíôîðìàöèÿ] Ïîêèäàþ ÷àñòîòó 103,9.",  u8:decode(list_org[num_org.v+1]))) 
+								sampSendChat(string.format("/d [%s] - [Информация] Покидаю частоту 103,9.",  u8:decode(list_org[num_org.v+1]))) 
 							end)
 						end
 					elseif  dep.bool[6] then
 						imgui.Dummy(imgui.ImVec2(0, 65)) 
-						if imgui.Button(u8"Îáúÿâèòü", imgui.ImVec2(225, 30)) then 
-							sampSendChat(string.format("/d [%s] - [Èíôîðìàöèÿ] Òåõ. íåïîëàäêè.", rankFix())) 
+						if imgui.Button(u8"Объявить", imgui.ImVec2(225, 30)) then 
+							sampSendChat(string.format("/d [%s] - [Информация] Тех. неполадки.", rankFix())) 
 						end
 					elseif dep.bool[7] then
 						imgui.Spacing()
@@ -2755,28 +2755,28 @@ function imgui.OnDrawFrame()
 						imgui.PopItemWidth()
 						imgui.Spacing()
 							
-							imgui.Text(u8"Òàêæå ìîæåòå ñàìè äîáàâèòü èëè \nèçìåíÿòü íîâîñòè.")
+							imgui.Text(u8"Также можете сами добавить или \nизменять новости.")
 
 							imgui.SetCursorPos(imgui.ImVec2(140, 297))
-							imgui.TextColoredRGB("{29EB2F}Ïàïêà")
+							imgui.TextColoredRGB("{29EB2F}Папка")
 							if imgui.IsItemHovered() then 
-								imgui.SetTooltip(u8"Êëèêíèòå, ÷òîáû îòêðûòü ïàïêó.")
+								imgui.SetTooltip(u8"Кликните, чтобы открыть папку.")
 							end
 							if imgui.IsItemClicked(0) then
-								print(shell32.ShellExecuteA(nil, 'open', dirml.."/MedicalHelper/Äåïàðòàìåíò/", nil, nil, 1))
+								print(shell32.ShellExecuteA(nil, 'open', dirml.."/MedicalHelper/Департамент/", nil, nil, 1))
 							end
 						imgui.Spacing()
 						imgui.Spacing()
-						if imgui.Button(u8"Ïîäàòü", imgui.ImVec2(225, 30)) then
+						if imgui.Button(u8"Подать", imgui.ImVec2(225, 30)) then
 							lua_thread.create(function()
 							-- if tonumber(os.date("%M")) > 17 then --17
-							-- 	sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Gov Íîâîñòè íàçíà÷èòü ìîæíî òîëüêî îò 0 äî 15 ìèíóò.", 0xEE4848)
+							-- 	sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Gov Новости назначить можно только от 0 до 15 минут.", 0xEE4848)
 							-- 	return
 							-- end
 							
-								if doesFileExist(dirml.."/MedicalHelper/Äåïàðòàìåíò/"..u8:decode(dep.news[dep.newsN.v+1])..".txt") then
+								if doesFileExist(dirml.."/MedicalHelper/Департамент/"..u8:decode(dep.news[dep.newsN.v+1])..".txt") then
 								--	print(u8:decode(dep.news[dep.newsN.v+1]))
-									for line in io.lines(dirml.."/MedicalHelper/Äåïàðòàìåíò/"..u8:decode(dep.news[dep.newsN.v+1])..".txt") do
+									for line in io.lines(dirml.."/MedicalHelper/Департамент/"..u8:decode(dep.news[dep.newsN.v+1])..".txt") do
 										sampSendChat(line)
 										wait(1000)
 									end
@@ -2785,21 +2785,21 @@ function imgui.OnDrawFrame()
 						end
 					elseif dep.select_dep[2] < 5 and dep.select_dep[2] ~= 0 then
 						imgui.PushItemWidth(225)
-						if imgui.Button(u8"Îòêëþ÷èòüñÿ", imgui.ImVec2(225, 25)) then
-							if dep.select_dep[2] == 1 then sampSendChat(string.format("/d [%s] - [Èíôîðìàöèÿ] Ïîêèäàþ ÷àñòîòó 100,3.", rankFix())) end
-							if dep.select_dep[2] == 2 then sampSendChat(string.format("/d [%s] - [Èíôîðìàöèÿ] Ïîêèäàþ ÷àñòîòó 102,7.", rankFix())) end
-							if dep.select_dep[2] == 3 then sampSendChat(string.format("/d [%s] - [Èíôîðìàöèÿ] Ïîêèäàþ ÷àñòîòó 104,8.", rankFix())) end
-							if dep.select_dep[2] == 4 then sampSendChat(string.format("/d [%s] - [Èíôîðìàöèÿ] Ïîêèäàþ ÷àñòîòó 109,6.", rankFix())) end
+						if imgui.Button(u8"Отключиться", imgui.ImVec2(225, 25)) then
+							if dep.select_dep[2] == 1 then sampSendChat(string.format("/d [%s] - [Информация] Покидаю частоту 100,3.", rankFix())) end
+							if dep.select_dep[2] == 2 then sampSendChat(string.format("/d [%s] - [Информация] Покидаю частоту 102,7.", rankFix())) end
+							if dep.select_dep[2] == 3 then sampSendChat(string.format("/d [%s] - [Информация] Покидаю частоту 104,8.", rankFix())) end
+							if dep.select_dep[2] == 4 then sampSendChat(string.format("/d [%s] - [Информация] Покидаю частоту 109,6.", rankFix())) end
 							dep.select_dep[2] = 0
 						end
 						imgui.Spacing()
 						imgui.Spacing()
-						imgui.Text(u8"Êîìó ïîäêëþ÷èòüñÿ:")
+						imgui.Text(u8"Кому подключиться:")
 						if dep.bool[1] then
 						imgui.Combo("##orgs", dep.sel, dep.sel_all)
 						imgui.Spacing()
 						imgui.Spacing()
-						imgui.TextDisabled(u8"End - Îòêðûòü ÷àò ñ øàáëîíîì")
+						imgui.TextDisabled(u8"End - Открыть чат с шаблоном")
 							if wasKeyReleased(VK_END) and not sampIsChatInputActive() then
 								sampSetChatInputText(string.format("/d [%s] - [100,3] - [%s]: ", rankFix(), u8:decode(dep.sel_all[dep.sel.v+1])));
 								sampSetChatInputEnabled(true)  
@@ -2808,7 +2808,7 @@ function imgui.OnDrawFrame()
 						imgui.Combo("##orgs", dep.sel, dep.sel_chp)
 						imgui.Spacing()
 						imgui.Spacing()
-						imgui.TextDisabled(u8"End - Îòêðûòü ÷àò ñ øàáëîíîì")
+						imgui.TextDisabled(u8"End - Открыть чат с шаблоном")
 							if wasKeyReleased(VK_END) and not sampIsChatInputActive() then
 								sampSetChatInputText(string.format("/d [%s] - [102,7] - [%s]: ", rankFix(), u8:decode(dep.sel_chp[dep.sel.v+1])));
 								sampSetChatInputEnabled(true) 
@@ -2817,7 +2817,7 @@ function imgui.OnDrawFrame()
 							imgui.Combo("##orgs", dep.sel, dep.sel_mzmomu)
 							imgui.Spacing()
 							imgui.Spacing()
-							imgui.TextDisabled(u8"End - Îòêðûòü ÷àò ñ øàáëîíîì")
+							imgui.TextDisabled(u8"End - Открыть чат с шаблоном")
 							if wasKeyReleased(VK_END) and not sampIsChatInputActive() then
 								sampSetChatInputText(string.format("/d [%s] - [104,8] - [%s]: ", rankFix(), u8:decode(dep.sel_mzmomu[dep.sel.v+1])));
 								sampSetChatInputEnabled(true) 
@@ -2826,7 +2826,7 @@ function imgui.OnDrawFrame()
 						imgui.Combo("##orgs", dep.sel, dep.sel_tsr)
 						imgui.Spacing()
 						imgui.Spacing()
-						imgui.TextDisabled(u8"End - Îòêðûòü ÷àò ñ øàáëîíîì")
+						imgui.TextDisabled(u8"End - Открыть чат с шаблоном")
 							if wasKeyReleased(VK_END) and not sampIsChatInputActive() then
 								sampSetChatInputText(string.format("/d [%s] - [109,6] - [%s]: ", rankFix(), u8:decode(dep.sel_tsr[dep.sel.v+1])));
 								sampSetChatInputEnabled(true) 
@@ -2836,14 +2836,14 @@ function imgui.OnDrawFrame()
 
 					else
 						imgui.SetCursorPos(imgui.ImVec2(20, 260)) 
-						imgui.Text(u8"Âûáåðåòå âîëíó äåïàðòàìåíòà")
+						imgui.Text(u8"Выберете волну департамента")
 					end
 			imgui.EndGroup()
 			imgui.SameLine()
 			imgui.BeginChild("dep log", imgui.ImVec2(0, 0), true)
 				imgui.SetCursorPosX(250)
-				imgui.Text(u8"Ëîêàëüíûé ˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜àò")
-				if imgui.IsItemHovered() then imgui.SetTooltip(u8"Êëèêíèòå ÏÊÌ äëÿ î÷èñòêè") end
+				imgui.Text(u8"Локальный ат")
+				if imgui.IsItemHovered() then imgui.SetTooltip(u8"Кликните ПКМ для очистки") end
 				if imgui.IsItemClicked(1) then dep.dlog = {} end
 					imgui.BeginChild("dep logg", imgui.ImVec2(0, 260), true)
 						for i,v in ipairs(dep.dlog) do
@@ -2852,13 +2852,13 @@ function imgui.OnDrawFrame()
 						imgui.SetScrollY(imgui.GetScrollMaxY())
 					imgui.EndChild()
 				imgui.Spacing()
-				imgui.Text(u8"Âû:");
+				imgui.Text(u8"Вы:");
 				imgui.SameLine()
 				imgui.PushItemWidth(490)
 				imgui.InputText("##chat", dep.input)
 				imgui.PopItemWidth()
 				imgui.SameLine()
-				if imgui.Button(u8"Îòïðàâèòü", imgui.ImVec2(80, 20)) then
+				if imgui.Button(u8"Отправить", imgui.ImVec2(80, 20)) then
 					if dep.select_dep[2] < 5 and dep.select_dep[2] > 0 then
 						if dep.bool[1] then
 							sampSendChat(string.format("/d [%s] - [100,3] - [%s]: "..u8:decode(dep.input.v), rankFix(), u8:decode(dep.sel_all[dep.sel.v+1])))
@@ -2880,23 +2880,23 @@ function imgui.OnDrawFrame()
 		local sw, sh = getScreenResolution()
 		imgui.SetNextWindowSize(imgui.ImVec2(700, 400), imgui.Cond.FirstUseEver)
 		imgui.SetNextWindowPos(imgui.ImVec2(sw / 2, sh / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
-		imgui.Begin(fa.ICON_DOWNLOAD .. u8" Ïðîâåðêà îáíîâëåíèé.", updWin, imgui.WindowFlags.NoResize);
+		imgui.Begin(fa.ICON_DOWNLOAD .. u8" Проверка обновлений.", updWin, imgui.WindowFlags.NoResize);
 		imgui.SetWindowFontScale(1.1)
 			imgui.SetCursorPosX(252)
-			imgui.Text(u8"Èíôîðìàöèÿ îá îáíîâëåíèè")
+			imgui.Text(u8"Информация об обновлении")
 			imgui.Dummy(imgui.ImVec2(0, 10))
 			if #updinfo < 5 then
 				imgui.SetCursorPos(imgui.ImVec2(242, 150))
-				imgui.TextColoredRGB("{72F566}Îáíîâëåíèé íå îáíàðóæåíî")
+				imgui.TextColoredRGB("{72F566}Обновлений не обнаружено")
 				imgui.SetCursorPosX(212)
-				imgui.TextColoredRGB("{72F566}Âû èñïîëüçóåòå ñàìóþ íîâóþ âåðñèþ")
+				imgui.TextColoredRGB("{72F566}Вы используете самую новую версию")
 			else
 				if newversion == scr.version then
 					imgui.SetCursorPosX(120)
 					imgui.TextColored(imgui.ImColor(0, 255, 0, 225):GetVec4(), fa.ICON_CHECK); imgui.SameLine()
-					imgui.TextColoredRGB("Âû èñïîëüçóåòå ïîñëåäíåå îáíîâëåíèå. Òåêóùàÿ âåðñèÿ: {72F566}"..scr.version)
+					imgui.TextColoredRGB("Вы используете последнее обновление. Текущая версия: {72F566}"..scr.version)
 					imgui.SetCursorPosX(222)
-					imgui.TextColoredRGB("{F8A436}×òî áûëî äîáàâëåíî â ïðîøëûé ðàç: ")
+					imgui.TextColoredRGB("{F8A436}Что было добавлено в прошлый раз: ")
 					imgui.Spacing()
 					imgui.BeginChild("update log", imgui.ImVec2(0, 0), true)
 						if doesFileExist(dirml.."/MedicalHelper/files/update.txt") then
@@ -2908,11 +2908,11 @@ function imgui.OnDrawFrame()
 				else
 					imgui.SetCursorPosX(182) 
 					imgui.TextColored(imgui.ImColor(255, 200, 0, 225):GetVec4(), fa.ICON_EXCLAMATION_TRIANGLE); imgui.SameLine()
-					imgui.TextColoredRGB("Âû èñïîëüçóåòå óñòàðåâøóþ âåðñèþ ñêðèïòà.")
+					imgui.TextColoredRGB("Вы используете устаревшую версию скрипта.")
 					imgui.SetCursorPosX(212) 
-					imgui.TextColoredRGB("Íîâàÿ âåðñèÿ: {72F566}"..newversion.."{FFFFFF}. Òåêóùàÿ Âàøà: {EE4747}"..scr.version)
+					imgui.TextColoredRGB("Новая версия: {72F566}"..newversion.."{FFFFFF}. Текущая Ваша: {EE4747}"..scr.version)
 					imgui.SetCursorPosX(282)
-					imgui.TextColoredRGB("{F8A436}×òî áûëî äîáàâëåíî:")
+					imgui.TextColoredRGB("{F8A436}Что было добавлено:")
 					imgui.Spacing()
 					imgui.BeginChild("update log", imgui.ImVec2(0, 230), true)
 						if doesFileExist(dirml.."/MedicalHelper/files/update.txt") then
@@ -2922,149 +2922,149 @@ function imgui.OnDrawFrame()
 						end
 					imgui.EndChild()
 					imgui.SetCursorPosX(232)
-					if imgui.Button(fa.ICON_DOWNLOAD .. u8" Óñòàíîâèòü íîâóþ âåðñèþ", imgui.ImVec2(230, 30)) then funCMD.update() end
+					if imgui.Button(fa.ICON_DOWNLOAD .. u8" Установить новую версию", imgui.ImVec2(230, 30)) then funCMD.update() end
 				end
 			end
 		--	imgui.Bullet(); imgui.SameLine()
-		--	imgui.TextColoredRGB("Áûëî èçìåíåíî âûâôûâ ûâôûâôûâûâ ûôâôûâôû ûôâôûâôû ")
+		--	imgui.TextColoredRGB("Было изменено вывфыв ывфывфывыв ыфвфывфы ыфвфывфы ")
 		imgui.End()
 	end
 	if mcEditWin.v then
 		local sw, sh = getScreenResolution()
 		imgui.SetNextWindowSize(imgui.ImVec2(650, 420), imgui.Cond.FirstUseEver)
 		imgui.SetNextWindowPos(imgui.ImVec2(sw / 2, sh / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
-		imgui.Begin(u8"Ðåäàêòèðîâàíèå îòûãðîâêè ìåä.êàðòû", mcEditWin, imgui.WindowFlags.NoResize);
+		imgui.Begin(u8"Редактирование отыгровки мед.карты", mcEditWin, imgui.WindowFlags.NoResize);
 		imgui.SetWindowFontScale(1.1)
 			imgui.InputTextMultiline("##mcedit", buf_mcedit, imgui.ImVec2(634, 350))
-			if imgui.Button(u8"Ñîõðàíèòü", imgui.ImVec2(155, 25)) then
+			if imgui.Button(u8"Сохранить", imgui.ImVec2(155, 25)) then
 				local f = io.open(dirml.."/MedicalHelper/rp-medcard.txt", "w")
 				f:write(u8:decode(buf_mcedit.v))
 				f:close() 
 			end
 			imgui.SameLine()
-			if imgui.Button(u8"Ñáðîñèòü", imgui.ImVec2(155, 25)) then
+			if imgui.Button(u8"Сбросить", imgui.ImVec2(155, 25)) then
 				local textrp = [[
-// Öåíû íà âûäà÷ó íîâîé ìåä.êàðòû
+// Цены на выдачу новой мед.карты
 #med7=10.000$
 #med14=20.000$
 #med30=32.500$
 #med60=65.000$
-// Öåíû íà îáíîâëåíèå ìåä.êàðòû
+// Цены на обновление мед.карты
 #medup7=15.000$
 #medup14=25.000$
 #medup30=38.000$
 #medup60=70.000$
 
 {sleep:0}
-Çäðàâñòâóéòå, Âû õîòèòå ïîëó÷èòü ìåäèöèíñêóþ êàðòó âïåðâûå èëè îáíîâèòü ñóùåñòâóþùóþ?
-Ïðåäîñòàâüòå, ïîæàëóéñòà, Âàø ïàñïîðò
+Здравствуйте, Вы хотите получить медицинскую карту впервые или обновить существующую?
+Предоставьте, пожалуйста, Ваш паспорт
 /b /showpass {myID}
 {pause}
-/todo Áëàãîäîðþ âàñ!*âçÿâ ïàñïîðò â ðóêè è {sex:íà÷àë|íà÷àëà} åãî èçó÷àòü.
+/todo Благодорю вас!*взяв паспорт в руки и {sex:начал|начала} его изучать.
 {dialog}
-[name]=Âûäà÷à ìåä.êàðòû
-[1]=Íîâàÿ ìåä.êàðòà
-Õîðîøî, ÿ Âàñ {sex:ïîíÿë|ïîíÿëà}. Âàì íóæíî îôîðìèòü íîâóþ ìåä.êàðòó.
-Äëÿ îôîðìëåíèÿ êàðòû íåîáõîäèìî çàïëàòèòü ãîñ.ïîøëèíó, êîòîðàÿ çàâèñèò îò ñðîêà êàðòû.
-Íà 7 äíåé - #med7, íà 14 äíåé - #med14
-Íà 30 äíåé #med30, íà 60 äíåé - #med60.
-Âû ñîãëàñíû?
-Åñëè ñîãëàñíû, òî îïëàòèòå è ìû ïðîäîëæèì ïðîöåññ îôîðìëåíèÿ.
-/b Îïëàòèòü ìîæíî ÷åðåç /pay {myID} èëè /trade {myID}
+[name]=Выдача мед.карты
+[1]=Новая мед.карта
+Хорошо, я Вас {sex:понял|поняла}. Вам нужно оформить новую мед.карту.
+Для оформления карты необходимо заплатить гос.пошлину, которая зависит от срока карты.
+На 7 дней - #med7, на 14 дней - #med14
+На 30 дней #med30, на 60 дней - #med60.
+Вы согласны?
+Если согласны, то оплатите и мы продолжим процесс оформления.
+/b Оплатить можно через /pay {myID} или /trade {myID}
 
 {dialog}
-[name]=Ñðîê âûäà÷è
-[1]=7 äíåé
+[name]=Срок выдачи
+[1]=7 дней
 #timeID=0
-[2]=14 äíåé
+[2]=14 дней
 #timeID=1
-[3]=30 äíåé
+[3]=30 дней
 #timeID=2
-[4]=60 äåé
+[4]=60 дей
 #timeID=3
 {dialogEnd}
 
-Õîðîøî, òîãäà ïðèñòóïèì ê îôîðìëåíèþ.
-/me {sex:âûòàùèë|âûòàùèëà} èç íàãðóäíîãî êàðìàíà øàðèêîâóþ ðó÷êó
-/do Ðó÷êà â ïðàâîé ðóêå.
-/me îòêðûë{sex:|à} øêàô÷èê, çàòåì äîñòàë{sex:|à} îòòóäà ïóñòûå áëàíêè äëÿ ìåä.êàðòû
-/me ðàçëîæèë{sex:|à} ïàëüöàìè ïðàâîé ðóêè ïàñïîðò íà íóæíîé ñòðàíè÷êå è íà÷àë{sex:|à} ïåðåïèñûâàòü äàííûå â áëàíê
-/me îòêðûë{sex:|à} ïóñòóþ ìåä.êàðòó è ïàñïîðò, çàòåì íà÷àë{sex:|à} ïåðåïèñûâàòü äàííûå èç ïàñïîðòà
-/do Ñïóñòÿ ìèíóòó äàííûå ïàñïîðòà áûëè ïåðåïèñàíû íà áëàíê.
+Хорошо, тогда приступим к оформлению.
+/me {sex:вытащил|вытащила} из нагрудного кармана шариковую ручку
+/do Ручка в правой руке.
+/me открыл{sex:|а} шкафчик, затем достал{sex:|а} оттуда пустые бланки для мед.карты
+/me разложил{sex:|а} пальцами правой руки паспорт на нужной страничке и начал{sex:|а} переписывать данные в бланк
+/me открыл{sex:|а} пустую мед.карту и паспорт, затем начал{sex:|а} переписывать данные из паспорта
+/do Спустя минуту данные паспорта были переписаны на бланк.
 
-[2]=Îáíîâëåíèå äàííûõ
-Õîðîøî, ÿ Âàñ ïîíÿë{sex:|à}. Âàì íóæíî îáíîâèòü äàííûå â ìåä.êàðòå.
-Äëÿ îáíîâëåíèÿ äàííûõ íåîáõîäèìî çàïëàòèòü ãîñ.ïîøëèíó, êîòîðàÿ çàâèñèò îò ñðîêà êàðòû.
-Íà 7 äíåé - #medup7, íà 14 äíåé - #medup14
-Íà 30 äíåé #medup30, íà 60 äíåé - #medup60.
-Âû ñîãëàñíû?
-Åñëè ñîãëàñíû, òî îïëàòèòå è ìû ïðîäîëæèì ïðîöåññ îôîðìëåíèÿ.
-/b Îïëàòèòü ìîæíî ÷åðåç /pay {myID} èëè /trade {myID}
+[2]=Обновление данных
+Хорошо, я Вас понял{sex:|а}. Вам нужно обновить данные в мед.карте.
+Для обновления данных необходимо заплатить гос.пошлину, которая зависит от срока карты.
+На 7 дней - #medup7, на 14 дней - #medup14
+На 30 дней #medup30, на 60 дней - #medup60.
+Вы согласны?
+Если согласны, то оплатите и мы продолжим процесс оформления.
+/b Оплатить можно через /pay {myID} или /trade {myID}
 
 {dialog}
-[name]=Ñðîê âûäà÷è
-[1]=7 äíåé
+[name]=Срок выдачи
+[1]=7 дней
 #timeID=0
-[2]=14 äíåé
+[2]=14 дней
 #timeID=1
-[3]=30 äíåé
+[3]=30 дней
 #timeID=2
-[4]=60 äåé
+[4]=60 дей
 #timeID=3
 {dialogEnd}
 
-Õîðîøî, òîãäà ïðèñòóïèì ê îôîðìëåíèþ.
-/me âûòàùèë{sex:|à} èç íàãðóäíîãî êàðìàíà øàðèêîâóþ ðó÷êó
-/do Ðó÷êà â ïðàâîé ðóêå.
-/me îòêðûë{sex:|à} øêàô÷èê, çàòåì íà÷àë{sex:|à} èñêàòü ìåä.êàðòó c èíäèôèêàòîðîì ¹#playerID
-/me ðàçëîæèë{sex:|à} ïàëüöàìè ïðàâîé ðóêè ïàñïîðò íà íóæíîé ñòðàíè÷êå è íà÷àë{sex:|à} ïåðåïèñûâàòü äàííûå â áëàíê
-/me îòêðûë{sex:|à} ïóñòóþ ìåä.êàðòó è ïàñïîðò, çàòåì íà÷àë{sex:|à} ïåðåïèñûâàòü äàííûå èç ïàñïîðòà
-/do Ñïóñòÿ ìèíóòó äàííûå ïàñïîðòà áûëè ïåðåïèñàíû íà áëàíê.
+Хорошо, тогда приступим к оформлению.
+/me вытащил{sex:|а} из нагрудного кармана шариковую ручку
+/do Ручка в правой руке.
+/me открыл{sex:|а} шкафчик, затем начал{sex:|а} искать мед.карту c индификатором №#playerID
+/me разложил{sex:|а} пальцами правой руки паспорт на нужной страничке и начал{sex:|а} переписывать данные в бланк
+/me открыл{sex:|а} пустую мед.карту и паспорт, затем начал{sex:|а} переписывать данные из паспорта
+/do Спустя минуту данные паспорта были переписаны на бланк.
 {dialogEnd}
-/me îòëîæèë{sex:|à} ïàñïîðò â ñòîðîíó åãî õîçÿèíà è ïðèãîòîâèë{sex:ñÿ|àñü} ê ïðîäîëæåíèþ çàíåñåíèÿ èíôîðìàöèè
-Òàê, ñåé÷àñ çàäàì íåñêîëüêî âîïðîñîâ êàñàåìî çäîðîâüÿ...
-Æàëîáû íà çäîðîâüå èìåþòñÿ?
+/me отложил{sex:|а} паспорт в сторону его хозяина и приготовил{sex:ся|ась} к продолжению занесения информации
+Так, сейчас задам несколько вопросов касаемо здоровья...
+Жалобы на здоровье имеются?
 {pause}
-Èìåþòñÿ ëè âðåäíûå ïðèâû÷êè, à òàêæå àëëåðãè÷åñêèå ðåàêöèè?
+Имеются ли вредные привычки, а также аллергические реакции?
 {pause}
-Õîðîøî, ñåé÷àñ ñïðîøó ïàðó âîïðîñîâ ïî îöåíêå ïñèõè÷åñêîãî ñîñòîÿíèÿ.
+Хорошо, сейчас спрошу пару вопросов по оценке психического состояния.
 {dialog}
-[name]=Âîïðîñû ïñèõ.ñîñò.
-[1]=Ìûñëè î ñóèöèäå.
-Áûëè ëè ó âàñ ìûñëè î ñóèöèäå?
-[2]=Íàñòðîåíèå óòðîì.
-Êàê âû ïðîñûïàåòåñü óòðîì, êàêîå ó âàñ íàñòðîåíèå?
-[3]=Ïðèñòóïû áåñêîíòðîëüíîãî ñìåõà.
-Áûâàþò ëè ó âàñ áåñêîíòðîëüíûå ïðèñòóïû ñìåõà? Åñëè äà, òî êàê ÷àñòî?
-[4]=Ñèòóàöèÿ íà äîðîãå.
-Ïðåäñòàâüòå, ÷òî Âû íàõîäèòåñü â öåíòðå äîðîãè è íà âàñ åäåò ñ...
-...áîëüøîé ñêîðîñòüþ ìàññèâíîå àâòî.
-×òî âû ñäåëàåòå?
-[5]=Ïðèñòóïû àãðåññèè.
-Áûâàþò ëè ó âàñ áåñêîíòðîëüíûå ïðèñòóïû àãðåññèè? Åñëè äà, òî êàê ÷àñòî?
-[6]=Ëåæàùèé íà çåìëå
-×òî âû áóäåòå äåëàòü, åñëè Âû óâèäåëè ÷åëîâåêà ëåæàùåãî íà çåìëå?
+[name]=Вопросы псих.сост.
+[1]=Мысли о суициде.
+Были ли у вас мысли о суициде?
+[2]=Настроение утром.
+Как вы просыпаетесь утром, какое у вас настроение?
+[3]=Приступы бесконтрольного смеха.
+Бывают ли у вас бесконтрольные приступы смеха? Если да, то как часто?
+[4]=Ситуация на дороге.
+Представьте, что Вы находитесь в центре дороги и на вас едет с...
+...большой скоростью массивное авто.
+Что вы сделаете?
+[5]=Приступы агрессии.
+Бывают ли у вас бесконтрольные приступы агрессии? Если да, то как часто?
+[6]=Лежащий на земле
+Что вы будете делать, если Вы увидели человека лежащего на земле?
 {dialogEnd}
 {pause}
-/me çàïèñàë{sex:|à} âñå ñêàçàííîå ïàöèåíòîì â ìåä.êàðòó
+/me записал{sex:|а} все сказанное пациентом в мед.карту
 {dialog}
-[name]=Ñîñò. çäîðîâüÿ
-[1]=Ïîëíîcòüþ çäîðîâ(àÿ)
+[name]=Сост. здоровья
+[1]=Полноcтью здоров(ая)
 #healID=3
-/me ñäåëàë{sex:|à} çàïèñü íàïðîòèâ ïóíêòà 'Ïñèõ. Çäîðîâüå.' - 'Ïîëíîñòüþ çäîðîâ(à).'
-[2]=Íàáëþäàþòñÿ îòêëîíåíèÿþòñÿ
+/me сделал{sex:|а} запись напротив пункта 'Псих. Здоровье.' - 'Полностью здоров(а).'
+[2]=Наблюдаются отклоненияются
 #healID=2
-/me ñäåëàë{sex:|à} çàïèñü íàïðîòèâ ïóíêòà 'Ïñèõ. Çäîðîâüå.' - 'Èìåþòñÿ îòêëîíåíèÿ.'
-[3]=Ïñèõè÷åñêè íå çäîðîâ(àÿ)
+/me сделал{sex:|а} запись напротив пункта 'Псих. Здоровье.' - 'Имеются отклонения.'
+[3]=Психически не здоров(ая)
 #healID=1
-/me ñäåëàë{sex:|à} çàïèñü íàïðîòèâ ïóíêòà 'Ïñèõ. Çäîðîâüå.' - 'Ïñèõ. íåçäîðîâ.'
+/me сделал{sex:|а} запись напротив пункта 'Псих. Здоровье.' - 'Псих. нездоров.'
 {dialogEnd}
-/me âçÿë{sex:|à} øòàìï {myHospEn} â ïðàâóþ ðóêó èç ÿùèêà ñòîëà è íàíåñ{sex:|ëà} îòòèñê â óãëó áëàíêà
-/do Ïå÷àòü íàíåñåíà.
-/me îòëîæèâ øòàìï â ñòîðîíó è ïîñòàâèë{sex:|à} ñâîþ ïîäïèñü, è ñåãîäíÿøíþþ äàòó
-/do Ñòðàíèöà ìåä.êàðòû çàïîëíåíà.
-Âñ¸ ãîòîâî, äåðæèòå ñâîþ ìåä.êàðòó, íå áîëåéòå.
-Óäà÷íîãî äíÿ.
+/me взял{sex:|а} штамп {myHospEn} в правую руку из ящика стола и нанес{sex:|ла} оттиск в углу бланка
+/do Печать нанесена.
+/me отложив штамп в сторону и поставил{sex:|а} свою подпись, и сегодняшнюю дату
+/do Страница мед.карты заполнена.
+Всё готово, держите свою мед.карту, не болейте.
+Удачного дня.
 /medcard #playerID #healID #timeID]]
 				local f = io.open(dirml.."/MedicalHelper/rp-medcard.txt", "w")
 				f:write(textrp)
@@ -3072,11 +3072,11 @@ function imgui.OnDrawFrame()
 				buf_mcedit.v = u8(textrp)
 			end
 			imgui.SameLine()
-			if imgui.Button(u8"Òåã-ôóíêöèè", imgui.ImVec2(155, 25)) then
+			if imgui.Button(u8"Тег-функции", imgui.ImVec2(155, 25)) then
 				paramWin.v = not paramWin.v
 			end
 			imgui.SameLine()
-			if imgui.Button(u8"Äëÿ ïðîäâèíóòûõ", imgui.ImVec2(155, 25)) then
+			if imgui.Button(u8"Для продвинутых", imgui.ImVec2(155, 25)) then
 				profbWin.v = not profbWin.v
 			end
 		imgui.End()
@@ -3085,90 +3085,90 @@ function imgui.OnDrawFrame()
 		local sw, sh = getScreenResolution()
 		imgui.SetNextWindowSize(imgui.ImVec2(710, 450), imgui.Cond.FirstUseEver)
 		imgui.SetNextWindowPos(imgui.ImVec2(sw / 2, sh / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
-		imgui.Begin(u8"Ïðîäâèíóòîå ïîëüçîâàíèå áèíäåðà", profbWin, imgui.WindowFlags.NoResize);
+		imgui.Begin(u8"Продвинутое пользование биндера", profbWin, imgui.WindowFlags.NoResize);
 		imgui.SetWindowFontScale(1.1)
 			local vt1 = [[
-Ïîìèìî ñòàíäàðòíîãî èñïîëüçîâàíèÿ áèíäåðà äëÿ ïîñëåäîâàòåëüíîãî ïðîèãðûâàíèÿ ñòðî÷åê
-òåêñòà âîçìîæíî èñïîëüçîâàòü áîëüøèé ôóíêöèîíàë äëÿ ðàñøèðåíèÿ âîçìîæíîñòåé.
+Помимо стандартного использования биндера для последовательного проигрывания строчек
+текста возможно использовать больший функционал для расширения возможностей.
  
-{FFCD00}1. Ñèñòåìà ïåðåìåííûõ{FFFFFF}
-	Äëÿ ñîçäàíèå ïåðåìåííûõ èñïîëüçóåòñÿ ñèìâîë ðåø¸òêè {ACFF36}#{FFFFFF}, ïîñëå êîòîðîãî èä¸ò íàçâàíèå
-ïåðåìåííîé. Íàçâàíèå ïåðåìåííîé ìîæåò ñîäåðæàòü òîëüêî àíãëèéñêèå ñèìâîëû è öèôðû,
-èíà÷å áóäåò ïðîïóùåíî. 
-	Ïîñëå íàçâàíèÿ ïåðåìåííîé ñòàâèòñÿ ðàâíî {ACFF36}={FFFFFF} è äàëåå ïèøåòñÿ ëþáîé òåêñò, êîòîðûé
-íåîáõîäèìî ïðèñâîèòü ýòîé ïåðåìåííîé. Òåêñò ìîæåò ñîäåðæàòü ëþáûå ñèìâîëû.
-		Ïðèìåð: {ACFF36}#price=10.000$.{FFFFFF}
-	Òåïåðü, èñïîëüçóÿ ïåðåìåííóþ {ACFF36}#price{FFFFFF}, ìîæíî å¸ âñòàâèòü êóäà âàì çàõî÷åòñÿ, è îíà áóäåò
-àâòîìàòè÷åñêè çàìåíåíà âî âðåìÿ ïðîèãðûâàíèÿ îòûãðîâêè íà çíà÷åíèå, êîòîðîå áûëî 
-óêàçàíî ïîñëå ðàâíî.
+{FFCD00}1. Система переменных{FFFFFF}
+	Для создание переменных используется символ решётки {ACFF36}#{FFFFFF}, после которого идёт название
+переменной. Название переменной может содержать только английские символы и цифры,
+иначе будет пропущено. 
+	После названия переменной ставится равно {ACFF36}={FFFFFF} и далее пишется любой текст, который
+необходимо присвоить этой переменной. Текст может содержать любые символы.
+		Пример: {ACFF36}#price=10.000$.{FFFFFF}
+	Теперь, используя переменную {ACFF36}#price{FFFFFF}, можно её вставить куда вам захочется, и она будет
+автоматически заменена во время проигрывания отыгровки на значение, которое было 
+указано после равно.
  
-{FFCD00}2. Êîììåíòèðîâàíèå òåêñòà{FFFFFF}
-	Ñ ïîìîùüþ êîììåíòèðîâàíèÿ ìîæíî ñäåëàòü äëÿ ñåáÿ ïîìåòêó èëè îïèñàíèå ÷åãî-ëèáî
-ïðè ýòîì ñàì êîììåíòàðèé íå áóäåò îòîáðàæàòüñÿ. Êîììåíòàðèé ñîçäà¸òñÿ äâîéíûì ñëåøîì //,
-ïîñëå êîòîðîãî ïèøåòñÿ ëþáîé òåêñò.
-	Ïðèìåð: {ACFF36}Çäðàâñòâóéòå, ÷åì Âàì ïîìî÷ü // Ïðèâåòñòâèå{FFFFFF}
-Êîììåíòàðèé {ACFF36}// Ïðèâåòñòâèå{FFFFFF} âî âðåìÿ îòûãðîâêè óäàëèòñÿ è íå áóäåò âèäåí.
+{FFCD00}2. Комментирование текста{FFFFFF}
+	С помощью комментирования можно сделать для себя пометку или описание чего-либо
+при этом сам комментарий не будет отображаться. Комментарий создаётся двойным слешом //,
+после которого пишется любой текст.
+	Пример: {ACFF36}Здравствуйте, чем Вам помочь // Приветствие{FFFFFF}
+Комментарий {ACFF36}// Приветствие{FFFFFF} во время отыгровки удалится и не будет виден.
  
-{FFCD00}3. Ñèñòåìà äèàëîãîâ{FFFFFF}
-	Ñ ïîìîùüþ äèàëîãîâ ìîæíî ñîçäàâàòü ðàçâåòâëåíèÿ îòûãðîâîê, ñ ïîìîùüþ êîòîðûõ ìîæíî
-ðåàëèçîâûâàòü áîëåå ñëîæíûå âàðèàíòû èõ.
-Ñòðóêòóðà äèàëîãà:
-	{ACFF36}{dialog}{FFFFFF} 		- íà÷àëî ñòðóêòóðû äèàëîãà
-	{ACFF36}[name]=Òåêñò{FFFFFF}- èìÿ äèàëîãà. Çàäà¸òñÿ ïîñëå ðàâíî =. Îíî íå äîëæíî áûòü îñîáî áîëüøèì
-	{ACFF36}[1]=Òåêñò{FFFFFF}		- âàðèàíòû äëÿ âûáîðà äàëüøåéøèõ äåéñòâèé, ãäå â ñêîáêàõ 1 - ýòî
-êëàâèøà àêòèâàöèÿ. Ìîæíî óñòàíàâëèâàòü ïîìèìî öèôð, äðóãèå çíà÷åíèÿ, íàïðèìåð, [X], [B],
-[NUMPAD1], [NUMPAD2] è ò.ä. Ñïèñîê äîñòóïíûõ êëàâèø ìîæíî ïîñìîòðåòü çäåñü. Ïîñëå ðàâíî
-ïðîïèñûâàåòñÿ èìÿ, êîòîðîå áóäåò îòîáðàæàòüñÿ ïðè âûáîðå. 
-	Ïîñëå òîãî, êàê çàäàëè èìÿ âàðèàíòà, ñî ñëåäóþùåé ñòðîêè ïèøóòñÿ óæå ñàìè îòûãðîâêè.
-	{ACFF36}Òåêñò îòûãðîâêè...
-	{ACFF36}[2]=Òåêñò{FFFFFF}	
-	{ACFF36}Òåêñò îòûãðîâêè...
-	{ACFF36}{dialogEnd}{FFFFFF}		- êîíåö ñòðóêòóðû äèàëîãà
+{FFCD00}3. Система диалогов{FFFFFF}
+	С помощью диалогов можно создавать разветвления отыгровок, с помощью которых можно
+реализовывать более сложные варианты их.
+Структура диалога:
+	{ACFF36}{dialog}{FFFFFF} 		- начало структуры диалога
+	{ACFF36}[name]=Текст{FFFFFF}- имя диалога. Задаётся после равно =. Оно не должно быть особо большим
+	{ACFF36}[1]=Текст{FFFFFF}		- варианты для выбора дальшейших действий, где в скобках 1 - это
+клавиша активация. Можно устанавливать помимо цифр, другие значения, например, [X], [B],
+[NUMPAD1], [NUMPAD2] и т.д. Список доступных клавиш можно посмотреть здесь. После равно
+прописывается имя, которое будет отображаться при выборе. 
+	После того, как задали имя варианта, со следующей строки пишутся уже сами отыгровки.
+	{ACFF36}Текст отыгровки...
+	{ACFF36}[2]=Текст{FFFFFF}	
+	{ACFF36}Текст отыгровки...
+	{ACFF36}{dialogEnd}{FFFFFF}		- конец структуры диалога
 ]]
 			local vt2 = [[
-									{E45050}Îñîáåííîñòè:
-1. Èìåíà äèàëîãà è âàðèàíòîâ çàäàâàòü íå îáÿçàòåëüíî, íî 
-ðåêîìåíäóåòñÿ äëÿ âèçóàëüíîãî ïîíèìàíèÿ;
-2. Ìîæíî ñîçäàâàòü äèàëîãè âíóòðè äèàëîãîâ, ñîçäàâàÿ 
-êîíñòðóêöèè âíóòðè âàðèàíòîâ;
-3. Ìîæíî èñïîëüçîâàòü âñå âûøå ïåðå÷èñëåííûå ñèñòåìû 
-(ïåðåìåííûå, êîììåíòàðèè, òåãè è ò.ï.)
+									{E45050}Особенности:
+1. Имена диалога и вариантов задавать не обязательно, но 
+рекомендуется для визуального понимания;
+2. Можно создавать диалоги внутри диалогов, создавая 
+конструкции внутри вариантов;
+3. Можно использовать все выше перечисленные системы 
+(переменные, комментарии, теги и т.п.)
 			]]
 			local vt3 = [[
-{FFCD00}4. Èñïîëüçîâàíèå òåãîâ{FFFFFF}
-Ñïèñîê òåãîâ ìîæíî îòêðûòü â ìåíþ ðåäàêòèðîâàíèÿ îòûãðîâêè èëè â ðàçäåëå áèíäåðà.
-Òåãè ïðåäíàçíà÷åíû äëÿ àâòîìàòè÷åñêåñêîé çàìåíû íà çíà÷åíèå, êîòîðûå îíè èìåþò.
-Èìåþòñÿ äâà âèäà òåãîâ:
-	1. Ñïðîñòûå òåãè - òåãè, êîòîðûå ïðîñòî çàìåíÿþò ñåáÿ íà çíà÷åíèå, êîòîðûå îíè
-ïîñòîÿííî èìåþò, íàïðèìåð, {ACFF36}{myID}{FFFFFF} - âîçâðàùàåò Âàø òåêóùèé ID.
-	2. Òåã-ôóíêöèÿ - ñïåöèàëüíûå òåãè, êîòîðûå òðåáóþò äîïîëíèòåëüíûõ ïàðàìåòðîâ.
-Ê íèì îòíîñÿòñÿ:
-	{ACFF36}{sleep:[âðåìÿ]}{FFFFFF} - Çàäà¸ò ñâîé èíòåðâàë âðåìåíè ìåæäó ñòðî÷êàìè. 
-Âðåìÿ çàäà¸òñÿ â ìèëëèñåêóíäàõ. Ïðèìåð: {ACFF36}{sleep:2000}{FFFFFF} - çàäà¸ò èíòåðâàë â 2 ñåê
-1 ñåêóíäà = 1000 ìèëëèñåêóíä
+{FFCD00}4. Использование тегов{FFFFFF}
+Список тегов можно открыть в меню редактирования отыгровки или в разделе биндера.
+Теги предназначены для автоматическеской замены на значение, которые они имеют.
+Имеются два вида тегов:
+	1. Спростые теги - теги, которые просто заменяют себя на значение, которые они
+постоянно имеют, например, {ACFF36}{myID}{FFFFFF} - возвращает Ваш текущий ID.
+	2. Тег-функция - специальные теги, которые требуют дополнительных параметров.
+К ним относятся:
+	{ACFF36}{sleep:[время]}{FFFFFF} - Задаёт свой интервал времени между строчками. 
+Время задаётся в миллисекундах. Пример: {ACFF36}{sleep:2000}{FFFFFF} - задаёт интервал в 2 сек
+1 секунда = 1000 миллисекунд
 
-	{ACFF36}{sex:òåêñò1|òåêñò2}{FFFFFF} - Âîçâðàùàåò òåêñò â çàâèñèìîñòè îò âûáðàííîãî ïîëà.
-Áîëüøå ïðåäíàçíà÷åíî, åñëè ñîçäà¸òñÿ îòûãðîâêà äëÿ ïóáëè÷íîãî èñïîëüçîâàíèÿ.
-Ãäå {6AD7F0}òåêñò1{FFFFFF} - äëÿ ìóæñêîé îòûãðîâêè, {6AD7F0}òåêñò2{FFFFFF} - äëÿ æåíñêîé. Ðàçäåëÿåòñÿ âåðòèêàëüíîé ÷åðòîé.
-	Ïðèìåð: {ACFF36}ß {sex:ïðèø¸ë|ïðèøëà} ñþäà.
+	{ACFF36}{sex:текст1|текст2}{FFFFFF} - Возвращает текст в зависимости от выбранного пола.
+Больше предназначено, если создаётся отыгровка для публичного использования.
+Где {6AD7F0}текст1{FFFFFF} - для мужской отыгровки, {6AD7F0}текст2{FFFFFF} - для женской. Разделяется вертикальной чертой.
+	Пример: {ACFF36}Я {sex:пришёл|пришла} сюда.
 
-	{ACFF36}{getNickByID:èä èãðîêà}{FFFFFF} - Âîçðàùàåò íèê èãðîêà ïî åãî ID.
-Ïðèìåð: Íà ñåðâåðå èãðîê {6AD7F0}Nick_Name{FFFFFF} ñ id - 25.
-{ACFF36}{getNickByID:25}{FFFFFF} âåðí¸ò - {6AD7F0}Nick Name.
+	{ACFF36}{getNickByID:ид игрока}{FFFFFF} - Возращает ник игрока по его ID.
+Пример: На сервере игрок {6AD7F0}Nick_Name{FFFFFF} с id - 25.
+{ACFF36}{getNickByID:25}{FFFFFF} вернёт - {6AD7F0}Nick Name.
 			]]
 			imgui.TextColoredRGB(vt1)
 
 			imgui.BeginGroup()
-				imgui.TextDisabled(u8"					Ïðèìåð")
+				imgui.TextDisabled(u8"					Пример")
 				imgui.PushStyleColor(imgui.Col.FrameBg, imgui.ImColor(70, 70, 70, 200):GetVec4())
 				imgui.InputTextMultiline("##dialogPar", helpd.exp, imgui.ImVec2(220, 180), 16384)
 				imgui.PopStyleColor(1)
-				imgui.TextDisabled(u8"Äëÿ êîïèðîâàíèÿ èñïîëüçóéòå\nCtrl + C. Âñòàâêà - Ctrl + V")
+				imgui.TextDisabled(u8"Для копирования используйте\nCtrl + C. Вставка - Ctrl + V")
 			imgui.EndGroup()
 			imgui.SameLine()
 			imgui.BeginGroup()
 				imgui.TextColoredRGB(vt2)
-				if imgui.Button(u8"Ñïèñîê êëàâèø", imgui.ImVec2(150,25)) then
+				if imgui.Button(u8"Список клавиш", imgui.ImVec2(150,25)) then
 					imgui.OpenPopup("helpdkey")
 				end
 			imgui.EndGroup()
@@ -3176,7 +3176,7 @@ function imgui.OnDrawFrame()
 			------
 			if imgui.BeginPopup("helpdkey") then
 				imgui.BeginChild("helpdkey", imgui.ImVec2(290,320))
-					imgui.TextColoredRGB("{FFCD00}Êëèêíèòå, ÷òîáû ñêîïèðîâàòü")
+					imgui.TextColoredRGB("{FFCD00}Кликните, чтобы скопировать")
 					imgui.BeginGroup()
 						for _,v in ipairs(helpd.key) do
 							if imgui.Selectable(u8("["..v.k.."] 	-	"..v.n)) then
@@ -3209,7 +3209,7 @@ function rankFix()
 	end
 end
 
-function ButtonDep(desk, bool) -- ïîäñâåòêà êíîïêè âûáðàííîãî ìåíþ
+function ButtonDep(desk, bool) -- подсветка кнопки выбранного меню
 	local retBool = false
 	if bool then
 		imgui.PushStyleColor(imgui.Col.Button, imgui.ImColor(230, 73, 45, 220):GetVec4())
@@ -3223,13 +3223,13 @@ end
 
 function sobesRP(id)
 	if id == 1 then
-		sobes.logChat[#sobes.logChat+1] = "{FFC000}Âû: {FFFFFF}Ïðèâåòñòâèå. Ïðîñüáà ïîêàçàòü äîêóìåíòû."
+		sobes.logChat[#sobes.logChat+1] = "{FFC000}Вы: {FFFFFF}Приветствие. Просьба показать документы."
 		sobes.player.name = sampGetPlayerNickname(tonumber(sobes.selID.v))
-		sampSendChat(string.format("Ïðèâåòñòâóþ Âàñ íà ñîáåñåäîâàíèå ß, %s - %s", u8:decode(buf_nick.v), u8:decode(chgName.rank[num_rank.v+1])))
+		sampSendChat(string.format("Приветствую Вас на собеседование Я, %s - %s", u8:decode(buf_nick.v), u8:decode(chgName.rank[num_rank.v+1])))
 		wait(1700)
-		sampSendChat("Ïðåäúÿâèòå ïîæàëóéñòà Âàø ïàêåò äîêóìåíòîâ, à èìåííî: ïàñïîðò è ìåä.êàðòó.")
+		sampSendChat("Предъявите пожалуйста Ваш пакет документов, а именно: паспорт и мед.карту.")
 		wait(1700)
-		sampSendChat(string.format("/n Îòûãðûâàÿ RP, êîìàíäû: /showpass %d; /showmc %d - ñ èñïîëüçîâàíèåì /me /do ", myid, myid))
+		sampSendChat(string.format("/n Отыгрывая RP, команды: /showpass %d; /showmc %d - с использованием /me /do ", myid, myid))
 		while true do
 			wait(0)
 			if sobes.player.zak ~= 0 and sobes.player.heal ~= "" then break end
@@ -3237,138 +3237,138 @@ function sobesRP(id)
 				local dId = sampGetCurrentDialogId()
 				if dId == 1234 then
 					local dText = sampGetDialogText()
-					if dText:find("Ëåò â øòàòå") and dText:find("Çàêîíîïîñëóøíîñòü") then
+					if dText:find("Лет в штате") and dText:find("Законопослушность") then
 					HideDialogInTh()
-					if dText:find("Îðãàíèçàöèÿ") then sobes.player.work = "Ðàáîòàåò" else sobes.player.work = "Áåç ðàáîòû" end
-						if dText:match("Èìÿ: {FFD700}(%S+)") == sobes.player.name then
-							sobes.player.let = tonumber(dText:match("Ëåò â øòàòå: {FFD700}(%d+)"))
-							sobes.player.zak = tonumber(dText:match("Çàêîíîïîñëóøíîñòü: {FFD700}(%d+)"))
-							sampSendChat("/me "..chsex("ïîñìîòðåë", "ïîñìîòðåëà").." èíôîðìàöèþ â ïàñïîðòå, ïîñëå ÷åãî "..chsex("îòäàë","îòäàëà").." åãî ÷åëîâåêó íàïðîòèâ")
+					if dText:find("Организация") then sobes.player.work = "Работает" else sobes.player.work = "Без работы" end
+						if dText:match("Имя: {FFD700}(%S+)") == sobes.player.name then
+							sobes.player.let = tonumber(dText:match("Лет в штате: {FFD700}(%d+)"))
+							sobes.player.zak = tonumber(dText:match("Законопослушность: {FFD700}(%d+)"))
+							sampSendChat("/me "..chsex("посмотрел", "посмотрела").." информацию в паспорте, после чего "..chsex("отдал","отдала").." его человеку напротив")
 							if sobes.player.let >= 3 then
 								if sobes.player.zak >= 35 then
 									if not dText:find("{FF6200} "..list_org_BL[num_org.v+1]) then
-										table.insert(sobes.logChat, "{54A8F2}"..sobes.player.name.."{FFFFFF}: Ïîêàçàë(à) ïàñïîðò. Íå èìååò ïðîáëåì.")
-										sobes.player.bl = "Íå íàéäåí(à)"
+										table.insert(sobes.logChat, "{54A8F2}"..sobes.player.name.."{FFFFFF}: Показал(а) паспорт. Не имеет проблем.")
+										sobes.player.bl = "Не найден(а)"
 										if sobes.player.narko == 0.1 then
-											sampSendChat("Õîðîøî, òåïåðü ìåä.êàðòó.")
+											sampSendChat("Хорошо, теперь мед.карту.")
 											wait(1700)
 											sampSendChat("/n /showmc "..myid)
 										end
 									else
-										table.insert(sobes.logChat, "{54A8F2}"..sobes.player.name.."{FFFFFF}: Ïîêàçàë(à) ïàñïîðò. Íàõîäèòñÿ â ×Ñ âàøåé áîëüíèöû.")
-											sampSendChat("Èçâèíÿþñü, íî Âû íàì íå ïîäõîäèòå.")
+										table.insert(sobes.logChat, "{54A8F2}"..sobes.player.name.."{FFFFFF}: Показал(а) паспорт. Находится в ЧС вашей больницы.")
+											sampSendChat("Извиняюсь, но Вы нам не подходите.")
 											wait(1700)
-											sampSendChat("Âû ñîñòîèòå â ×¸ðíîì ñïèñêå "..u8:decode(chgName.org[num_org.v+1]))
+											sampSendChat("Вы состоите в Чёрном списке "..u8:decode(chgName.org[num_org.v+1]))
 										sobes.player.bl = list_org_BL[num_org.v+1]
 									--	sobes.getStats = false
 										return
 									end
 								else --player = {name = "", let = 0, zak = 0, work = "", bl = "", heal = "", narko = 0},
-									table.insert(sobes.logChat, "{54A8F2}"..sobes.player.name.."{FFFFFF}: Ïîêàçàë(à) ïàñïîðò. Íåäîñòàòî÷íî çàêîíîïîñëóøíîñòè.")
-										sampSendChat("Èçâèíÿþñü, íî Âû íàì íå ïîäõîäèòå.")
+									table.insert(sobes.logChat, "{54A8F2}"..sobes.player.name.."{FFFFFF}: Показал(а) паспорт. Недостаточно законопослушности.")
+										sampSendChat("Извиняюсь, но Вы нам не подходите.")
 										wait(1700)
-										sampSendChat("Ó Âàñ ïðîáëåìû ñ çàêîíîì.")
+										sampSendChat("У Вас проблемы с законом.")
 										wait(1700)
-										sampSendChat("/n Íåîáõîäèìî çàêîíîïîñëóøíîñü 35+")
+										sampSendChat("/n Необходимо законопослушнось 35+")
 										wait(1700)
-										sampSendChat("Ïðèõîäèòå â ñëåäóþùèé ðàç.")
+										sampSendChat("Приходите в следующий раз.")
 								--	sobes.getStats = false
 									return
 								end
 							else
-								table.insert(sobes.logChat, "{54A8F2}"..sobes.player.name.."{FFFFFF}: Ïîêàçàë(à) ïàñïîðò. Ìàëî ïðîæèâàåò â øòàòå.")
-									sampSendChat("Èçâèíÿþñü, íî Âû íàì íå ïîäõîäèòå.")
+								table.insert(sobes.logChat, "{54A8F2}"..sobes.player.name.."{FFFFFF}: Показал(а) паспорт. Мало проживает в штате.")
+									sampSendChat("Извиняюсь, но Вы нам не подходите.")
 									wait(1700)
-									sampSendChat("Íåîáõîäèìî êàê ìèíèìóì ïðîæèâàòü 3 ãîäà â øòàòå.")
+									sampSendChat("Необходимо как минимум проживать 3 года в штате.")
 									wait(1700)
-									sampSendChat("Ïðèõîäèòå â ñëåäóþùèé ðàç.")
+									sampSendChat("Приходите в следующий раз.")
 							--	sobes.getStats = false
 								return
 							end
 						else
-							table.insert(sobes.logChat, "{E74E28}[Îøèáêà]{FFFFFF}: Êòî-òî äðóãîé ïûòàëñÿ ïîêàçàòü ïàñïîðò.") 
+							table.insert(sobes.logChat, "{E74E28}[Ошибка]{FFFFFF}: Кто-то другой пытался показать паспорт.") 
 						end 
 					end
-					if dText:find("Íàðêîçàâèñèìîñòü") then
+					if dText:find("Наркозависимость") then
 						HideDialogInTh()
-						if dText:match("Èìÿ: (%S+)") == sobes.player.name then
-							sampSendChat("/me "..chsex("ïîñìîòðåë", "ïîñìîòðåëà").." èíôîðìàöèþ â ìåä.êàðòå, ïîñëå ÷åãî "..chsex("îòäàë","îòäàëà").." åãî ÷åëîâåêó íàïðîòèâ")
-							sobes.player.narko = tonumber(dText:match("Íàðêîçàâèñèìîñòü: (%d+)"));
-							if dText:find("Ïîëíîñòüþ çäîðîâûé") then
+						if dText:match("Имя: (%S+)") == sobes.player.name then
+							sampSendChat("/me "..chsex("посмотрел", "посмотрела").." информацию в мед.карте, после чего "..chsex("отдал","отдала").." его человеку напротив")
+							sobes.player.narko = tonumber(dText:match("Наркозависимость: (%d+)"));
+							if dText:find("Полностью здоровый") then
 								if sobes.player.narko == 0 then
-									table.insert(sobes.logChat, "{54A8F2}"..sobes.player.name.."{FFFFFF}: Ïîêàçàë(à) ìåä.êàðòó. Âñ¸ â ïîðÿäêå.")
-									sobes.player.heal = "Çäîðîâ"
+									table.insert(sobes.logChat, "{54A8F2}"..sobes.player.name.."{FFFFFF}: Показал(а) мед.карту. Всё в порядке.")
+									sobes.player.heal = "Здоров"
 									if sobes.player.zak == 0 then
-											sampSendChat("Õîðîøî, òåïåðü ïàñïîðò.")
+											sampSendChat("Хорошо, теперь паспорт.")
 											wait(1700)
 											sampSendChat("/n /showpass "..myid)
 									end
 								else
-									table.insert(sobes.logChat, "{54A8F2}"..sobes.player.name.."{FFFFFF}: Ïîêàçàë(à) ìåä.êàðòó. Èìååò íàðêîçàâèñèìîñòü.")
-									sobes.player.heal = "Çäîðîâ"
+									table.insert(sobes.logChat, "{54A8F2}"..sobes.player.name.."{FFFFFF}: Показал(а) мед.карту. Имеет наркозависимость.")
+									sobes.player.heal = "Здоров"
 									if sobes.player.zak == 0 then
-										sampSendChat("Õîðîøî, Âàø ïàñïîðò ïîæàëóéñòà.")
+										sampSendChat("Хорошо, Ваш паспорт пожалуйста.")
 										wait(1700)
 										sampSendChat("/n /showpass "..myid)
 									end
-									-- sampSendChat("Èçâèíÿþñü, íî Âû èìååòå íàðêîçàâèñèìîñòü.")
+									-- sampSendChat("Извиняюсь, но Вы имеете наркозависимость.")
 									-- wait(1700)
-									-- sampSendChat("Âû ìîæåòå èçëå÷èòüñÿ íà ìåñòå èëè ïðèéòè â ñëåäóþùèé ðàç.")
+									-- sampSendChat("Вы можете излечиться на месте или прийти в следующий раз.")
 									--	sobes.getStats = false
 									--	return
 								end
 							else 
-								table.insert(sobes.logChat, "{54A8F2}"..sobes.player.name.."{FFFFFF}: Ïîêàçàë(à) ìåä.êàðòó. Íå çäîðîâ.")
-								sampSendChat("Èçâèíÿþñü, íî Ó Âàñ ïðîáëåìû ñî çäîðîâüåì.")
+								table.insert(sobes.logChat, "{54A8F2}"..sobes.player.name.."{FFFFFF}: Показал(а) мед.карту. Не здоров.")
+								sampSendChat("Извиняюсь, но У Вас проблемы со здоровьем.")
 								wait(1700)
-								sampSendChat("Ó Âàñ ïðîáëåìû ñî çäîðîâüåì. Èìåþòñÿ ïñèõè÷åñêîå ðàñòðîéñòâî.")
-								sobes.player.heal = "Èìåþòñÿ îòêëîíåíèÿ"
+								sampSendChat("У Вас проблемы со здоровьем. Имеются психическое растройство.")
+								sobes.player.heal = "Имеются отклонения"
 								--	sobes.getStats = false
 								--	return
 							end
 						else
-							table.insert(sobes.logChat, "{E74E28}[Îøèáêà]{FFFFFF}: Êòî-òî äðóãîé ïûòàëñÿ ïîêàçàòü ìåä.êàðòó.") 
+							table.insert(sobes.logChat, "{E74E28}[Ошибка]{FFFFFF}: Кто-то другой пытался показать мед.карту.") 
 						end 
 					end
 				end
 			end
 		end
-		table.insert(sobes.logChat, "{FFC000}Âû: {FFFFFF}Ïðîâåðêà äîêóìåíòîâ çàêîí÷åíà.")
+		table.insert(sobes.logChat, "{FFC000}Вы: {FFFFFF}Проверка документов закончена.")
 		wait(1700)
-		if sobes.player.work == "Áåç ðàáîòû" then
-			sampSendChat("Îòëè÷íî, ó Âàñ âñ¸ â ïîðÿäêå ñ äîêóìåíòàìè.")
+		if sobes.player.work == "Без работы" then
+			sampSendChat("Отлично, у Вас всё в порядке с документами.")
 			sobes.nextQ = true
 			return
 		else
-			sampSendChat("Îòëè÷íî, ó Âàñ âñ¸ â ïîðÿäêå ñ äîêóìåíòàìè.")
+			sampSendChat("Отлично, у Вас всё в порядке с документами.")
 			wait(2000)
-			sampSendChat("Íî Âû ðàáîòàåòå íà äðóãîé ãîñóäàðñòâåííîé ðàáîòå, òðåáóåòñÿ îñòàâèòü ôîðìó ñâîåìó ðàáîòîäàòåëþ.")
+			sampSendChat("Но Вы работаете на другой государственной работе, требуется оставить форму своему работодателю.")
 			wait(2000)
-			sampSendChat("/n Óâîëüòåñü èç ðàáîòû, â êîòîðûé Âû ñåé÷àñ ñîñòîèòå")
+			sampSendChat("/n Увольтесь из работы, в который Вы сейчас состоите")
 			wait(2000)
-			sampSendChat("/n Óâîëèòüñÿ ñ ïîìîùüþ êîìàíäû /out ïðè íàë÷èè Titan VIP èëè ïîïðîñèòå â ðàöèþ.")
+			sampSendChat("/n Уволиться с помощью команды /out при налчии Titan VIP или попросите в рацию.")
 			sobes.nextQ = true
 			return
 		end
 	end
 	if id == 2 then
-		sampSendChat("Òåïåðü ÿ çàäàì Âàì íåñêîëüêî âîïðîñîâ.")
+		sampSendChat("Теперь я задам Вам несколько вопросов.")
 		wait(1700)
-		table.insert(sobes.logChat, "{FFC000}Âû: {FFFFFF}Âîïðîñ: Ñ êàêîé öåëüþ Âû ðåøèëè óñòðîèòüñÿ ê íàì â Áîëüíèöó?.")
-		sampSendChat("Ñ êàêîé öåëüþ Âû ðåøèëè óñòðîèòüñÿ ê íàì â Áîëüíèöó?")
+		table.insert(sobes.logChat, "{FFC000}Вы: {FFFFFF}Вопрос: С какой целью Вы решили устроиться к нам в Больницу?.")
+		sampSendChat("С какой целью Вы решили устроиться к нам в Больницу?")
 	end
 	if id == 3 then
-		table.insert(sobes.logChat, "{FFC000}Âû: {FFFFFF}Âîïðîñ: Åñòü ëè ó Âàñ ñïåö.ðàöèÿ \"Discord\"?.")
-		sampSendChat("Åñòü ëè ó Âàñ ñïåö.ðàöèÿ \"Discord\"?.")
+		table.insert(sobes.logChat, "{FFC000}Вы: {FFFFFF}Вопрос: Есть ли у Вас спец.рация \"Discord\"?.")
+		sampSendChat("Есть ли у Вас спец.рация \"Discord\"?.")
 	end
 	if id == 4 then
-	table.insert(sobes.logChat, "{FFC000}Âû: {FFFFFF}Ïðèíÿòèå èãðîêà...")
-	sampSendChat("Îòëè÷íî, Âû ïðèíÿòû ê íàì íà ðàáîòó.")
+	table.insert(sobes.logChat, "{FFC000}Вы: {FFFFFF}Принятие игрока...")
+	sampSendChat("Отлично, Вы приняты к нам на работу.")
 	sobes.nextQ = false
 		if num_rank.v+1 <= 8 then
 			wait(1700)
-			sampSendChat("Ïîäîéäèòå, ïîæàëóéñòà, ê Çàì.Ãëàâíîãî âðà÷à èëè Ãëàâíîìó âðà÷ó")
-			table.insert(sobes.logChat, "{FFC000}Âû: {FFFFFF}Ïðèãëàñèëè èãðîêà â îðãàíèçàöèþ.")
+			sampSendChat("Подойдите, пожалуйста, к Зам.Главного врача или Главному врачу")
+			table.insert(sobes.logChat, "{FFC000}Вы: {FFFFFF}Пригласили игрока в организацию.")
 			sobes.input.v = ""
 			sobes.player = {name = "", let = 0, zak = 0, work = "", bl = "", heal = "", narko = 0.1}
 			sobes.selID.v = ""
@@ -3377,18 +3377,18 @@ function sobesRP(id)
 			sobes.num = 0
 		else
 			wait(1700)
-			sampSendChat("Ñåé÷àñ ÿ âûäàì Âàì êëþ÷è îò øêàô÷èêà ñ ôîðìîé è äðóãèìè âåùàìè.")
+			sampSendChat("Сейчас я выдам Вам ключи от шкафчика с формой и другими вещами.")
 			wait(1700)
-			sampSendChat("/do Â êàðìàíå õàëàòà íàõîäÿòñÿ êëþ÷è îòøêàô÷èêîâ.")
+			sampSendChat("/do В кармане халата находятся ключи отшкафчиков.")
 			wait(1700)
-			sampSendChat("/me ïîòÿíóâøèñü âî âíóòðåííèé êàðìàí õàëàòà, "..chsex("äîñòàë","äîñòàëà").." îòòóäà êëþ÷.")
+			sampSendChat("/me потянувшись во внутренний карман халата, "..chsex("достал","достала").." оттуда ключ.")
 			wait(1700)
-			sampSendChat("/me ïåðåäàë".. chsex("", "à") .." êëþ÷ îò øêàô÷èêà ¹"..sobes.selID.v.." ñ ôîðìîé Èíòåðíà ÷åëîâåêó íàïðîòèâ.")
+			sampSendChat("/me передал".. chsex("", "а") .." ключ от шкафчика №"..sobes.selID.v.." с формой Интерна человеку напротив.")
 			wait(1700)
 			sampSendChat("/invite "..sobes.selID.v)
 			wait(1700)
-			sampSendChat("/r Ãðàæäàíèíó ñ ïîðÿäêîâûì íîìåðîì ¹"..sobes.selID.v.." áûëà âûäàíà ôîðìà ñ êëþ÷àìè è ïðîïóñêîì.")
-			table.insert(sobes.logChat, "{FFC000}Âû: {FFFFFF}Ïðèãëàñèëè èãðîêà â îðãàíèçàöèþ.")
+			sampSendChat("/r Гражданину с порядковым номером №"..sobes.selID.v.." была выдана форма с ключами и пропуском.")
+			table.insert(sobes.logChat, "{FFC000}Вы: {FFFFFF}Пригласили игрока в организацию.")
 			sobes.input.v = ""
 			sobes.player = {name = "", let = 0, zak = 0, work = "", bl = "", heal = "", narko = 0.1}
 			sobes.selID.v = ""
@@ -3399,9 +3399,9 @@ function sobesRP(id)
 	end
 	if id == 5 then
 		wait(1000)
-		sampSendChat("Èçâèíÿþñü, íî ó Âàñ îòïå÷àòêà â ïàñïîðòå")
+		sampSendChat("Извиняюсь, но у Вас отпечатка в паспорте")
 		wait(1700)
-		sampSendChat("/n ÍîíÐÏ íèê èëè äðóãàÿ ïðè÷èíà.")
+		sampSendChat("/n НонРП ник или другая причина.")
 		sobes.input.v = ""
 		sobes.player = {name = "", let = 0, zak = 0, work = "", bl = "", heal = "", narko = 0.1}
 		sobes.selID.v = ""
@@ -3411,7 +3411,7 @@ function sobesRP(id)
 	end
 	if id == 6 then
 		wait(1000)
-		sampSendChat("Èçâèíÿþñü, íî òðåáóåòñÿ ïðîæèâàòü â øòàòå êàê ìèíèìóì 3 ãîäà.")
+		sampSendChat("Извиняюсь, но требуется проживать в штате как минимум 3 года.")
 		sobes.input.v = ""
 		sobes.player = {name = "", let = 0, zak = 0, work = "", bl = "", heal = "", narko = 0.1}
 		sobes.selID.v = ""
@@ -3421,9 +3421,9 @@ function sobesRP(id)
 	end
 	if id == 7 then --sampSendChat("")
 		wait(1000)
-		sampSendChat("Èçâèíÿþñü, íî ó Âàñ ïðîáëåìû ñ çàêîíîì.")
+		sampSendChat("Извиняюсь, но у Вас проблемы с законом.")
 		wait(1700)
-		sampSendChat("/n Òðåáóåòñÿ ìèíèìóì 35 çàêîíîïîñëóøíîñòè.")
+		sampSendChat("/n Требуется минимум 35 законопослушности.")
 		sobes.input.v = ""
 		sobes.player = {name = "", let = 0, zak = 0, work = "", bl = "", heal = "", narko = 0.1}
 		sobes.selID.v = ""
@@ -3433,11 +3433,11 @@ function sobesRP(id)
 	end
 	if id == 8 then
 		wait(1000)
-		sampSendChat("Èçâèíÿþñü, Âû ðàáîòàåòå íà äðóãîé ãîñóäàðñòâåííîé ðàáîòå.")
+		sampSendChat("Извиняюсь, Вы работаете на другой государственной работе.")
 		wait(1700)
-		sampSendChat("/n Óâîëüòåñü èç ðàáîòû, â êîòîðûé Âû ñåé÷àñ ñîñòîèòå")
+		sampSendChat("/n Увольтесь из работы, в который Вы сейчас состоите")
 		wait(1700)
-		sampSendChat("/n Óâîëèòüñÿ ñ ïîìîùüþ êîìàíäû /out ïðè íàë÷èè Titan VIP èëè ïîïðîñèòå â ðàöèþ.")
+		sampSendChat("/n Уволиться с помощью команды /out при налчии Titan VIP или попросите в рацию.")
 		sobes.input.v = ""
 		sobes.player = {name = "", let = 0, zak = 0, work = "", bl = "", heal = "", narko = 0.1}
 		sobes.selID.v = ""
@@ -3447,9 +3447,9 @@ function sobesRP(id)
 	end
 	if id == 9 then
 		wait(1000)
-		sampSendChat("Èçâèíÿþñü, íî Âû ñîñòîèòå â ×åðíîì Ñïèñêå íàøåé áîëüíèöå.")
+		sampSendChat("Извиняюсь, но Вы состоите в Черном Списке нашей больнице.")
 		wait(1700)
-		sampSendChat("/n Äëÿ âûíåñåíèÿ èç ×Ñ òðåáóåòñÿ îñòàâèòü çàÿâêó íà ôîðóìå â ðàçäåëå Ìèí.Çäðàâ.")
+		sampSendChat("/n Для вынесения из ЧС требуется оставить заявку на форуме в разделе Мин.Здрав.")
 		sobes.input.v = ""
 		sobes.player = {name = "", let = 0, zak = 0, work = "", bl = "", heal = "", narko = 0.1}
 		sobes.selID.v = ""
@@ -3459,7 +3459,7 @@ function sobesRP(id)
 	end
 	if id == 10 then
 		wait(1000)
-		sampSendChat("Èçâèíÿþñü, íî ó Âàñ ïðîáëåìû ñî çäîðîâüåì.")
+		sampSendChat("Извиняюсь, но у Вас проблемы со здоровьем.")
 		sobes.input.v = ""
 		sobes.player = {name = "", let = 0, zak = 0, work = "", bl = "", heal = "", narko = 0.1}
 		sobes.selID.v = ""
@@ -3469,9 +3469,9 @@ function sobesRP(id)
 	end
 	if id == 11 then
 		wait(1000)
-		sampSendChat("Èçâèíÿþñü, íî ó Âàñ èìååòñÿ íàðêîçàâèñèìîñòü.")
+		sampSendChat("Извиняюсь, но у Вас имеется наркозависимость.")
 		wait(1700)
-		sampSendChat("Äëÿ ëå÷åíèÿ ýòîãî ìîæåòå êóïèòü òàáëåòêó â ìàãàçèíå èëè âûëå÷èòüñÿ ó íàñ.")
+		sampSendChat("Для лечения этого можете купить таблетку в магазине или вылечиться у нас.")
 		sobes.input.v = ""
 		sobes.player = {name = "", let = 0, zak = 0, work = "", bl = "", heal = "", narko = 0.1}
 		sobes.selID.v = ""
@@ -3531,7 +3531,7 @@ function onHotKeyCMD(id, keys)
 						sampSetChatInputEnabled(true)
 						sampSetChatInputText("/hl ")
 					end
-				elseif k == 6 then --ïîñò
+				elseif k == 6 then --пост
 					funCMD.post()
 				elseif k == 7 then
 					if resTarg then
@@ -3556,9 +3556,9 @@ function onHotKeyCMD(id, keys)
 					end
 				elseif k == 10 then
 					funCMD.osm()
-				elseif k == 11 then -- äåï
+				elseif k == 11 then -- деп
 					depWin.v = not depWin.v
-				elseif k == 12 then -- ñîá
+				elseif k == 12 then -- соб
 					sobWin.v = not sobWin.v
 				elseif k == 13 then 
 					if resTarg then
@@ -3637,7 +3637,7 @@ function onHotKeyCMD(id, keys)
 			end
 		end
 	else
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Â äàííûé ìîìåíò ïðîèãðûâàåòñÿ îòûãðîâêà.", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: В данный момент проигрывается отыгровка.", 0xEE4848)
 	end
 end
 
@@ -3717,9 +3717,9 @@ end
 local function playBind(tb)
 	if not tb.debug.file or #tb.debug.close > 0 then
 		if not tb.debug.file then
-			sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Ôàéë ñ òåêñòîì áèíäà íå îáíàðóæåí. ", 0xEE4848)
+			sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Файл с текстом бинда не обнаружен. ", 0xEE4848)
 		elseif #tb.debug.close > 0 then
-			sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Äèàëîã, íà÷àëî êîòîðîãî ÿâëÿåòñÿ ñòðîêà ¹"..tb.debug.close[#tb.debug.close]..", íå çàêðûò òåãîì {dialogEnd}", 0xEE4848)
+			sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Диалог, начало которого является строка №"..tb.debug.close[#tb.debug.close]..", не закрыт тегом {dialogEnd}", 0xEE4848)
 		end
 		addOneOffSound(0, 0, 0, 1058)
 		return false
@@ -3730,11 +3730,11 @@ local function playBind(tb)
 				renderT(line, var)
 			else
 				if line:find("{pause}") then
-					local len = renderGetFontDrawTextLength(font, "{FFFFFF}[{67E56F}Enter{FFFFFF}] - Ïðîäîëæèòü")
+					local len = renderGetFontDrawTextLength(font, "{FFFFFF}[{67E56F}Enter{FFFFFF}] - Продолжить")
 					while true do
 						wait(0)
 						if not isGamePaused() then
-							renderFontDrawText(font, "Îæèäàíèå...\n{FFFFFF}[{67E56F}Enter{FFFFFF}] - Ïðîäîëæèòü", sx-len-10, sy-50, 0xFFFFFFFF)
+							renderFontDrawText(font, "Ожидание...\n{FFFFFF}[{67E56F}Enter{FFFFFF}] - Продолжить", sx-len-10, sy-50, 0xFFFFFFFF)
 							if isKeyJustPressed(VK_RETURN) and not sampIsChatInputActive() and not sampIsDialogActive() then break end
 						end
 					end
@@ -3873,7 +3873,7 @@ end
 
 function getSpurFile()
 	spur.list = {}
-    local search, name = findFirstFile("moonloader/MedicalHelper/Øïàðãàëêè/*.txt")
+    local search, name = findFirstFile("moonloader/MedicalHelper/Шпаргалки/*.txt")
 	while search do
 		if not name then findClose(search) else
 			table.insert(spur.list, tostring(name:gsub(".txt", "")))
@@ -3889,39 +3889,39 @@ end
 
 function getGovFile()
 local govls = [[
-/gov [Áîëüíèöà ËÑ] - Óâ.Æèòåëè Øòàòà, ñåãîäíÿ â Áîëüíèöå ËÑ ïðîéä¸ò äåíü îòêðûòûõ äâåðåé
-/gov [Áîëüíèöà ËÑ] - Ó íàñ âû ïîëó÷èòå: ëó÷øèõ ñîòðóäíèêîâ, áûñòðûé êàðüåðíûé ðîñò, âûñîêóþ çàðïëàòó
-/gov [Áîëüíèöà ËÑ] - Æä¸ì âñåõ æåëàþùèõ â õîëå Áîëüíèöå ËÑ.
+/gov [Больница ЛС] - Ув.Жители Штата, сегодня в Больнице ЛС пройдёт день открытых дверей
+/gov [Больница ЛС] - У нас вы получите: лучших сотрудников, быстрый карьерный рост, высокую зарплату
+/gov [Больница ЛС] - Ждём всех желающих в холе Больнице ЛС.
 ]]
 local govsf = [[
-/gov [Áîëüíèöà ÑÔ] - Óâ.Æèòåëè Øòàòà, ñåãîäíÿ â Áîëüíèöå ÑÔ ïðîéä¸ò äåíü îòêðûòûõ äâåðåé
-/gov [Áîëüíèöà ÑÔ] - Ó íàñ âû ïîëó÷èòå: ëó÷øèõ ñîòðóäíèêîâ, áûñòðûé êàðüåðíûé ðîñò, âûñîêóþ çàðïëàòó
-/gov [Áîëüíèöà ÑÔ] - Æä¸ì âñåõ æåëàþùèõ â õîëå Áîëüíèöå ÑÔ.
+/gov [Больница СФ] - Ув.Жители Штата, сегодня в Больнице СФ пройдёт день открытых дверей
+/gov [Больница СФ] - У нас вы получите: лучших сотрудников, быстрый карьерный рост, высокую зарплату
+/gov [Больница СФ] - Ждём всех желающих в холе Больнице СФ.
 ]]
 local govlv = [[
-/gov [Áîëüíèöà ËÂ] - Óâ.Æèòåëè Øòàòà, ñåãîäíÿ â Áîëüíèöå ËÂ ïðîéä¸ò äåíü îòêðûòûõ äâåðåé
-/gov [Áîëüíèöà ËÂ] - Ó íàñ âû ïîëó÷èòå: ëó÷øèõ ñîòðóäíèêîâ, áûñòðûé êàðüåðíûé ðîñò, âûñîêóþ çàðïëàòó
-/gov [Áîëüíèöà ËÂ] - Æä¸ì âñåõ æåëàþùèõ â õîëå Áîëüíèöå ËÂ.
+/gov [Больница ЛВ] - Ув.Жители Штата, сегодня в Больнице ЛВ пройдёт день открытых дверей
+/gov [Больница ЛВ] - У нас вы получите: лучших сотрудников, быстрый карьерный рост, высокую зарплату
+/gov [Больница ЛВ] - Ждём всех желающих в холе Больнице ЛВ.
 ]]
 lua_thread.create(function()
-	if doesDirectoryExist(dirml.."/MedicalHelper/Äåïàðòàìåíò/") then
-		if doesFileExist(dirml.."/MedicalHelper/Äåïàðòàìåíò/Äåíü îòêðûòûõ äâåðåé.txt") or not doesFileExist(dirml.."/MedicalHelper/Äåïàðòàìåíò/Äåíü îòêðûòûõ äâåðåé ËÑÌÖ.txt") then
-			os.remove(dirml.."/MedicalHelper/Äåïàðòàìåíò/Äåíü îòêðûòûõ äâåðåé.txt")
-			local f = io.open(dirml.."/MedicalHelper/Äåïàðòàìåíò/Äåíü îòêðûòûõ äâåðåé ËÑÌÖ.txt", "w")
+	if doesDirectoryExist(dirml.."/MedicalHelper/Департамент/") then
+		if doesFileExist(dirml.."/MedicalHelper/Департамент/День открытых дверей.txt") or not doesFileExist(dirml.."/MedicalHelper/Департамент/День открытых дверей ЛСМЦ.txt") then
+			os.remove(dirml.."/MedicalHelper/Департамент/День открытых дверей.txt")
+			local f = io.open(dirml.."/MedicalHelper/Департамент/День открытых дверей ЛСМЦ.txt", "w")
 			f:write(govls)
 			f:flush()
 			f:close()
-			local f = io.open(dirml.."/MedicalHelper/Äåïàðòàìåíò/Äåíü îòêðûòûõ äâåðåé ÑÔÌÖ.txt", "w")
+			local f = io.open(dirml.."/MedicalHelper/Департамент/День открытых дверей СФМЦ.txt", "w")
 			f:write(govsf)
 			f:flush()
 			f:close()
-			local f = io.open(dirml.."/MedicalHelper/Äåïàðòàìåíò/Äåíü îòêðûòûõ äâåðåé ËÂÌÖ.txt", "w")
+			local f = io.open(dirml.."/MedicalHelper/Департамент/День открытых дверей ЛВМЦ.txt", "w")
 			f:write(govlv)
 			f:flush()
 			f:close()
 		end
 		dep.news = {}
-		local search, name = findFirstFile("moonloader/MedicalHelper/Äåïàðòàìåíò/*.txt")
+		local search, name = findFirstFile("moonloader/MedicalHelper/Департамент/*.txt")
 		while search do
 			if not name then findClose(search) else
 				table.insert(dep.news, u8(tostring(name:gsub(".txt", ""))))
@@ -3937,7 +3937,7 @@ end)
 end
 
 -- function onScriptTerminate(scr)
--- 	print("{00FF00}Ñêðèïò çàâåðøèë ðàáîòó.")
+-- 	print("{00FF00}Скрипт завершил работу.")
 -- 	--[[
 -- 	if scr == thisScript() then
 		
@@ -4010,14 +4010,14 @@ function tags(par)
 				if sampIsPlayerConnected(id) then
 					par = par:gsub(v, tostring(sampGetPlayerNickname(id))):gsub("_", " ")
 				else
-					sampAddChatMessage("{FFFFFF}[{EE4848}MH:Îøèáêà{FFFFFF}]: Ïàðàìåòð {getNickByID:ID} íå ñìîã âåðíóòü íèê èãðîêà. Âîçìîæíî èãðîê íå â ñåòè.", 0xEE4848)
+					sampAddChatMessage("{FFFFFF}[{EE4848}MH:Ошибка{FFFFFF}]: Параметр {getNickByID:ID} не смог вернуть ник игрока. Возможно игрок не в сети.", 0xEE4848)
 					par = par:gsub(v,"")
 				end
 			end
 		end
-		if par:find("{sex:[%w%sà-ÿÀ-ß]*|[%w%sà-ÿÀ-ß]*}") then	
-			for v in par:gmatch("{sex:[%w%sà-ÿÀ-ß]*|[%w%sà-ÿÀ-ß]*}") do
-				local m, w = v:match("{sex:([%w%sà-ÿÀ-ß]*)|([%w%sà-ÿÀ-ß]*)}")
+		if par:find("{sex:[%w%sа-яА-Я]*|[%w%sа-яА-Я]*}") then	
+			for v in par:gmatch("{sex:[%w%sа-яА-Я]*|[%w%sа-яА-Я]*}") do
+				local m, w = v:match("{sex:([%w%sа-яА-Я]*)|([%w%sа-яА-Я]*)}")
 				if num_sex.v == 0 then
 					par = par:gsub(v, m)
 				else
@@ -4030,7 +4030,7 @@ function tags(par)
 			if targID ~= nil and targID >= 0 and targID <= 1000 and sampIsPlayerConnected(targID) then
 				par = par:gsub("{getNickByTarget}", tostring(sampGetPlayerNickname(targID):gsub("_", " ")))
 			else
-				sampAddChatMessage("{FFFFFF}[{EE4848}MH:Îøèáêà{FFFFFF}]: Ïàðàìåòð {getNickByTarget} íå ñìîã âåðíóòü íèê èãðîêà. Âîçìîæíî Âû íå öåëèëèñü íà èãðîêà, ëèáî îí íå â ñåòè.", 0xEE4848)
+				sampAddChatMessage("{FFFFFF}[{EE4848}MH:Ошибка{FFFFFF}]: Параметр {getNickByTarget} не смог вернуть ник игрока. Возможно Вы не целились на игрока, либо он не в сети.", 0xEE4848)
 				par = par:gsub("{getNickByTarget}", tostring(""))
 			end
 		end
@@ -4040,170 +4040,170 @@ end
 
 funCMD = {} 
 function funCMD.del()
-	sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Âû óñïåøíî óäàëèëè ñêðèïò.", 0xEE4848)
-	sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Âûãðóçêà ñêðèïòà èç èãðû...", 0xEE4848)
+	sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Вы успешно удалили скрипт.", 0xEE4848)
+	sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Выгрузка скрипта из игры...", 0xEE4848)
 	os.remove(scr.path)
 	scr:reload()
 end
 function funCMD.lec(id)
 	if thread:status() ~= "dead" then
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Â äàííûé ìîìåíò ïðîèãðûâàåòñÿ îòûãðîâêà.", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: В данный момент проигрывается отыгровка.", 0xEE4848)
 		return
 	end
 	---1758.8267822266   -2020.3171386719   1500.7852783203
 	---1785.8004150391   -1995.7534179688   1500.7852783203
-	if not u8:decode(buf_nick.v):find("[à-ÿÀ-ß]+%s[à-ÿÀ-ß]+") then
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Ïîäîæäèòå-êà, ñíà÷àëà íóæíî çàïîëíèòü áàçîâóþ èíôîðìàöèþ. {90E04E}/mh > Íàñòðîéêè > Îñíîâíàÿ èíôîðìàöèÿ", 0xEE4848)
+	if not u8:decode(buf_nick.v):find("[а-яА-Я]+%s[а-яА-Я]+") then
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Подождите-ка, сначала нужно заполнить базовую информацию. {90E04E}/mh > Настройки > Основная информация", 0xEE4848)
 		return
 	end
 	if id:find("%d+") then
 		thread = lua_thread.create(function()
 			if not isCharInModel(PLAYER_PED, 416) then
-				sampSendChat(string.format("Çäðàâñòâóéòå. ß, %s, ñîòðóäíèê äàííîãî ìåäèöèíñêîãî öåíòðà, ÷òî âàñ áåñïîêîèò?", u8:decode(buf_nick.v)))
+				sampSendChat(string.format("Здравствуйте. Я, %s, сотрудник данного медицинского центра, что вас беспокоит?", u8:decode(buf_nick.v)))
 				wait(1000)
-					sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Íàæìèòå íà  {23E64A}Enter{FFFFFF} äëÿ ïðîäîëæåíèÿ.", 0xEE4848)
+					sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Нажмите на  {23E64A}Enter{FFFFFF} для продолжения.", 0xEE4848)
 					addOneOffSound(0, 0, 0, 1058)
-					local len = renderGetFontDrawTextLength(font, "{FFFFFF}[{67E56F}Enter{FFFFFF}] - Ïðîäîëæèòü")
+					local len = renderGetFontDrawTextLength(font, "{FFFFFF}[{67E56F}Enter{FFFFFF}] - Продолжить")
 					while true do
 						wait(0)
-						renderFontDrawText(font, "Ëå÷åíèå: {8ABCFA}Îòâåò áîëüíîãî\n{FFFFFF}[{67E56F}Enter{FFFFFF}] - Ïðîäîëæèòü", sx-len-10, sy-50, 0xFFFFFFFF)
+						renderFontDrawText(font, "Лечение: {8ABCFA}Ответ больного\n{FFFFFF}[{67E56F}Enter{FFFFFF}] - Продолжить", sx-len-10, sy-50, 0xFFFFFFFF)
 						if isKeyJustPressed(VK_RETURN) and not sampIsChatInputActive() and not sampIsDialogActive() then break end
 					end
-				sampSendChat(chsex("/me íûðíóâ ïðàâîé ðóêîé â êàðìàí, âûòÿíóë îòòóäà áëîêíîò è ðó÷êó", "/me íûðíóâ ïðàâîé ðóêîé â êàðìàí, âûòÿíóëà îòòóäà áëîêíîò è ðó÷êó"))
+				sampSendChat(chsex("/me нырнув правой рукой в карман, вытянул оттуда блокнот и ручку", "/me нырнув правой рукой в карман, вытянула оттуда блокнот и ручку"))
 				wait(2000)
-				sampSendChat(chsex("/todo Õîðîøî, ïîíÿë, íè÷åãî ñòðàøíîãî*çàïèñûâàÿ â áëîêíîò, âñå ñêàçàííîå ïàöèåíòîì", "/todo Õîðîøî, ïîíÿëà, íè÷åãî ñòðàøíîãî*çàïèñûâàÿ â áëîêíîò, âñå ñêàçàííîå ïàöèåíòîì"))
+				sampSendChat(chsex("/todo Хорошо, понял, ничего страшного*записывая в блокнот, все сказанное пациентом", "/todo Хорошо, поняла, ничего страшного*записывая в блокнот, все сказанное пациентом"))
 				wait(2000)
-				sampSendChat("/do Îòêðûòàÿ ñóìêà âåñèò íà ïëå÷å ïðàâîé ðóêè.")
+				sampSendChat("/do Открытая сумка весит на плече правой руки.")
 				wait(2000)
-				sampSendChat(chsex("/me íåñêîëüêèìè äâèæåíèÿìè íàùóïàë ëåêàðñòâî", "/me íåñêîëüêèìè äâèæåíèÿìè íàùóïàëà ëåêàðñòâî"))
+				sampSendChat(chsex("/me несколькими движениями нащупал лекарство", "/me несколькими движениями нащупала лекарство"))
 				wait(2000)
-				sampSendChat("/do Ëåêàðñòâî â ëåâîé ðóêå.")
+				sampSendChat("/do Лекарство в левой руке.")
 				wait(2000)
-				sampSendChat("/todo Âîò, äåðæèòå*ïåðåäàâàÿ ëåêàðñòâî ÷åëîâåêó íàïðîòèâ")
+				sampSendChat("/todo Вот, держите*передавая лекарство человеку напротив")
 				wait(2000)
-				sampSendChat("Ïðèíèìàéòå ýòè òàáëåòêè, è ÷åðåç íåêîòîðîå âðåìÿ âàì ñòàíåò ëó÷øå")
+				sampSendChat("Принимайте эти таблетки, и через некоторое время вам станет лучше")
 				wait(100)
 				sampSendChat("/heal "..id)
 			elseif isCharInModel(PLAYER_PED, 416) then
-				sampSendChat("Çäðàâñòâóéòå, ÷òî ñ Âàìè ñëó÷èëîñü?")
+				sampSendChat("Здравствуйте, что с Вами случилось?")
 				wait(2000)
-				sampSendChat("/do Ìåäèöèíñêàÿ ñóìêà ëåæèò ðÿäîì.")
+				sampSendChat("/do Медицинская сумка лежит рядом.")
 				wait(2000)
-				sampSendChat(chsex("/me ïðàâîé ðóêîé ðàññòåãíóë ìåäèöèíñêóþ ñóìêó è äîñòàë íóæíîå ëåêàðñòâî", "/me ïðàâîé ðóêîé ðàññòåãíóëà ìåäèöèíñêóþ ñóìêó è äîñòàëà íóæíîå ëåêàðñòâî"))
+				sampSendChat(chsex("/me правой рукой расстегнул медицинскую сумку и достал нужное лекарство", "/me правой рукой расстегнула медицинскую сумку и достала нужное лекарство"))
 				wait(2000)
-				sampSendChat(chsex("/me ïðîòÿíóë ëåêàðñòâî ÷åëîâåêó", "/me ïðîòÿíóëà ëåêàðñòâî ÷åëîâåêó"))
+				sampSendChat(chsex("/me протянул лекарство человеку", "/me протянула лекарство человеку"))
 				wait(100)
 				sampSendChat("/heal "..id)
 			end
 		end)
 	else
-	sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Èñïîëüçóéòå êîìàíäó /hl [id èãðîêà].", 0xEE4848)
+	sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Используйте команду /hl [id игрока].", 0xEE4848)
 	end
 end
 function funCMD.med(id)
 	if thread:status() ~= "dead" then 
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Â äàííûé ìîìåíò ïðîèãðûâàåòñÿ îòûãðîâêà.", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: В данный момент проигрывается отыгровка.", 0xEE4848)
 		return 
 	end
-	if not u8:decode(buf_nick.v):find("[à-ÿÀ-ß]+%s[à-ÿÀ-ß]+") then
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Ïîäîæäèòå-êà, ñíà÷àëà íóæíî çàïîëíèòü áàçîâóþ èíôîðìàöèþ. {90E04E}/mh > Íàñòðîéêè > Îñíîâíàÿ èíôîðìàöèÿ", 0xEE4848)
+	if not u8:decode(buf_nick.v):find("[а-яА-Я]+%s[а-яА-Я]+") then
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Подождите-ка, сначала нужно заполнить базовую информацию. {90E04E}/mh > Настройки > Основная информация", 0xEE4848)
 		return
 	end
 	if id:find("%d+") then
 		local id = id:match("(%d+)")
 	thread = lua_thread.create(function()
 		--[[
-			sampSendChat("Çäðàâñòâóéòå, Âû æåëàåòå ïîëó÷èòü ìåäèöèíñêóþ êàðòó?")
+			sampSendChat("Здравствуйте, Вы желаете получить медицинскую карту?")
 			wait(3000)
-			sampSendChat("Ïðåäîñòàâüòå ïîæàëóéñòà Âàø ïàñïîðò äëÿ îïðåäåëåíèÿ òðåáîâàíèé.")		
+			sampSendChat("Предоставьте пожалуйста Ваш паспорт для определения требований.")		
 			
-				sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Íàæìèòå íà öèôðó âåðõíåé ïàíåëè äëÿ âûáîðà âèäà ìåä.óñëóãè.", 0xEE4848)
+				sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Нажмите на цифру верхней панели для выбора вида мед.услуги.", 0xEE4848)
 				addOneOffSound(0, 0, 0, 1058)
 				while true do
 					wait(0)
-					renderFontDrawText(font, "Âûäà÷à ìåä.êàðòû: \n{FFFFFF}[{67E56F}1{FFFFFF}] - Âûäà÷à íîâîé\n[{67E56F}2{FFFFFF}] - Îáíîâëåíèå", sx/5*4, sy-100, 0xFFFFFFFF)
+					renderFontDrawText(font, "Выдача мед.карты: \n{FFFFFF}[{67E56F}1{FFFFFF}] - Выдача новой\n[{67E56F}2{FFFFFF}] - Обновление", sx/5*4, sy-100, 0xFFFFFFFF)
 					if isKeyJustPressed(VK_1) and not sampIsChatInputActive() and not sampIsDialogActive() then 
-						sampSendChat("Õîðîøî, ÿ Âàñ "..chsex("ïîíÿë","ïîíÿëà")..". Âàì íóæíî îôîðìèòü íîâóþ ìåä.êàðòó.")
+						sampSendChat("Хорошо, я Вас "..chsex("понял","поняла")..". Вам нужно оформить новую мед.карту.")
 						wait(2200)
-						sampSendChat("Äëÿ îôîðìëåíèÿ êàðòû íåîáõîäèìî çàïëàòèòü ãîñ.ïîøëèíó â ðàçìåðå "..buf_med.v.."$, ïîñëå ÷åãî ìû ïðîäîëæèì.")
+						sampSendChat("Для оформления карты необходимо заплатить гос.пошлину в размере "..buf_med.v.."$, после чего мы продолжим.")
 						wait(2000)
-						sampSendChat("/n Îïëàòèòå ñ ïîìîùüþ êîìàíäû /pay èëè /trade")
+						sampSendChat("/n Оплатите с помощью команды /pay или /trade")
 						break 
 					end
 					if isKeyJustPressed(VK_2) and not sampIsChatInputActive() and not sampIsDialogActive() then 
-						sampSendChat("Õîðîøî, ÿ Âàñ "..chsex("ïîíÿë","ïîíÿëà")..". Âàì íóæíî îáíîâèòü äàííûå â ìåä.êàðòå.")
+						sampSendChat("Хорошо, я Вас "..chsex("понял","поняла")..". Вам нужно обновить данные в мед.карте.")
 						wait(2200)
-						sampSendChat("Äëÿ îáíîâëåíèÿ êàðòû íåîáõîäèìî çàïëàòèòü ãîñ.ïîøëèíó â ðàçìåðå "..buf_upmed.v.."$, ïîñëå ÷åãî ìû ïðîäîëæèì.")
+						sampSendChat("Для обновления карты необходимо заплатить гос.пошлину в размере "..buf_upmed.v.."$, после чего мы продолжим.")
 						wait(2000)
-						sampSendChat("/n Îïëàòèòå ñ ïîìîùüþ êîìàíäû /pay èëè /trade")
+						sampSendChat("/n Оплатите с помощью команды /pay или /trade")
 						break 
 					end
 				end
-			sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Íàæìèòå íà {23E64A}Enter{FFFFFF} äëÿ ïðîäîëæåíèÿ.", 0xEE4848)
+			sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Нажмите на {23E64A}Enter{FFFFFF} для продолжения.", 0xEE4848)
 			addOneOffSound(0, 0, 0, 1058)
 			while true do
 				wait(0)
-				renderFontDrawText(font, "Âûäà÷à ìåä.êàðòû: {8ABCFA}Îïëàòà óñëóãè\n{FFFFFF}[{67E56F}Enter{FFFFFF}] - Ïðîäîëæèòü", sx/5*4, sy-50, 0xFFFFFFFF)
+				renderFontDrawText(font, "Выдача мед.карты: {8ABCFA}Оплата услуги\n{FFFFFF}[{67E56F}Enter{FFFFFF}] - Продолжить", sx/5*4, sy-50, 0xFFFFFFFF)
 				if isKeyJustPressed(VK_RETURN) and not sampIsChatInputActive() and not sampIsDialogActive() then break end
 			end
-				sampSendChat("/todo Áëàãîäàðþ, Âàñ*âçÿâ ïàñïîðò â ëåâóþ ðóêó")
+				sampSendChat("/todo Благодарю, Вас*взяв паспорт в левую руку")
 				wait(1750)
-				sampSendChat("/do Ïàñïîðò â ëåâîé ðóêå.")
+				sampSendChat("/do Паспорт в левой руке.")
 				wait(1750)
-				sampSendChat("Íå âîëíóéòåñü, ñêîðî ÿ åãî Âàì îòäàì!")
+				sampSendChat("Не волнуйтесь, скоро я его Вам отдам!")
 				wait(1750)
-				sampSendChat(chsex("/me ïîëîæèë ïàñïîðò íà ñòîë", "/me ïîëîæèëà ïàñïîðò íà ñòîë"))
+				sampSendChat(chsex("/me положил паспорт на стол", "/me положила паспорт на стол"))
 				wait(1750)
-				sampSendChat("/do Ïàñïîðò ëåæèò íà ñòîëå.")
+				sampSendChat("/do Паспорт лежит на столе.")
 				wait(1750)
-				sampSendChat(chsex("/me ïîäîøåë ê ñòîëó è ñåë íà ñòóë", "/me ïîäîøëà ê ñòîëó è ñåëà íà ñòóë"))
+				sampSendChat(chsex("/me подошел к столу и сел на стул", "/me подошла к столу и села на стул"))
 				wait(1750)
-				sampSendChat(chsex("/me ïîäîäâèíóë ïðàâîé ðóêîé ïàñïîðò ê ñåáå è îòêðûë åãî", "/me ïîäîäâèíóëà ïðàâîé ðóêîé ïàñïîðò ê ñåáå è îòêðûëà åãî"))
+				sampSendChat(chsex("/me пододвинул правой рукой паспорт к себе и открыл его", "/me пододвинула правой рукой паспорт к себе и открыла его"))
 				wait(1750)
-				sampSendChat("/do Ïàñïîðò îòêðûò.")
+				sampSendChat("/do Паспорт открыт.")
 				wait(1750)
-				sampSendChat("/do Ðó÷êà ëåæèò â ïðàâîì êàðìàíå.")
+				sampSendChat("/do Ручка лежит в правом кармане.")
 				wait(1750)
-				sampSendChat(chsex("/me ïëàâíûì äâèæåíèåì ëåâîé ðóêè âûòàùèë ðó÷êó èç êàðìàíà", "/me ïëàâíûì äâèæåíèåì ëåâîé ðóêè âûòàùèëà ðó÷êó èç êàðìàíà"))
+				sampSendChat(chsex("/me плавным движением левой руки вытащил ручку из кармана", "/me плавным движением левой руки вытащила ручку из кармана"))
 				wait(1750)
-				sampSendChat("/do Ðó÷êà â ëåâîé ðóêå.")
+				sampSendChat("/do Ручка в левой руке.")
 				wait(1750)
-				sampSendChat("/do ×èñòûå áëàíêè äëÿ çàïîëíåíèÿ ëåæàò íà ñòîëå.")
+				sampSendChat("/do Чистые бланки для заполнения лежат на столе.")
 				wait(1750)
-				sampSendChat(chsex("/me ïëàâíûì äâèæåíèåì ïðàâîé ðóêè ïîäîäâèíóë ÷èñòûå áëàíêè ê ñåáå", "/me ïëàâíûì äâèæåíèåì ïðàâîé ðóêè ïîäîäâèíóëà ÷èñòûå áëàíêè ê ñåáå"))
+				sampSendChat(chsex("/me плавным движением правой руки пододвинул чистые бланки к себе", "/me плавным движением правой руки пододвинула чистые бланки к себе"))
 				wait(1750)
-				sampSendChat(chsex("/me íà÷àë ïåðåïèñûâàòü äàííûå ñ ïàñïîðòà íà áëàíêè", "/me íà÷àëà ïåðåïèñûâàòü äàííûå ñ ïàñïîðòà íà áëàíêè"))
+				sampSendChat(chsex("/me начал переписывать данные с паспорта на бланки", "/me начала переписывать данные с паспорта на бланки"))
 				wait(1750)
-				sampSendChat("/do Äàííûå ñ ïàñïîðòà ïåðåïèñàíû íà áëàíêè.")
+				sampSendChat("/do Данные с паспорта переписаны на бланки.")
 				wait(1750)
-				sampSendChat("Æàëîáû íà çäîðîâüå åñòü?")
-				sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Íàæìèòå íà  {23E64A}Enter{FFFFFF} äëÿ ïðîäîëæåíèÿ.", 0xEE4848)
+				sampSendChat("Жалобы на здоровье есть?")
+				sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Нажмите на  {23E64A}Enter{FFFFFF} для продолжения.", 0xEE4848)
 				addOneOffSound(0, 0, 0, 1058)
 				while true do
 					wait(0)
-					renderFontDrawText(font, "Âûäà÷à ìåä.êàðòû: {8ABCFA}Çäîðîâüå\n{FFFFFF}[{67E56F}Enter{FFFFFF}] - Ïðîäîëæèòü", sx/5*4, sy-50, 0xFFFFFFFF)
+					renderFontDrawText(font, "Выдача мед.карты: {8ABCFA}Здоровье\n{FFFFFF}[{67E56F}Enter{FFFFFF}] - Продолжить", sx/5*4, sy-50, 0xFFFFFFFF)
 					if isKeyJustPressed(VK_RETURN) and not sampIsChatInputActive() and not sampIsDialogActive() then break end
 				end
-				sampSendChat(chsex("/me çàïèñàë â áëàíê", "/me çàïèñàëà â áëàíê"))
+				sampSendChat(chsex("/me записал в бланк", "/me записала в бланк"))
 				wait(1700)
-				sampSendChat("Õîðîøî, òåïåðü ìàëåíüêèé òåñò íà ïñèõèêó.")
+				sampSendChat("Хорошо, теперь маленький тест на психику.")
 				wait(1700)
 				
 				local test = {
-				[1] = "Ïðåäñòàâèì ñèòóàöèþ, Âû øëè ïî óëèöå è óâèäåëè, êàê ãîðèò äîì. Âàøè äåéñòâèÿ?",
-				[2] = "×òî âû áóäåòå äåëàòü, åñëè Âû óâèäåëè ÷åëîâåêà ëåæàùåãî íà çåìëå?",
-				[3] = "Âàøè äåéñòâèÿ, åñëè Âû óâèäåëè áîìáó íà äîðîãå?"
+				[1] = "Представим ситуацию, Вы шли по улице и увидели, как горит дом. Ваши действия?",
+				[2] = "Что вы будете делать, если Вы увидели человека лежащего на земле?",
+				[3] = "Ваши действия, если Вы увидели бомбу на дороге?"
 				}
 				math.randomseed(os.time())
 				local idp = math.random(1, 3)
 				sampSendChat(test[idp])
-				sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Íàæìèòå íà öèôðó âåðõíåé ïàíåëè ïîñëå îòâåòà ïàöèåíòà.", 0xEE4848)
+				sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Нажмите на цифру верхней панели после ответа пациента.", 0xEE4848)
 				addOneOffSound(0, 0, 0, 1058)
 				local diag = 0
 				local time = 0
 				while true do
 					wait(0)
-					renderFontDrawText(font, "Âûäà÷à ìåä.êàðòû: {8ABCFA}Ïñèõ. ñîñòîÿíèå\n{FFFFFF}[{67E56F}1{FFFFFF}] - Çäîðîâûé\n[{67E56F}2{FFFFFF}] - Èìåþòñÿ îòêëîíåíèÿ\n[{67E56F}3{FFFFFF}] - Ïñèõ. íåçäîðîâ", sx/5*4, sy-100, 0xFFFFFFFF)
+					renderFontDrawText(font, "Выдача мед.карты: {8ABCFA}Псих. состояние\n{FFFFFF}[{67E56F}1{FFFFFF}] - Здоровый\n[{67E56F}2{FFFFFF}] - Имеются отклонения\n[{67E56F}3{FFFFFF}] - Псих. нездоров", sx/5*4, sy-100, 0xFFFFFFFF)
 					if isKeyJustPressed(VK_RETURN) and not sampIsChatInputActive() and not sampIsDialogActive() then break end
 					if isKeyJustPressed(VK_1) and not sampIsChatInputActive() and not sampIsDialogActive() then diag = 3; break end
 					if isKeyJustPressed(VK_2) and not sampIsChatInputActive() and not sampIsDialogActive() then diag = 2; break end
@@ -4212,7 +4212,7 @@ function funCMD.med(id)
 				wait(200)
 				while true do
 					wait(0)
-					renderFontDrawText(font, "Âûäà÷à ìåä.êàðòû: {8ABCFA}Ñðîê ìåä.êàðòû\n{FFFFFF}[{67E56F}1{FFFFFF}] - 7 äíåé\n[{67E56F}2{FFFFFF}] - 14 äí˜˜é\n[{67E56F}3{FFFFFF}] - 30 äíåé\n[{67E56F}4{FFFFFF}] - 60 ˜˜íå˜˜", sx/5*4, sy-120, 0xFFFFFFFF)
+					renderFontDrawText(font, "Выдача мед.карты: {8ABCFA}Срок мед.карты\n{FFFFFF}[{67E56F}1{FFFFFF}] - 7 дней\n[{67E56F}2{FFFFFF}] - 14 днй\n[{67E56F}3{FFFFFF}] - 30 дней\n[{67E56F}4{FFFFFF}] - 60 не", sx/5*4, sy-120, 0xFFFFFFFF)
 					if isKeyJustPressed(VK_RETURN) and not sampIsChatInputActive() and not sampIsDialogActive() then break end
 					if isKeyJustPressed(VK_1) and not sampIsChatInputActive() and not sampIsDialogActive() then time = 0; break end
 					if isKeyJustPressed(VK_2) and not sampIsChatInputActive() and not sampIsDialogActive() then time = 1; break end
@@ -4221,18 +4221,18 @@ function funCMD.med(id)
 				end
 					wait(1700)
 						if diag == 3 then
-							sampSendChat(chsex("/me ïîñòàâèë ïå÷àòü 'Ïîëíîcòüþ çäîðîâ(àÿ)'", "/me ïîñòàâèëà ïå÷àòü 'Ïîëíîcòüþ çäîðîâ(àÿ)'"))
+							sampSendChat(chsex("/me поставил печать 'Полноcтью здоров(ая)'", "/me поставила печать 'Полноcтью здоров(ая)'"))
 						elseif diag == 2 then
-							sampSendChat(chsex("/me ïîñòàâèë ïå÷àòü 'Íàáëþäàþòñÿ îòêëîíåíèÿ'", "/me ïîñòàâèëà ïå÷àòü 'Íàáëþäàþòñÿ îòêëîíåíèÿ'"))
+							sampSendChat(chsex("/me поставил печать 'Наблюдаются отклонения'", "/me поставила печать 'Наблюдаются отклонения'"))
 						elseif diag == 1 then
-							sampSendChat(chsex("/me ïîñòàâèë ïå÷àòü 'Ïñèõè÷åñêè íå çäîðîâ(àÿ)'", "/me ïîñòàâèëà ïå÷àòü 'Ïñèõè÷åñêè íå çäîðîâ(àÿ)'"))
+							sampSendChat(chsex("/me поставил печать 'Психически не здоров(ая)'", "/me поставила печать 'Психически не здоров(ая)'"))
 						end
 					wait(1700)
-					sampSendChat(chsex("/me âçÿë â ëåâóþ ðóêó ìåä. êàðòó, à ïàñïîðò â ïðàâóþ", "/me âçÿëà â ëåâóþ ðóêó ìåä.êàðòó, à ïàñïîðò â ïðàâóþ"))
+					sampSendChat(chsex("/me взял в левую руку мед. карту, а паспорт в правую", "/me взяла в левую руку мед.карту, а паспорт в правую"))
 					wait(1700)
-					sampSendChat("/do Ìåä.êàðòà è ïàñïîðò â ðóêàõ.")
+					sampSendChat("/do Мед.карта и паспорт в руках.")
 					wait(1700)
-					sampSendChat("/todo Íå áîëåéòå, âñåãî äîáðîãî*ïåðåäàâàÿ ìåä.êàðòó è ïàñïîðò")
+					sampSendChat("/todo Не болейте, всего доброго*передавая мед.карту и паспорт")
 					wait(500)
 					sampSendChat("/medcard "..id.." "..diag.." "..time)
 					statusMed = 0
@@ -4245,86 +4245,86 @@ function funCMD.med(id)
 		playBind(tb)		
 	end)
 	else
-	sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Èñïîëüçóéòå êîìàíäó: /mc [id èãðîêà].", 0xEE4848)
+	sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Используйте команду: /mc [id игрока].", 0xEE4848)
 	end
 
 end
 function funCMD.narko(id)
 	if thread:status() ~= "dead" then 
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Â äàííûé ìîìåíò ïðîèãðûâàåòñÿ îòûãðîâêà.", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: В данный момент проигрывается отыгровка.", 0xEE4848)
 		return 
 	end
 		if id:find("(%d+)") then
 			thread = lua_thread.create(function()
-				sampSendChat(string.format("Çäðàâñòâóéòå. ß, %s, ñîòðóäíèê äàííîãî ìåäèöèíñêîãî öåíòðà.", u8:decode(buf_nick.v)))
+				sampSendChat(string.format("Здравствуйте. Я, %s, сотрудник данного медицинского центра.", u8:decode(buf_nick.v)))
 				wait(2000)
-				sampSendChat("ß, ñìîòðþ, Âû ðåøèëè èçëå÷èòüñÿ îò íàðêîçàâèñèìîñòè, ýòî õîðîøî")
+				sampSendChat("Я, смотрю, Вы решили излечиться от наркозависимости, это хорошо")
 				wait(2000)
-				sampSendChat("Ñòîèìîñòü ñåàíñà ñîñòàâëÿåò "..buf_narko.v.."$, Âû ñîãëàñíû?")
+				sampSendChat("Стоимость сеанса составляет "..buf_narko.v.."$, Вы согласны?")
 				wait(2000)
-				sampSendChat("/n Îïëà÷èâàòü íå òðåáóåòñÿ, ñåðâåð ñàì ïðåäëîæèò")
+				sampSendChat("/n Оплачивать не требуется, сервер сам предложит")
 				wait(500)
-				sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Íàæìèòå íà {23E64A}Enter{FFFFFF} äëÿ ïðîäîëæåíèÿ.", 0xEE4848)
+				sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Нажмите на {23E64A}Enter{FFFFFF} для продолжения.", 0xEE4848)
 					while true do
 					wait(0)
-						renderFontDrawText(font, "Ëå÷åíèå íàðêîçàâ-òè: {8ABCFA}Ñîãëàøåíèå\n{FFFFFF}[{67E56F}Enter{FFFFFF}] - Ïðîäîëæèòü", sx/5*4, sy-50, 0xFFFFFFFF)
+						renderFontDrawText(font, "Лечение наркозав-ти: {8ABCFA}Соглашение\n{FFFFFF}[{67E56F}Enter{FFFFFF}] - Продолжить", sx/5*4, sy-50, 0xFFFFFFFF)
 						if isKeyJustPressed(VK_RETURN) and not sampIsChatInputActive() and not sampIsDialogActive() then break end
 					end				
-				sampSendChat("Åñëè Âû ñîãëàñíû, ñàäèòåñü íà êóøåòêó è çàêàòàéòå ðóêàâ")
+				sampSendChat("Если Вы согласны, садитесь на кушетку и закатайте рукав")
 				wait(2000)
-				sampSendChat("/do Íà ñòîëå ëåæèò âàòêà, æãóò è øïðèö ñ âàêöèíîé.")
+				sampSendChat("/do На столе лежит ватка, жгут и шприц с вакциной.")
 				wait(2000)
-				sampSendChat("/me ".. chsex("âçÿë", "âçÿëà") .." ñî ñòîëà æãóò")
+				sampSendChat("/me ".. chsex("взял", "взяла") .." со стола жгут")
 				wait(2000)
-				sampSendChat("/me ".. chsex("çàòÿíóë", "çàòÿíóëà") .." æãóò íà ïëå÷å ïàöèåíòà")
+				sampSendChat("/me ".. chsex("затянул", "затянула") .." жгут на плече пациента")
 				wait(2000)
-				sampSendChat("/do Æãóò ñèëüíî çàòÿíóò.")
+				sampSendChat("/do Жгут сильно затянут.")
 				wait(2000)
-				sampSendChat("Ðàáîòàéòå êóëàêîì.")
+				sampSendChat("Работайте кулаком.")
 				wait(2000)
-				sampSendChat("/me ".. chsex("âçÿë", "âçÿëà") .." âàòêó è ".. chsex("ñìî÷èë", "ñìî÷èëà") .." å¸ ñïèðòîì")
+				sampSendChat("/me ".. chsex("взял", "взяла") .." ватку и ".. chsex("смочил", "смочила") .." её спиртом")
 				wait(2000)
-				sampSendChat("/me ïðîò¸ð".. chsex("","ëà") .." âàòêîé ëîêòåâîé èçãèá")
+				sampSendChat("/me протёр".. chsex("","ла") .." ваткой локтевой изгиб")
 				wait(2000)
-				sampSendChat("/todo Íå âîëíóéòåñü,áóäåò íå áîëüíî*".. chsex("âçÿë", "âçÿëà") .." ñî ñòîëà øïðèö ñ âàêöèíîé")
+				sampSendChat("/todo Не волнуйтесь,будет не больно*".. chsex("взял", "взяла") .." со стола шприц с вакциной")
 				wait(2000)
-				sampSendChat("/me ïëàâíûì äâèæåíèåì ïðàâîé ðóêè äåëàåò óêîë")
+				sampSendChat("/me плавным движением правой руки делает укол")
 				wait(2000)
 				sampProcessChatInput("/healbad "..id:match("(%d+)"))
 				wait(2000)
-				sampSendChat("/todo Äåðæèòå âàòêó*ïîëîæèâ âàòêó íà ìåñòî óêîëà")
+				sampSendChat("/todo Держите ватку*положив ватку на место укола")
 				wait(2000)
-				sampSendChat("/me ".. chsex("ñíÿë", "ñíÿëà") .." æãóò è ïîëîæèë".. chsex("", "à") .." åãî íà ñòîë")
+				sampSendChat("/me ".. chsex("снял", "сняла") .." жгут и положил".. chsex("", "а") .." его на стол")
 				wait(2000)
-				sampSendChat("/me âûêèíóë".. chsex("", "à") .." øïðèö â ñïåöèàëüíóþ óðíó")
+				sampSendChat("/me выкинул".. chsex("", "а") .." шприц в специальную урну")
 				wait(2000)
-				sampSendChat("Âñåãî Âàì äîáðîãî.")
+				sampSendChat("Всего Вам доброго.")
 			end)
 		else
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Èñïîëüçóéòå êîìàíäó /narko [id èãðîêà].", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Используйте команду /narko [id игрока].", 0xEE4848)
 		end
 end
 function funCMD.rec(id)
 	if thread:status() ~= "dead" then 
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Â äàííûé ìîìåíò ïðîèãðûâàåòñÿ îòûãðîâêà.", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: В данный момент проигрывается отыгровка.", 0xEE4848)
 		return 
 	end
 		if id:find("(%d+)") then
 			thread = lua_thread.create(function()
 				local countRec = 1
-				sampSendChat("Çäðàâñòâóéòå, âàì íóæåí ðåöåïò?")
+				sampSendChat("Здравствуйте, вам нужен рецепт?")
 				wait(2000)
-				sampSendChat("Õîðîøî, ñòîèìîñòü îäíîãî ðåöåïòà "..buf_rec.v.."$.")
+				sampSendChat("Хорошо, стоимость одного рецепта "..buf_rec.v.."$.")
 				wait(2000)
-				sampSendChat("Ñêàæèòå ñêîëüêî Âàì òðåáóåòñÿ ðåöåïòîâ, ïîñëå ÷åãî ìû ïðîäîëæèì.")
+				sampSendChat("Скажите сколько Вам требуется рецептов, после чего мы продолжим.")
 				wait(2000)
-				sampSendChat("/n Âíèìàíèå! Â òå÷åíèè ÷àñà âûäà¸òñÿ ìàêñèìóì 5 ðåöåïòîâ íà ðóêè.")
+				sampSendChat("/n Внимание! В течении часа выдаётся максимум 5 рецептов на руки.")
 				wait(500)
-				sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Íàæìèòå íà öèôðó âåðõíåé öèôðîâîé ïàíåëè ðàâíàÿ êîëè÷åñòâó âûäàâàåìûõ ðåöåïòîâ.", 0xEE4848)
-				local len = renderGetFontDrawTextLength(font, "Âûäà÷à ðåöåïòîâ: {8ABCFA}Âûáîð êîë-âà")
+				sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Нажмите на цифру верхней цифровой панели равная количеству выдаваемых рецептов.", 0xEE4848)
+				local len = renderGetFontDrawTextLength(font, "Выдача рецептов: {8ABCFA}Выбор кол-ва")
 					while true do
 					wait(0)
-						renderFontDrawText(font, "Âûäà÷à ðåöåïòîâ: {8ABCFA}Âûáîð êîë-âà\n{FFFFFF}[{67E56F}1{FFFFFF}] - 1 øò.\n{FFFFFF}[{67E56F}2{FFFFFF}] - 2 øò.\n{FFFFFF}[{67E56F}3{FFFFFF}] - 3 øò.\n{FFFFFF}[{67E56F}4{FFFFFF}] - 4 øò.\n{FFFFFF}[{67E56F}5{FFFFFF}] - 5 øò.", sx-len-10, sy-150, 0xFFFFFFFF)					
+						renderFontDrawText(font, "Выдача рецептов: {8ABCFA}Выбор кол-ва\n{FFFFFF}[{67E56F}1{FFFFFF}] - 1 шт.\n{FFFFFF}[{67E56F}2{FFFFFF}] - 2 шт.\n{FFFFFF}[{67E56F}3{FFFFFF}] - 3 шт.\n{FFFFFF}[{67E56F}4{FFFFFF}] - 4 шт.\n{FFFFFF}[{67E56F}5{FFFFFF}] - 5 шт.", sx-len-10, sy-150, 0xFFFFFFFF)					
 						if isKeyJustPressed(VK_1) and not sampIsChatInputActive() and not sampIsDialogActive() then countRec =1; break end
 						if isKeyJustPressed(VK_2) and not sampIsChatInputActive() and not sampIsDialogActive() then countRec =2; break end
 						if isKeyJustPressed(VK_3) and not sampIsChatInputActive() and not sampIsDialogActive() then countRec =3; break end
@@ -4332,396 +4332,396 @@ function funCMD.rec(id)
 						if isKeyJustPressed(VK_5) and not sampIsChatInputActive() and not sampIsDialogActive() then countRec =5; break end
 					end
 				wait(200)
-				sampSendChat("/do Íà ïëå÷å âåñèò ìåä. ñóìêà.")
+				sampSendChat("/do На плече весит мед. сумка.")
 				wait(1700)
-				sampSendChat("/me ñíÿë".. chsex("", "à") .." ìåä. ñóìêó ñ ïëå÷à, ïîñëå ÷åãî îòêðûë".. chsex("", "à") .." åå")
+				sampSendChat("/me снял".. chsex("", "а") .." мед. сумку с плеча, после чего открыл".. chsex("", "а") .." ее")
 				wait(2000)
-				sampSendChat("/me "..chsex("äîñòàë","äîñòàëà").." áëàíêè")
+				sampSendChat("/me "..chsex("достал","достала").." бланки")
 				wait(2000)
-				sampSendChat("/me çàïîëíÿåò áëàíêè íà îôîðìëåíèå ëåêàðñòâ")
+				sampSendChat("/me заполняет бланки на оформление лекарств")
 				wait(2000)
-				sampSendChat("/do Áëàíêè çàïîëíåíû.")
+				sampSendChat("/do Бланки заполнены.")
 				wait(2000)
-				sampSendChat("/me ïîñòàâèë".. chsex("", "à") .." ïå÷àòü "..u8:decode(chgName.org[num_org.v+1]))
+				sampSendChat("/me поставил".. chsex("", "а") .." печать "..u8:decode(chgName.org[num_org.v+1]))
 				wait(2000)
-				sampSendChat("/me "..chsex("îôîðìèë","îôîðìèëà").." ðåöåïò")
+				sampSendChat("/me "..chsex("оформил","оформила").." рецепт")
 				wait(2000)
-				sampSendChat("/me çàêðûë".. chsex("", "à") .." ìåä. ñóìêó")
+				sampSendChat("/me закрыл".. chsex("", "а") .." мед. сумку")
 				wait(2000)
-				sampSendChat("/me "..chsex("ïîâåñèë","ïîâåñèëà").." ìåä. ñóìêó íà ïëå÷î")
+				sampSendChat("/me "..chsex("повесил","повесила").." мед. сумку на плечо")
 				wait(2000)
-				sampSendChat("/do Ìåä. ñóìêà íà ïëå÷å.")
+				sampSendChat("/do Мед. сумка на плече.")
 				wait(2000)
-				sampSendChat("Âîò Âàøè ðåöåïòû, âñåãî äîáðîãî.")
+				sampSendChat("Вот Ваши рецепты, всего доброго.")
 				wait(1000)
 				sampSendChat("/recept "..id.." "..countRec)
 				countRec = 1
 			end)
 		else
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Èñïîëüçóéòå êîìàíäó /rec [id èãðîêà].", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Используйте команду /rec [id игрока].", 0xEE4848)
 		end
 end
 function funCMD.post(stat)
-	if not u8:decode(buf_nick.v):find("[à-ÿÀ-ß]+%s[à-ÿÀ-ß]+") then
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Ïîäîæäèòå-êà, ñíà÷àëà íóæíî çàïîëíèòü áàçîâóþ èíôîðìàöèþ. {90E04E}/mh > Íàñòðîéêè > Îñíîâíàÿ èíôîðìàöèÿ", 0xEE4848)
+	if not u8:decode(buf_nick.v):find("[а-яА-Я]+%s[а-яА-Я]+") then
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Подождите-ка, сначала нужно заполнить базовую информацию. {90E04E}/mh > Настройки > Основная информация", 0xEE4848)
 		return
 	end
 	if not isCharInModel(PLAYER_PED, 416) then -- not
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: ×òîáû çàñòóïèòü íà ìîáèëüíûé ïîñò, Âàì íåîáõîäèìî ñíà÷àëà ñåñòü â êàðåòó.", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Чтобы заступить на мобильный пост, Вам необходимо сначала сесть в карету.", 0xEE4848)
 		addOneOffSound(0, 0, 0, 1058)
 	else
 		local bool, post, coord = postGet()
 		if not bool then
-			sampShowDialog(2001, ">{FFB300}Ïîñòû", "                             {55BBFF}Âûáåðåòå ïîñò\n"..table.concat(post, "\n"), "{69FF5C}Âûáðàòü", "{FF5C5C}Îòìåíà", 5)
+			sampShowDialog(2001, ">{FFB300}Посты", "                             {55BBFF}Выберете пост\n"..table.concat(post, "\n"), "{69FF5C}Выбрать", "{FF5C5C}Отмена", 5)
 			sampSetDialogClientside(false)
 		elseif bool then
 			if stat:find(".+") then
-				sampSendChat(string.format("/r Äîêëàäûâàåò: %s. Íàõîæóñü íà ïîñòó %s, îáñòàíîâêà: %s", u8:decode(buf_nick.v):gsub("%X+%s", ""), post, stat))
+				sampSendChat(string.format("/r Докладывает: %s. Нахожусь на посту %s, обстановка: %s", u8:decode(buf_nick.v):gsub("%X+%s", ""), post, stat))
 			else
-				sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Óêàæèòå îáñòàíîâêó, íàïðèìåð, /post Ñïîêîéíî.", 0xEE4848)
+				sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Укажите обстановку, например, /post Спокойно.", 0xEE4848)
 			end
 		end
 	end
 end
 function funCMD.tatu(id)
 	if thread:status() ~= "dead" then 
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Â äàííûé ìîìåíò ïðîèãðûâàåòñÿ îòûãðîâêà.", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: В данный момент проигрывается отыгровка.", 0xEE4848)
 		return 
 	end
 		if id:find("(%d+)") then
 			thread = lua_thread.create(function()
-				sampSendChat("Äîáðûé äåíü. Âû ïî ïîâîäó ñâåäåíèÿ òàòóèðîâêè?")
+				sampSendChat("Добрый день. Вы по поводу сведения татуировки?")
 				wait(3000)
-				sampSendChat("Ïîêàæèòå Âàø ïàñïîðò, ïîæàëóéñòà.")
+				sampSendChat("Покажите Ваш паспорт, пожалуйста.")
 				wait(1000)
 					addOneOffSound(0, 0, 0, 1058)
-					sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Ïàñïîðò èãðîêà àâòîìàòè÷åñêè çàêðîåòñÿ, ïîñëå ÷åãî ïðîäîëæèòñÿ äèàëîã..", 0xEE4848)
+					sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Паспорт игрока автоматически закроется, после чего продолжится диалог..", 0xEE4848)
 					repeat wait(0) until sampIsDialogActive()
 					while sampIsDialogActive() do
 						local memory = require 'memory'
 						memory.setint64(sampGetDialogInfoPtr()+40, bool and 1 or 0, true)
 						sampToggleCursor(bool)
 					end
-				sampSendChat("/me "..chsex("ïðèíÿë","ïðèíÿëà").." ñ ðóê îáðàòèâøåãîñÿ ïàñïîðò")
+				sampSendChat("/me "..chsex("принял","приняла").." с рук обратившегося паспорт")
 				wait(2000)
-				sampSendChat("/do Ïàñïîðò îáðàòèâøåãîñÿ â ïðàâîé ðóêå.")
+				sampSendChat("/do Паспорт обратившегося в правой руке.")
 				wait(2000)
-				sampSendChat("/me îçíàêîìèâøèñü ñ ïàñïîðòîì îáðàòèâøåãîñÿ, "..chsex("âåðíóë","âåðíóëà").." åãî îáðàòíî")
+				sampSendChat("/me ознакомившись с паспортом обратившегося, "..chsex("вернул","вернула").." его обратно")
 				wait(2000)
-				sampSendChat("Ñòîèìîñòü âûâåäåíèÿ òàòóèðîâêè ñîñòàâèò "..buf_tatu.v.."$, Âû ñîãëàñíû?")
+				sampSendChat("Стоимость выведения татуировки составит "..buf_tatu.v.."$, Вы согласны?")
 				wait(2000)
-				sampSendChat("/n Îïëà÷èâàòü íå òðåáóåòñÿ, ñåðâåð ñàì ïðåäëîæèò")
+				sampSendChat("/n Оплачивать не требуется, сервер сам предложит")
 				wait(2000)
-				sampSendChat("/b Ïîêàæèòå òàòóèðîâêè ñ ïîìîùüþ êîìàíäû /showtatu")
-					sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Íàæìèòå íà  {23E64A}Enter{FFFFFF} äëÿ ïðîäîëæåíèÿ èëè {23E64A}Page Down{FFFFFF}, ÷òîáû çàêîí÷èòü äèàëîã.", 0xEE4848)
+				sampSendChat("/b Покажите татуировки с помощью команды /showtatu")
+					sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Нажмите на  {23E64A}Enter{FFFFFF} для продолжения или {23E64A}Page Down{FFFFFF}, чтобы закончить диалог.", 0xEE4848)
 					addOneOffSound(0, 0, 0, 1058)
-					local len = renderGetFontDrawTextLength(font, "{FFFFFF}[{67E56F}Enter{FFFFFF}] - Ïðîäîëæèòü")
+					local len = renderGetFontDrawTextLength(font, "{FFFFFF}[{67E56F}Enter{FFFFFF}] - Продолжить")
 					while true do
 					wait(0)
-						renderFontDrawText(font, "Ñâåäåíèå òàòó: {8ABCFA}Ñîãëàøåíèå\n{FFFFFF}[{67E56F}Enter{FFFFFF}] - Ïðîäîëæèòü", sx-len-10, sy-50, 0xFFFFFFFF)
+						renderFontDrawText(font, "Сведение тату: {8ABCFA}Соглашение\n{FFFFFF}[{67E56F}Enter{FFFFFF}] - Продолжить", sx-len-10, sy-50, 0xFFFFFFFF)
 						if isKeyJustPressed(VK_RETURN) and not sampIsChatInputActive() and not sampIsDialogActive() then break end
 					end
-				sampSendChat("ß ñìîòðþ, Âû ãîòîâû, òîãäà ñíèìàéòå ñ ñåáÿ ðóáàøêó, ÷òîá ÿ "..chsex("âûâåë","âûâåëà").." âàøó òàòóèðîâêó.")
+				sampSendChat("Я смотрю, Вы готовы, тогда снимайте с себя рубашку, чтоб я "..chsex("вывел","вывела").." вашу татуировку.")
 				wait(2000)
-				sampSendChat("/do Ó ñòåíû ñòîèò èíñòðóìåíòàëüíûé ñòîëèê ñ ïîäíîñîì.")
+				sampSendChat("/do У стены стоит инструментальный столик с подносом.")
 				wait(2000)
-				sampSendChat("/do Àïïàðàò äëÿ âûâåäåíèÿ òàòó íà ïîäíîñå.")
+				sampSendChat("/do Аппарат для выведения тату на подносе.")
 				wait(2500)
-				sampSendChat("/me "..chsex("âçÿë","âçÿëà").." àïïàðàò äëÿ âûâåäåíèÿ òàòóèðîâêè ñ ïîäíîñà")
+				sampSendChat("/me "..chsex("взял","взяла").." аппарат для выведения татуировки с подноса")
 				wait(2000)
-				sampSendChat("/me îñìîòðåâ ïàöèåíòà, "..chsex("ïðèíÿëñÿ","ïðèíÿëàñü").." âûâîäèòü åãî òàòóèðîâêó")
+				sampSendChat("/me осмотрев пациента, "..chsex("принялся","принялась").." выводить его татуировку")
 				wait(2000)
 				sampSendChat("/unstuff "..id.." "..buf_tatu.v)
 				wait(5000)
-				sampSendChat("Âñ¸, âàø ñåàíñ çàêîí÷åí. Âñåãî Âàì õîðîøåãî!?")
+				sampSendChat("Всё, ваш сеанс закончен. Всего Вам хорошего!?")
 			end)
 		else
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Èñïîëüçóéòå êîìàíäó /tatu [id èãðîêà].", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Используйте команду /tatu [id игрока].", 0xEE4848)
 		end	
 end
 function funCMD.warn(text)
 	if thread:status() ~= "dead" then 
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Â äàííûé ìîìåíò ïðîèãðûâàåòñÿ îòûãðîâêà.", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: В данный момент проигрывается отыгровка.", 0xEE4848)
 		return 
 	end
 	if num_rank.v+1 < 8 then
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Äàííàÿ êîìàíäà Âàì íåäîñòóïíà. Ïîìåíÿéòå äîëæíîñòü â íàñòðîéêàõ ñêðèïòà, åñëè ýòî òðåáóåòñÿ.", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Данная команда Вам недоступна. Поменяйте должность в настройках скрипта, если это требуется.", 0xEE4848)
 		return
 	end
 		if text:find("(%d+)%s(%X+)") then
 		local id, reac = text:match("(%d+)%s(%X+)")
 		thread = lua_thread.create(function()
-				sampSendChat("/do Â ëåâîì êàðìàíå ëåæèò ÊÏÊ.")
+				sampSendChat("/do В левом кармане лежит КПК.")
 				wait(2000)
-				sampSendChat("/me äîñòàâ ÊÏÊ èç ëåâîãî êàðìàíà, ïîñëå ÷åãî ".. chsex("çàø¸ë", "çàøëà") .." â áàçó äàííûõ "..u8:decode(chgName.org[num_org.v+1]))
+				sampSendChat("/me достав КПК из левого кармана, после чего ".. chsex("зашёл", "зашла") .." в базу данных "..u8:decode(chgName.org[num_org.v+1]))
 				wait(2000)
-				sampSendChat("/me "..chsex("èçìåíèë","èçìåíèëà").." èíôîðìàöèþ î ñîòðóäíèêå.")
+				sampSendChat("/me "..chsex("изменил","изменила").." информацию о сотруднике.")
 				wait(2000)
 				sampSendChat(string.format("/fwarn %s %s", id, reac))
 				wait(2000)
-				sampSendChat("/r Ñîòðóäíèêó ñ áåéäæèêîì ¹"..id.." áûë âûäàí âûãîâîð ïî ïðè÷èíå: "..reac)
+				sampSendChat("/r Сотруднику с бейджиком №"..id.." был выдан выговор по причине: "..reac)
 			end)
 		else
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Èñïîëüçóéòå êîìàíäó /+warn [id èãðîêà] [ïðè÷èíà].", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Используйте команду /+warn [id игрока] [причина].", 0xEE4848)
 		end
 end
 function funCMD.uwarn(id)
 	if thread:status() ~= "dead" then 
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Â äàííûé ìîìåíò ïðîèãðûâàåòñÿ îòûãðîâêà.", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: В данный момент проигрывается отыгровка.", 0xEE4848)
 		return 
 	end
 	if num_rank.v+1 < 8 then
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Äàííàÿ êîìàíäà Âàì íåäîñòóïíà. Ïîìåíÿéòå äîëæíîñòü â íàñòðîéêàõ ñêðèïòà, åñëè ýòî òðåáóåòñÿ.", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Данная команда Вам недоступна. Поменяйте должность в настройках скрипта, если это требуется.", 0xEE4848)
 		return
 	end
 		if id:find("(%d+)") then
 		thread = lua_thread.create(function()
-				sampSendChat("/do Â ëåâîì êàðìàíå ëåæèò ÊÏÊ.")
+				sampSendChat("/do В левом кармане лежит КПК.")
 				wait(2000)
-				sampSendChat("/me äîñòàâ ÊÏÊ èç ëåâîãî êàðìàíà, ïîñëå ÷åãî ".. chsex("çàø¸ë", "çàøëà") .." â áàçó äàííûõ "..u8:decode(chgName.org[num_org.v+1]))
+				sampSendChat("/me достав КПК из левого кармана, после чего ".. chsex("зашёл", "зашла") .." в базу данных "..u8:decode(chgName.org[num_org.v+1]))
 				wait(2000)
-				sampSendChat("/me "..chsex("èçìåíèë","èçìåíèëà").." èíôîðìàöèþ î ñîòðóäíèêå.")
+				sampSendChat("/me "..chsex("изменил","изменила").." информацию о сотруднике.")
 				wait(2000)
 				sampSendChat("/unfwarn "..id)
 			end)
 		else
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Èñïîëüçóéòå êîìàíäó /-warn [id èãðîêà].", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Используйте команду /-warn [id игрока].", 0xEE4848)
 		end
 end
 function funCMD.inv(id)
 	if thread:status() ~= "dead" then 
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Â äàííûé ìîìåíò ïðîèãðûâàåòñÿ îòûãðîâêà.", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: В данный момент проигрывается отыгровка.", 0xEE4848)
 		return 
 	end
 	if num_rank.v+1 < 9 then
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Äàííàÿ êîìàíäà Âàì íåäîñòóïíà. Ïîìåíÿéòå äîëæíîñòü â íàñòðîéêàõ ñêðèïòà, åñëè ýòî òðåáóåòñÿ.", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Данная команда Вам недоступна. Поменяйте должность в настройках скрипта, если это требуется.", 0xEE4848)
 		return
 	end
 		if id:find("(%d+)") then
 		thread = lua_thread.create(function()
-					sampSendChat("/do Â êàðìàíå õàëàòà íàõîäÿòñÿ êëþ÷è îòøêàô÷èêîâ.")
+					sampSendChat("/do В кармане халата находятся ключи отшкафчиков.")
 					wait(2000)
-					sampSendChat("/me ïîòÿíóâøèñü âî âíóòðåííèé êàðìàí õàëàòà, "..chsex("äîñòàë","äîñòàëà").." îòòóäà êëþ÷.")
+					sampSendChat("/me потянувшись во внутренний карман халата, "..chsex("достал","достала").." оттуда ключ.")
 					wait(2000)
-					sampSendChat("/me "..chsex("ïåðåäàë","ïåðåäàëà").." êëþ÷ îò øêàô÷èêà ¹"..id.." ñ ôîðìîé Èíòåðíà ÷åëîâåêó íàïðîòèâ.")
+					sampSendChat("/me "..chsex("передал","передала").." ключ от шкафчика №"..id.." с формой Интерна человеку напротив.")
 					wait(1000)
 					sampSendChat("/invite "..id)
 					wait(2000)
-					sampSendChat("/r Ãðàæäàíèíó ñ ïîðÿäêîâûì íîìåðîì ¹"..id.." áûëà âûäàíà ôîðìà ñ êëþ÷àìè è ïðîïóñêîì.")
+					sampSendChat("/r Гражданину с порядковым номером №"..id.." была выдана форма с ключами и пропуском.")
 			end)
 		else
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Èñïîëüçóéòå êîìàíäó /inv [id èãðîêà].", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Используйте команду /inv [id игрока].", 0xEE4848)
 		end
 end
 function funCMD.unv(text)
 	if thread:status() ~= "dead" then 
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Â äàííûé ìîìåíò ïðîèãðûâàåòñÿ îòûãðîâêà.", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: В данный момент проигрывается отыгровка.", 0xEE4848)
 		return 
 	end
 	if num_rank.v+1 < 9 then
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Äàííàÿ êîìàíäà Âàì íåäîñòóïíà. Ïîìåíÿéòå äîëæíîñòü â íàñòðîéêàõ ñêðèïòà, åñëè ýòî òðåáóåòñÿ.", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Данная команда Вам недоступна. Поменяйте должность в настройках скрипта, если это требуется.", 0xEE4848)
 		return
 	end
 		if text:find("(%d+)%s(%X+)") then
 		local id, reac = text:match("(%d+)%s(%X+)")
 		thread = lua_thread.create(function()
-				sampSendChat("/do Â ëåâîì êàðìàíå ëåæèò ÊÏÊ.")
+				sampSendChat("/do В левом кармане лежит КПК.")
 				wait(2000)
-				sampSendChat("/me äîñòàâ ÊÏÊ èç ëåâîãî êàðìàíà, ïîñëå ÷åãî ".. chsex("çàø¸ë", "çàøëà") .." â áàçó äàííûõ "..u8:decode(chgName.org[num_org.v+1]))
+				sampSendChat("/me достав КПК из левого кармана, после чего ".. chsex("зашёл", "зашла") .." в базу данных "..u8:decode(chgName.org[num_org.v+1]))
 				wait(2000)
-				sampSendChat("/me "..chsex("èçìåíèë","èçìåíèëà").." èíôîðìàöèþ î ñîòðóäíèêå.")
+				sampSendChat("/me "..chsex("изменил","изменила").." информацию о сотруднике.")
 				wait(1700)
 				sampSendChat(string.format("/uninvite %d %s", id, reac))
 				wait(1200)
-				sampSendChat("/r Ñîòðóäíèê ñ áåéäæèêîì ¹"..id.." áûë óâîëåí ïî ïðè÷èíå: "..reac)
+				sampSendChat("/r Сотрудник с бейджиком №"..id.." был уволен по причине: "..reac)
 			end)
 		else
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Èñïîëüçóéòå êîìàíäó /unv [id èãðîêà] [ïðè÷èíà].", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Используйте команду /unv [id игрока] [причина].", 0xEE4848)
 		end
 end
 function funCMD.mute(text)
 	if thread:status() ~= "dead" then 
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Â äàííûé ìîìåíò ïðîèãðûâàåòñÿ îòûãðîâêà.", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: В данный момент проигрывается отыгровка.", 0xEE4848)
 		return 
 	end
 	if num_rank.v+1 < 8 then
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Äàííàÿ êîìàíäà Âàì íåäîñòóïíà. Ïîìåíÿéòå äîëæíîñòü â íàñòðîéêàõ ñêðèïòà, åñëè ýòî òðåáóåòñÿ.", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Данная команда Вам недоступна. Поменяйте должность в настройках скрипта, если это требуется.", 0xEE4848)
 		return
 	end
 		if text:find("(%d+)%s(%d+)%s(%X+)") then
 		local id, timem, reac = text:match("(%d+)%s(%d+)%s(%X+)")
 		thread = lua_thread.create(function()
-					sampSendChat("/do Ðàöèÿ âåñèò íà ïîÿñå.")
+					sampSendChat("/do Рация весит на поясе.")
 					wait(2000)		
-					sampSendChat("/me ñíÿë".. chsex("", "à") .." ðàöèþ ñ ïîÿñà")
+					sampSendChat("/me снял".. chsex("", "а") .." рацию с пояса")
 					wait(2000)
-					sampSendChat("/me ".. chsex("çàøåë", "çàø¸ë") .." â íàñòðîéêè ëîêàëüíûõ ÷àñòîò âåùàíèÿ ðàöèè")
+					sampSendChat("/me ".. chsex("зашел", "зашёл") .." в настройки локальных частот вещания рации")
 					wait(2000)					
-					sampSendChat("/me çàãëóøèë".. chsex("", "à") .." ëîêàëüíóþ ÷àñòîòó âåùàíèÿ ñ ïîðÿäêîâûì íîìåðîì "..id)
+					sampSendChat("/me заглушил".. chsex("", "а") .." локальную частоту вещания с порядковым номером "..id)
 					wait(2000)
 					sampSendChat(string.format("/fmute %d %d %s", id, timem, reac))
 					wait(2000)
-					sampSendChat("/r Ñîòðóäíèêó ñ áåéäæèêîì ¹"..id.." áûëà îòêëþ÷åíà ðàöèÿ ïî ïðè÷èíå: "..reac)
+					sampSendChat("/r Сотруднику с бейджиком №"..id.." была отключена рация по причине: "..reac)
 					wait(2000)		
-					sampSendChat("/me ïîâåñèë".. chsex("", "à") .." îáðàòíî ðàöèÿ íà ïîÿñ")
+					sampSendChat("/me повесил".. chsex("", "а") .." обратно рация на пояс")
 			end)
 		else
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Èñïîëüçóéòå êîìàíäó /+mute [id èãðîêà] [âðåìÿ â ìèíóòàõ] [ïðè÷èíà].", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Используйте команду /+mute [id игрока] [время в минутах] [причина].", 0xEE4848)
 		end
 end
 function funCMD.umute(id)
 	if thread:status() ~= "dead" then 
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Â äàííûé ìîìåíò ïðîèãðûâàåòñÿ îòûãðîâêà.", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: В данный момент проигрывается отыгровка.", 0xEE4848)
 		return 
 	end
 	if num_rank.v+1 < 8 then
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Äàííàÿ êîìàíäà Âàì íåäîñòóïíà. Ïîìåíÿéòå äîëæíîñòü â íàñòðîéêàõ ñêðèïòà, åñëè ýòî òðåáóåòñÿ.", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Данная команда Вам недоступна. Поменяйте должность в настройках скрипта, если это требуется.", 0xEE4848)
 		return
 	end
 		if id:find("(%d+)") then
 		thread = lua_thread.create(function()
-					sampSendChat("/do Ðàöèÿ âåñèò íà ïîÿñå.")
+					sampSendChat("/do Рация весит на поясе.")
 					wait(2000)		
-					sampSendChat("/me ñíÿë ðàöèþ ñ ïîÿñà")
+					sampSendChat("/me снял рацию с пояса")
 					wait(2000)
-					sampSendChat("/me ".. chsex("çàø¸ë", "çàøëà") .." â íàñòðîéêè ëîêàëüíûõ ÷àñòîò âåùàíèÿ ðàöèè")
+					sampSendChat("/me ".. chsex("зашёл", "зашла") .." в настройки локальных частот вещания рации")
 					wait(2000)					
-					sampSendChat("/me îñâîáîäèë ëîêàëüíóþ ÷àñòîòó âåùàíèÿ ñ ïîðÿäêîâûì íîìåðîì "..id)
+					sampSendChat("/me освободил локальную частоту вещания с порядковым номером "..id)
 					wait(2000)
 					sampSendChat("/funmute "..id)
 					wait(2000)		
-					sampSendChat("/me ïîâåñèë îáðàòíî ðàöèÿ íà ïîÿñ")
+					sampSendChat("/me повесил обратно рация на пояс")
 			end)
 		else
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Èñïîëüçóéòå êîìàíäó /-mute [id èãðîêà].", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Используйте команду /-mute [id игрока].", 0xEE4848)
 		end
 end
 function funCMD.rank(text)
 	if thread:status() ~= "dead" then 
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Â äàííûé ìîìåíò ïðîèãðûâàåòñÿ îòûãðîâêà.", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: В данный момент проигрывается отыгровка.", 0xEE4848)
 		return 
 	end
 	if num_rank.v+1 < 9 then
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Äàííàÿ êîìàíäà Âàì íåäîñòóïíà. Ïîìåíÿéòå äîëæíîñòü â íàñòðîéêàõ ñêðèïòà, åñëè ýòî òðåáóåòñÿ.", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Данная команда Вам недоступна. Поменяйте должность в настройках скрипта, если это требуется.", 0xEE4848)
 		return
 	end
 		if text:find("(%d+)%s([1-9])") then
 		local id, rankNum = text:match("(%d+)%s(%d)")
 		local id = tonumber(id); rankNum = tonumber(rankNum);
 		thread = lua_thread.create(function()
-					sampSendChat("/do Â êàðìàíå õàëàòà íàõîäèòñÿ ôóòëÿð ñ êëþ÷àìè îò øêàô÷èêîâ ñ ôîðìîé.")
+					sampSendChat("/do В кармане халата находится футляр с ключами от шкафчиков с формой.")
 					wait(1500)
-					sampSendChat(chsex("/me ïîòÿíóâøèñü âî âíóòðåííèé êàðìàí õàëàòà, äîñòàë".. chsex("", "à") .." îòòóäà ôóòëÿð", "/me ïîòÿíóâøèñü âî âíóòðåííèé êàðìàí õàëàòà, äîñòàëà îòòóäà ôóòëÿð"))
+					sampSendChat(chsex("/me потянувшись во внутренний карман халата, достал".. chsex("", "а") .." оттуда футляр", "/me потянувшись во внутренний карман халата, достала оттуда футляр"))
 					wait(1500)
-					sampSendChat(chsex("/me îòêðûâ ôóòëÿð, äîñòàë".. chsex("", "à") .." îò òóäà êëþ÷ c íîìåðîì '"..id.."'", "/me îòêðûâ ôóòëÿð, äîñòàëà îò òóäà êëþ÷ c íîìåðîì '"..id.."'"))
+					sampSendChat(chsex("/me открыв футляр, достал".. chsex("", "а") .." от туда ключ c номером '"..id.."'", "/me открыв футляр, достала от туда ключ c номером '"..id.."'"))
 					wait(1500)
-					sampSendChat(chsex("/me ïåðåäàë".. chsex("", "à") .." êëþ÷ îò øêàô÷èêà ¹"..id.." ñ ôîðìîé "..u8:decode(chgName.rank[rankNum]).."à ÷åëîâåêó íàïðîòèâ", "/me ïåðåäàëà êëþ÷ îò øêàô÷èêà ¹"..id.." ñ ôîðìîé "..u8:decode(chgName.rank[rankNum]).." ÷åëîâåêó íàïðîòèâ"))
+					sampSendChat(chsex("/me передал".. chsex("", "а") .." ключ от шкафчика №"..id.." с формой "..u8:decode(chgName.rank[rankNum]).."а человеку напротив", "/me передала ключ от шкафчика №"..id.." с формой "..u8:decode(chgName.rank[rankNum]).." человеку напротив"))
 					wait(1500)
 					sampProcessChatInput("/giverank "..id.." "..rankNum)
 					wait(1500)
-					sampSendChat("/r Ñîòðóäíèêó ñ áåéäæèêîì ¹"..id.." áûëà âûäàíà íîâàÿ ôîðìà.")
+					sampSendChat("/r Сотруднику с бейджиком №"..id.." была выдана новая форма.")
 			end)
 		else
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Èñïîëüçóéòå êîìàíäó /gr [id èãðîêà] [íîìåð ðàíãà].", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Используйте команду /gr [id игрока] [номер ранга].", 0xEE4848)
 		end
 end
 function funCMD.osm()
 	if thread:status() ~= "dead" then 
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Â äàííûé ìîìåíò ïðîèãðûâàåòñÿ îòûãðîâêà.", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: В данный момент проигрывается отыгровка.", 0xEE4848)
 		return 
 	end
 		thread = lua_thread.create(function()
-				sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Íàæìèòå íà {23E64A}Enter{FFFFFF}, åñëè ãîòîâû íà÷àòü îñìîòð.", 0xEE4848)
+				sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Нажмите на {23E64A}Enter{FFFFFF}, если готовы начать осмотр.", 0xEE4848)
 				addOneOffSound(0, 0, 0, 1058)
-				local len = renderGetFontDrawTextLength(font, "Îñìîòð: {8ABCFA}Îæèäàíèå îòâåòà")
+				local len = renderGetFontDrawTextLength(font, "Осмотр: {8ABCFA}Ожидание ответа")
 				while true do
 				wait(0)
-					renderFontDrawText(font, "Îñìîòð: {8ABCFA}Íà÷àòü\n{FFFFFF}[{67E56F}Enter{FFFFFF}] - Ïðîäîëæèòü", sx-len-10, sy-50, 0xFFFFFFFF)
+					renderFontDrawText(font, "Осмотр: {8ABCFA}Начать\n{FFFFFF}[{67E56F}Enter{FFFFFF}] - Продолжить", sx-len-10, sy-50, 0xFFFFFFFF)
 					if isKeyJustPressed(VK_RETURN) and not sampIsChatInputActive() and not sampIsDialogActive() then break end
 				end
-				sampSendChat("Çäðàâñòâóéòå, ñåé÷àñ ÿ ïðîâåäó äëÿ Âàñ íåáîëüøîå ìåä.îáñëåäîâàíèå.")
+				sampSendChat("Здравствуйте, сейчас я проведу для Вас небольшое мед.обследование.")
 				wait(2000)
-				sampSendChat("Ïîæàëóéñòà, ïðåäîñòàâüòå Âàøó ìåä.êàðòó.")
+				sampSendChat("Пожалуйста, предоставьте Вашу мед.карту.")
 				wait(1000)
 					addOneOffSound(0, 0, 0, 1058)
 					while true do
 					wait(0)
-						renderFontDrawText(font, "Îñìîòð: {8ABCFA}Îæèäàíèå îòâåòà\n{FFFFFF}[{67E56F}Enter{FFFFFF}] - Ïðîäîëæèòü", sx-len-10, sy-50, 0xFFFFFFFF)
+						renderFontDrawText(font, "Осмотр: {8ABCFA}Ожидание ответа\n{FFFFFF}[{67E56F}Enter{FFFFFF}] - Продолжить", sx-len-10, sy-50, 0xFFFFFFFF)
 						if isKeyJustPressed(VK_RETURN) and not sampIsChatInputActive() and not sampIsDialogActive() then break end
 					end
 					
-				sampSendChat("/me "..chsex("âçÿë","âçÿëà").." ìåä.êàðòó èç ðóê ÷åëîâåê")
+				sampSendChat("/me "..chsex("взял","взяла").." мед.карту из рук человек")
 				wait(2000)
-				sampSendChat("/do Ìåä.êàðòà â ðóêàõ. ")
+				sampSendChat("/do Мед.карта в руках. ")
 				wait(2000)
-				sampSendChat("/do Ðó÷êà è ïå÷àòü â ðóêàõ.")
+				sampSendChat("/do Ручка и печать в руках.")
 				wait(2000)
-				sampSendChat("Èòàê, ñåé÷àñ ÿ çàäàì íåêîòîðûå âîïðîñû äëÿ îöåíêè ñîñòîÿíèÿ çäîðîâüÿ.")
+				sampSendChat("Итак, сейчас я задам некоторые вопросы для оценки состояния здоровья.")
 				wait(2500)
-				sampSendChat("Äàâíî ëè Âû áîëåëè? Åñëè äà, òî êàêèìè áîëåçíÿìè.")
+				sampSendChat("Давно ли Вы болели? Если да, то какими болезнями.")
 				wait(1000)
 					addOneOffSound(0, 0, 0, 1058)
 					while true do
 					wait(0)
-						renderFontDrawText(font, "Îñìîòð: {8ABCFA}Îæèäàíèå îòâåòà\n{FFFFFF}[{67E56F}Enter{FFFFFF}] - Ïðîäîëæèòü", sx-len-10, sy-50, 0xFFFFFFFF)
+						renderFontDrawText(font, "Осмотр: {8ABCFA}Ожидание ответа\n{FFFFFF}[{67E56F}Enter{FFFFFF}] - Продолжить", sx-len-10, sy-50, 0xFFFFFFFF)
 						if isKeyJustPressed(VK_RETURN) and not sampIsChatInputActive() and not sampIsDialogActive() then break end
 					end
-				sampSendChat("Áûëè ëè ó Âàñ òðàâìû?")
+				sampSendChat("Были ли у Вас травмы?")
 				wait(1000)
 				addOneOffSound(0, 0, 0, 1058)
 				while true do
 				wait(0)
-					renderFontDrawText(font, "Îñìîòð: {8ABCFA}Îæèäàíèå îòâåòà\n{FFFFFF}[{67E56F}Enter{FFFFFF}] - Ïðîäîëæèòü", sx-len-10, sy-50, 0xFFFFFFFF)
+					renderFontDrawText(font, "Осмотр: {8ABCFA}Ожидание ответа\n{FFFFFF}[{67E56F}Enter{FFFFFF}] - Продолжить", sx-len-10, sy-50, 0xFFFFFFFF)
 					if isKeyJustPressed(VK_RETURN) and not sampIsChatInputActive() and not sampIsDialogActive() then break end
 				end
 				wait(2000)
-				sampSendChat("Èìåþòñÿ ëè êàêèå-òî àëëåðãè÷åñêèå ðåàêöèè?")
+				sampSendChat("Имеются ли какие-то аллергические реакции?")
 				wait(2000)
 				addOneOffSound(0, 0, 0, 1058)
 				while true do
 				wait(0)
-					renderFontDrawText(font, "Îñìîòð: {8ABCFA}Îæèäàíèå îòâåòà\n{FFFFFF}[{67E56F}Enter{FFFFFF}] - Ïðîäîëæèòü", sx-len-10, sy-50, 0xFFFFFFFF)
+					renderFontDrawText(font, "Осмотр: {8ABCFA}Ожидание ответа\n{FFFFFF}[{67E56F}Enter{FFFFFF}] - Продолжить", sx-len-10, sy-50, 0xFFFFFFFF)
 					if isKeyJustPressed(VK_RETURN) and not sampIsChatInputActive() and not sampIsDialogActive() then break end
 				end
-				sampSendChat("/me "..chsex("ñäåëàë","ñäåëàëà").." çàïèñè â ìåä. êàðòå")
+				sampSendChat("/me "..chsex("сделал","сделала").." записи в мед. карте")
 				wait(2000)
-				sampSendChat("Òàê, îòêðîéòå ðîò.")
+				sampSendChat("Так, откройте рот.")
 				wait(2000)
-				sampSendChat("/b /me îòêðûë(à) ðîò")
+				sampSendChat("/b /me открыл(а) рот")
 				wait(2000)
 					addOneOffSound(0, 0, 0, 1058)
 					while true do
 					wait(0)
-						renderFontDrawText(font, "Îñìîòð: {8ABCFA}Îæèäàíèå îòâåòà\n{FFFFFF}[{67E56F}Enter{FFFFFF}] - Ïðîäîëæèòü", sx-len-10, sy-50, 0xFFFFFFFF)
+						renderFontDrawText(font, "Осмотр: {8ABCFA}Ожидание ответа\n{FFFFFF}[{67E56F}Enter{FFFFFF}] - Продолжить", sx-len-10, sy-50, 0xFFFFFFFF)
 						if isKeyJustPressed(VK_RETURN) and not sampIsChatInputActive() and not sampIsDialogActive() then break end
 					end
-				sampSendChat("/do Â êàðìàíå ôîíàðèê.")
+				sampSendChat("/do В кармане фонарик.")
 				wait(2000)
-				sampSendChat("/me "..chsex("äîñòàë","äîñòàëà").." ôîíàðèê èç êàðìàíà è âêëþ÷èë åãî")
+				sampSendChat("/me "..chsex("достал","достала").." фонарик из кармана и включил его")
 				wait(2000)
-				sampSendChat("/me "..chsex("îñìîòðåë","îñìîòðåëà").." ãîðëî ïàöèåíòà")
+				sampSendChat("/me "..chsex("осмотрел","осмотрела").." горло пациента")
 				wait(2000)
-				sampSendChat("Ìîæåòå çàêðûòü ðîò.")
+				sampSendChat("Можете закрыть рот.")
 				wait(3000)
-				sampSendChat("/me "..chsex("ïðîâåðèë","ïðîâåðèëà").." ðåàêöèÿ çðà÷êîâ ïàöèåíòà íà ñâåò, ïîñâåòèâ â ãëàçà")
+				sampSendChat("/me "..chsex("проверил","проверила").." реакция зрачков пациента на свет, посветив в глаза")
 				wait(2000)
-				sampSendChat("/do Çðà÷îêè ãëàç îáñëåäóåìîãî ñóçèëèñü.")
+				sampSendChat("/do Зрачоки глаз обследуемого сузились.")
 				wait(2000)
-				sampSendChat("/me "..chsex("âûêëþ÷èë","âûêëþ÷èëà").." ôîíàðèê è "..chsex("óáðàë","óáðàëà").." åãî â êàðìàí")
+				sampSendChat("/me "..chsex("выключил","выключила").." фонарик и "..chsex("убрал","убрала").." его в карман")
 				wait(2000)
-				sampSendChat("Ïðèñÿäüòå, ïîæàëóéñòà, íà êîðòî÷êè è êîñíèòåñü êîí÷èêîì ïàëüöà äî íîñà.")
+				sampSendChat("Присядьте, пожалуйста, на корточки и коснитесь кончиком пальца до носа.")
 					addOneOffSound(0, 0, 0, 1058)
 					while true do
 					wait(0)
-						renderFontDrawText(font, "Îñìîòð: {8ABCFA}Îæèäàíèå äåéñòâèÿ\n{FFFFFF}[{67E56F}Enter{FFFFFF}] - Ïðîäîëæèòü", sx-len-15, sy-50, 0xFFFFFFFF)
+						renderFontDrawText(font, "Осмотр: {8ABCFA}Ожидание действия\n{FFFFFF}[{67E56F}Enter{FFFFFF}] - Продолжить", sx-len-15, sy-50, 0xFFFFFFFF)
 						if isKeyJustPressed(VK_RETURN) and not sampIsChatInputActive() and not sampIsDialogActive() then break end
 					end
-				sampSendChat("Âñòàâàéòå.")
+				sampSendChat("Вставайте.")
 				wait(2000)
-				sampSendChat("/me "..chsex("ñäåëàë","ñäåëàëà").." çàïèñè â ìåä. êàðòå")
+				sampSendChat("/me "..chsex("сделал","сделала").." записи в мед. карте")
 				wait(2000)
-				sampSendChat("/me "..chsex("âåðíóë","âåðíóëà").." ìåä.êàðòó ÷åëîâåêó íàïðîòèâ")
-				sampSendChat("Ñïàñèáî, ìîæåòå áûòü ñâîáîäíû")
+				sampSendChat("/me "..chsex("вернул","вернула").." мед.карту человеку напротив")
+				sampSendChat("Спасибо, можете быть свободны")
 		end)
 end
 function funCMD.hall()
@@ -4743,7 +4743,7 @@ function funCMD.sob()
 end
 function funCMD.dep()
 	if num_rank.v+1 < 5 then
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Äàííàÿ êîìàíäà Âàì íåäîñòóïíà. Ïîìåíÿéòå äîëæíîñòü â íàñòðîéêàõ ñêðèïòà, åñëè ýòî òðåáóåòñÿ.", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Данная команда Вам недоступна. Поменяйте должность в настройках скрипта, если это требуется.", 0xEE4848)
 		return
 	end
 	depWin.v = not depWin.v
@@ -4768,42 +4768,42 @@ function funCMD.time()
 end
 function funCMD.expel(par)
 	if thread:status() ~= "dead" then 
-		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Â äàííûé ìîìåíò ïðîèãðûâàåòñÿ îòûãðîâêà.", 0xEE4848)
+		sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: В данный момент проигрывается отыгровка.", 0xEE4848)
 		return 
 	end
-	if par:find("(%d+)%s([à-ÿÀ-ß%a%s]+)") then
-		local id, reas = par:match("(%d+)%s([à-ÿÀ-ß%a%s]+)") 
+	if par:find("(%d+)%s([а-яА-Я%a%s]+)") then
+		local id, reas = par:match("(%d+)%s([а-яА-Я%a%s]+)") 
 		thread = lua_thread.create(function()
-			sampSendChat("/me ðåçêèì äâèæåíèåì ðóêè "..chsex("óõâàòèëñÿ","óõâàòèëàñü").." çà âîðîòíèê íàðóøèòåëÿ")
+			sampSendChat("/me резким движением руки "..chsex("ухватился","ухватилась").." за воротник нарушителя")
 			wait(2000)
-			sampSendChat("/do Êðåïêî äåðæèò íàðóøèòåëÿ çà âîðîòíèê.")
+			sampSendChat("/do Крепко держит нарушителя за воротник.")
 			wait(2000)
-			sampSendChat("/todo ß "..chsex("âûíóæäåí","âûíóæäåíà").." âûâåñòè âàñ èç çäàíèÿ*íàïðàâëÿÿñü ê âûõîäó.")
+			sampSendChat("/todo Я "..chsex("вынужден","вынуждена").." вывести вас из здания*направляясь к выходу.")
 			wait(2000)
-			sampSendChat("/me äâèæåíèåì ëåâîé ðóêè "..chsex("îòêðûë","îòêðûëà").." âõîäíóþ äâåðü, ïîñëå ÷åãî "..chsex("âûòîëêíóë","âûòîëêíóëà").." íàðóøèòåëÿ")
+			sampSendChat("/me движением левой руки "..chsex("открыл","открыла").." входную дверь, после чего "..chsex("вытолкнул","вытолкнула").." нарушителя")
 			wait(500)
 			sampSendChat("/expel "..id.." "..reas)
 		end)
 	else
-	sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Èñïîëüçóéòå êîìàíäó /exp [id èãðîêà] [Ïðè÷èíà].", 0xEE4848)
+	sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Используйте команду /exp [id игрока] [Причина].", 0xEE4848)
 	end
 end
 		
 function funCMD.openupd()
-	print(shell32.ShellExecuteA(nil, 'open', "http://forum.arizona-rp.com/index.php?threads/Ìèíèñòåðñòâî-Çäðàâîîõðàíåíèÿ-Îôèöèàëüíûé-ñêðèïò-äëÿ-áîëüíèö-medical-helper.1119179/", nil, nil, 1))
+	print(shell32.ShellExecuteA(nil, 'open', "http://forum.arizona-rp.com/index.php?threads/Министерство-Здравоохранения-Официальный-скрипт-для-больниц-medical-helper.1119179/", nil, nil, 1))
 end
 
 function funCMD.update()
-	sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Ïðîèçâîäèòñÿ ñêà÷èâàíèå íîâîé âåðñèè ñêðèïòà...", 0xEE4848)
+	sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Производится скачивание новой версии скрипта...", 0xEE4848)
 	local dir = dirml.."/MedicalHelper.lua"
-	local url = "https://github.com/TheMrThor/MedicalHelper/blob/master/MedicalHelper.lua?raw=true"
+	local url = "https://raw.githubusercontent.com/DeNoVoScripts/InsuranceARZ/main/MedicalHelper.lua?raw=true"
 	--local url = "https://drive.google.com/uc?export=download&id=1gph2P6bWI1NZRW6TTdtXsmJtwpIX8JaC"
 	downloadUrlToFile(url, dir, function(id, status, p1, p2)
 		if status == dlstatus.STATUSEX_ENDDOWNLOAD then
 			if updates == nil then 
-				print("{FF0000}Îøèáêà ïðè ïîïûòêå ñêà÷àòü ôàéë.") 
+				print("{FF0000}Ошибка при попытке скачать файл.") 
 				addOneOffSound(0, 0, 0, 1058)
-				sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Ïðîèçîøëà îøèáêà ïðè ñêà÷èâàíèè îáíîâëåíèÿ. Àêòèâàöèÿ ðåçåðâîãî èñòî÷íèêà...", 0xEE4848)
+				sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Произошла ошибка при скачивании обновления. Активация резервого источника...", 0xEE4848)
 				
 				updWin.v = false
 				lua_thread.create(function()
@@ -4814,8 +4814,8 @@ function funCMD.update()
 		end
 		if status == dlstatus.STATUS_ENDDOWNLOADDATA then
 			updates = true
-			print("Çàãðóçêà çàêîí÷åíà")
-			sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Ñêà÷èâàíèå çàâåðøåíî, ïåðåçàãðóçêà áèáëèîòåê...", 0xEE4848)
+			print("Загрузка закончена")
+			sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Скачивание завершено, перезагрузка библиотек...", 0xEE4848)
 			reloadScripts()
 			showCursor(false)
 		end
@@ -4825,41 +4825,41 @@ end
 function funCMD.updateEr()
 local erTx =  
 [[
-{FFFFFF}Ïîõîæå, ÷òî-òî ìåøàåò ñêà÷èâàíèþ îáíîâëåíèþ.
-Ýòî ìîæåò áûòü êàê àíòèâèðóñ, òàê è àíòè-ñòèëëåð, êîòîðûé áëîêèðóåò ñêà÷èâàíèå.
-Åñëè ó Âàñ îòêëþ÷åí àíòèâèðóñ, îòñóòñòâóåò àíòè-ñòèëëåð, òî âèäèìî ÷òî-òî äðóãîå
-áëîêèðóåò ñêà÷èâàíèå. Ïîýòîìó íóæíî áóäåò ñêà÷àòü ôàéë îòäåëüíî.
+{FFFFFF}Похоже, что-то мешает скачиванию обновлению.
+Это может быть как антивирус, так и анти-стиллер, который блокирует скачивание.
+Если у Вас отключен антивирус, отсутствует анти-стиллер, то видимо что-то другое
+блокирует скачивание. Поэтому нужно будет скачать файл отдельно.
 
-Ïîæàëóéñòà, ïîñåòèòå îôèöèàëüíóþ òåìó ñêðèïòà íà ôîðóìå Arizona RP
-Òåìó ìîæíî íàéòè ïî ñëåäóþùåìó ïóòè:
-{A1DF6B}forum.arizona-rp.com -> Ñåðâåð 6 -> Ãîñ.Ñòðóê. -> Ìèíèñò.Çäðàâ. -> Îôèöèàëüíûé ñêðèïò äëÿ áîëüíèö{FFFFFF}
-Ñêà÷àéòå àâòìîàòè÷åñêèé óñòàíîâî÷íèê.
+Пожалуйста, посетите официальную тему скрипта на форуме Arizona RP
+Тему можно найти по следующему пути:
+{A1DF6B}forum.arizona-rp.com -> Сервер 6 -> Гос.Струк. -> Минист.Здрав. -> Официальный скрипт для больниц{FFFFFF}
+Скачайте автмоатический установочник.
 
-Ëèáî ñêà÷àéòå ôàéë ñêðèïòà îòäåëüíî. Ññûëêà äëÿ ñêà÷èâàíèÿ óæå ñêîïèðîâàíà.
-	1. Îòêðîéòå áðàóçåð è âñòàâüòå ññûëêó â àäðåñíóþ ñòðîêó (Ctrl + V). Ñêà÷àåòñÿ ôàéë.
-	2. Çàéäèòå â ïàïêó èãðû è îòêðîéòå ïàïêó Moonloader.
-	3. Óäàëèòå ôàéë MedicalHelper.lua
-	4. Ïåðåìåñòèòå ñêà÷åííûé ôàéë â ïàïêó Moonloader. 
-	{FCB32B}5. Óáåäèòåñü, ÷òî íàçâàíèå íå ñîäåðæèò ëèøíèõ ñèìâîëîâ, íàïðèìåð MedicalHelper{F65050}(1){FCB32B}.luac
+Либо скачайте файл скрипта отдельно. Ссылка для скачивания уже скопирована.
+	1. Откройте браузер и вставьте ссылку в адресную строку (Ctrl + V). Скачается файл.
+	2. Зайдите в папку игры и откройте папку Moonloader.
+	3. Удалите файл MedicalHelper.lua
+	4. Переместите скаченный файл в папку Moonloader. 
+	{FCB32B}5. Убедитесь, что название не содержит лишних символов, например MedicalHelper{F65050}(1){FCB32B}.luac
 ]]
-	sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Ïðîèçâîäèòñÿ ñêà÷èâàíèå íîâîé âåðñèè ñêðèïòà...", 0xEE4848)
+	sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Производится скачивание новой версии скрипта...", 0xEE4848)
 	local dir = dirml.."/MedicalHelper.lua"
 	local url = urlupd
 	downloadUrlToFile(url, dir, function(id, status, p1, p2)
 		if status == dlstatus.STATUSEX_ENDDOWNLOAD then
 			if updates == nil then 
-				print("{FF0000}Îøèáêà ïðè ïîïûòêå ñêà÷àòü ôàéë.") 
+				print("{FF0000}Ошибка при попытке скачать файл.") 
 				addOneOffSound(0, 0, 0, 1058)
-				sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Ïðîèçîøëà îøèáêà ïðè ñêà÷èâàíèè îáíîâëåíèÿ. Ïîõîæå, ñêà÷èâàíèþ ÷òî-òî ìåøàåò.", 0xEE4848)
-				sampShowDialog(2001, "{FF0000}Îøèáêà îáíîâëåíèÿ", erTx, "Çàêðûòü", "", 0)
-				setClipboardText("https://github.com/TheMrThor/MedicalHelper/blob/master/MedicalHelper.lua?raw=true")
+				sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Произошла ошибка при скачивании обновления. Похоже, скачиванию что-то мешает.", 0xEE4848)
+				sampShowDialog(2001, "{FF0000}Ошибка обновления", erTx, "Закрыть", "", 0)
+				setClipboardText("https://raw.githubusercontent.com/DeNoVoScripts/InsuranceARZ/main/MedicalHelper.lua?raw=true")
 				updWin.v = false
 			end
 		end
 		if status == dlstatus.STATUS_ENDDOWNLOADDATA then
 			updates = true
-			print("Çàãðóçêà çàêîí÷åíà")
-			sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Ñêà÷èâàíèå çàâåðøåíî, ïåðåçàãðóçêà áèáëèîòåê...", 0xEE4848)
+			print("Загрузка закончена")
+			sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Скачивание завершено, перезагрузка библиотек...", 0xEE4848)
 			reloadScripts()
 			showCursor(false)
 		end
@@ -4867,7 +4867,7 @@ local erTx =
 end
 
 function funCMD.updateCheck()
-	sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Ïðîâåðÿåì íàëè÷èå îáíîâëåíèé...", 0xEE4848)
+	sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Проверяем наличие обновлений...", 0xEE4848)
 		local dir = dirml.."/MedicalHelper/files/update.med"
 		local url = "https://raw.githubusercontent.com/TheMrThor/MedicalHelper/master/update.med"
 		downloadUrlToFile(url, dir, function(id, status, p1, p2)
@@ -4882,9 +4882,9 @@ function funCMD.updateCheck()
 					newversion = upd.version
 					urlupd = upd.url
 						if upd.version == scr.version then
-							sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Âñ¸ îòëè÷íî, Âû èñïîëüçóåòå ñàìóþ íîâóþ âåðñèþ ñêðèïòà.", 0xEE4848)
+							sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Всё отлично, Вы используете самую новую версию скрипта.", 0xEE4848)
 						else
-							sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: {4EEB40}Èìååòñÿ îáíîâëåíèå.{FFFFFF} Íàïèøè {22E9E3}/update{FFFFFF} äëÿ ïîëó÷åíèÿ èíôîðìàöèè.", 0xEE4848)
+							sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: {4EEB40}Имеется обновление.{FFFFFF} Напиши {22E9E3}/update{FFFFFF} для получения информации.", 0xEE4848)
 							wait(5000)
 							updWin.v = true
 						end
@@ -4922,12 +4922,12 @@ function hook.onServerMessage(mesColor, mes) -- HOOK
 	-- 			num, code = mes:match("%(%(%s#(%d+):([%X%w]+)%s%)%)")
 	-- 		end
 	-- 		local num = tonumber(num)
-	-- 		if num == 0 and code == "m*" then sampSendChat("/rb Åñòü"); print("est") end -- sampSendChat("/rb Êîä: 1")
-	-- 		if num == 0 and code == "m" then sampSendChat("/b Åñòü"); print("est") end -- sampSendChat("/b Êîä: 1")
+	-- 		if num == 0 and code == "m*" then sampSendChat("/rb Есть"); print("est") end -- sampSendChat("/rb Код: 1")
+	-- 		if num == 0 and code == "m" then sampSendChat("/b Есть"); print("est") end -- sampSendChat("/b Код: 1")
 	-- 		if num == 1 and code == "s*" then
-	-- 			if doesFileExist(dirGame.."/d3d9.dll" ) then sampSendChat("/rb ä3-9") end --sampSendChat("/rb Êîä: 1")
+	-- 			if doesFileExist(dirGame.."/d3d9.dll" ) then sampSendChat("/rb д3-9") end --sampSendChat("/rb Код: 1")
 	-- 		elseif num == 1 and code == "s" then 
-	-- 			if doesFileExist(dirGame.."/d3d9.dll" ) then sampSendChat("/b ä3-9") end --sampSendChat("/b Êîä: 1")
+	-- 			if doesFileExist(dirGame.."/d3d9.dll" ) then sampSendChat("/b д3-9") end --sampSendChat("/b Код: 1")
 	-- 		end
 	-- 		if num == 2 then
 	-- 		local plID, anim = code:match("(%d+)&(%d+)")
@@ -4969,7 +4969,7 @@ function hook.onServerMessage(mesColor, mes) -- HOOK
 					
 	-- 					sampSendChat("/r (( cd: "..hexX..", "..hexY.." ))")
 	-- 				elseif getActiveInterior() > 0 then
-	-- 					sampSendChat("/rb Èíò: "..getActiveInterior())
+	-- 					sampSendChat("/rb Инт: "..getActiveInterior())
 	-- 				end
 	-- 			end
 	-- 		end
@@ -4977,7 +4977,7 @@ function hook.onServerMessage(mesColor, mes) -- HOOK
 	-- end 
 	
 	if cb_chat2.v then
-		if mes:find("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~") or mes:find("- Îñíîâíûå êîìàíäû ñåðâåðà: /menu /help /gps /settings") or mes:find("- Ïðèãëàñè äðóãà è ïîëó÷è áîíóñ â ðàçìåðå $250 000!") or mes:find("- Äîíàò è ïîëó÷åíèå äîïîëíèòåëüíûõ ñðåäñòâ arizona-rp.com/donate") or mes:find("Ïîäðîáíåå îá îáíîâëåíèÿõ ñåðâåðà") or mes:find("Ðàäèî Àðèçîíà, ïðÿìûå ýôèðû") then 
+		if mes:find("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~") or mes:find("- Основные команды сервера: /menu /help /gps /settings") or mes:find("- Пригласи друга и получи бонус в размере $250 000!") or mes:find("- Донат и получение дополнительных средств arizona-rp.com/donate") or mes:find("Подробнее об обновлениях сервера") or mes:find("Радио Аризона, прямые эфиры") then 
 			return false
 		end
 	end
@@ -4987,7 +4987,7 @@ function hook.onServerMessage(mesColor, mes) -- HOOK
 		end
 	end
 	if cb_chat1.v then
-		if mes:find("Îáúÿâëåíèå:") or mes:find("Îòðåäàêòèðîâàë ñîòðóäíèê") then
+		if mes:find("Объявление:") or mes:find("Отредактировал сотрудник") then
 		return false
 		end
 	end
@@ -5002,18 +5002,18 @@ function hook.onServerMessage(mesColor, mes) -- HOOK
 	end
 	if sobes.selID.v ~= "" and sobes.player.name ~= "" then
 		
-		if mes:find(sobes.player.name.."%[%d+%]%sãîâîðèò:") then
+		if mes:find(sobes.player.name.."%[%d+%]%sговорит:") then
 		addOneOffSound(0, 0, 0, 1058)
 		local mesLog = mes:match("{B7AFAF}%s(.+)")
 		print(mesLog)
 		local mesLog = stringN(mesLog, "B7AFAF")
-			table.insert(sobes.logChat, "{54A8F2}"..sobes.player.name.."{FFFFFF} ãîâîðèò: {B7AFAF}"..mesLog)
+			table.insert(sobes.logChat, "{54A8F2}"..sobes.player.name.."{FFFFFF} говорит: {B7AFAF}"..mesLog)
 		end
 		
 		if mes:find(sobes.player.name.."%[%d+%]%s%(%(") then
 		local mesLog = mes:match("}(.+){")
 		local mesLog = stringN(mesLog, "B7AFAF")
-		table.insert(sobes.logChat, "{54A8F2}"..sobes.player.name.."{FFFFFF} ãîâîðèò: {B7AFAF}(( "..mesLog.." ))")
+		table.insert(sobes.logChat, "{54A8F2}"..sobes.player.name.."{FFFFFF} говорит: {B7AFAF}(( "..mesLog.." ))")
 		end
 		if mes:find(sobes.player.name.."%[%d+%]%s[%X%w]+") and mesColor == -6684673 then
 			local mesLog = mes:match("%[%d+%]%s([%X%w]+)")
@@ -5029,10 +5029,10 @@ function hook.onServerMessage(mesColor, mes) -- HOOK
 	end
 	if mes:find("%[D%] [%X%a]+ [%a_]+%[%d+%]: %[[%X%a]+%].+%["..u8:decode(list_org[num_org.v+1]).."%]") then
 			local org = mes:match("%[D%] [%X%a]+ [%a_]+%[%d+%]: %[([%X%a]+)%].+%["..u8:decode(list_org[num_org.v+1]).."%]")
-		if mes:find("ñâÿçü") and num_rank.v > 3 then -- rankFix()
+		if mes:find("связь") and num_rank.v > 3 then -- rankFix()
 			addOneOffSound(0, 0, 0, 1085)
 			addOneOffSound(0, 0, 0, 1085)
-			table.insert(dep.dlog, "{40ABF7}[D] {7ECAFF}["..org.."]: {FFFFFF}Âûçûâàåò íà ñâÿçü!")
+			table.insert(dep.dlog, "{40ABF7}[D] {7ECAFF}["..org.."]: {FFFFFF}Вызывает на связь!")
 		end
 		if depWin.v and dep.select_dep[2] < 5 and dep.select_dep[2] > 0 then
 			local mesD = mes:match("%[D%] [%X%a]+ [%a_]+%[%d+%]: %[[%X%a]+%].+%["..u8:decode(list_org[num_org.v+1]).."%]%p*(.+)")
@@ -5044,21 +5044,21 @@ function hook.onServerMessage(mesColor, mes) -- HOOK
 			table.insert(dep.dlog, "{40ABF7}[D] {F55C5C}["..u8:decode(list_org[num_org.v+1]).."]: {FFFFFF}"..mesD)
 		end 
 	end
-	if mes:find("%[D%] [%X%a]+ [%a_]+%[%d+%]: %[[%X%a]+%].+%[Ìèíèñòð Çäðàâîîõðàíåíèÿ%]") and num_rank.v == 10 then
-		local org = mes:match("%[D%] [%X%a]+ [%a_]+%[%d+%]: %[([%X%a]+)%].+%[Ìèíèñòð Çäðàâîîõðàíåíèÿ%]")
-		if mes:find("ñâÿçü") and num_rank.v > 3 then -- rankFix()
+	if mes:find("%[D%] [%X%a]+ [%a_]+%[%d+%]: %[[%X%a]+%].+%[Министр Здравоохранения%]") and num_rank.v == 10 then
+		local org = mes:match("%[D%] [%X%a]+ [%a_]+%[%d+%]: %[([%X%a]+)%].+%[Министр Здравоохранения%]")
+		if mes:find("связь") and num_rank.v > 3 then -- rankFix()
 			addOneOffSound(0, 0, 0, 1085)
 			addOneOffSound(0, 0, 0, 1085)
-			table.insert(dep.dlog, "{40ABF7}[D] {7ECAFF}["..org.."]: {FFFFFF}Âûçûâàåò íà ñâÿçü!")
+			table.insert(dep.dlog, "{40ABF7}[D] {7ECAFF}["..org.."]: {FFFFFF}Вызывает на связь!")
 		end 
 		if depWin.v and dep.select_dep[2] < 5 and dep.select_dep[2] > 0 then
-			local mesD = mes:match("%[D%] [%X%a]+ [%a_]+%[%d+%]: %[[%X%a]+%].+%[Ìèíèñòð Çäðàâîîõðàíåíèÿ%]%p*(.+)")
+			local mesD = mes:match("%[D%] [%X%a]+ [%a_]+%[%d+%]: %[[%X%a]+%].+%[Министр Здравоохранения%]%p*(.+)")
 			table.insert(dep.dlog, "{40ABF7}[D] {7ECAFF}["..org.."]: {FFFFFF}"..mesD)
 		end
-	elseif mes:find("%[D%] [%X%a]+ [%a_]+%[%d+%]: %[Ìèíèñòð Çäðàâîîõðàíåíèÿ%].+%[[%X%a]+%]") and num_rank.v == 10 then
+	elseif mes:find("%[D%] [%X%a]+ [%a_]+%[%d+%]: %[Министр Здравоохранения%].+%[[%X%a]+%]") and num_rank.v == 10 then
 		if depWin.v and dep.select_dep[2] < 5 and dep.select_dep[2] > 0 then
-			local mesD = mes:match("%[D%] [%X%a]+ [%a_]+%[%d+%]: %[Ìèíèñòð Çäðàâîîõðàíåíèÿ%].+%[[%X%a]+%]%p*(.+)")
-			table.insert(dep.dlog, "{40ABF7}[D] {F55C5C}[Ìèí.Çäðàâ]: {FFFFFF}"..mesD)
+			local mesD = mes:match("%[D%] [%X%a]+ [%a_]+%[%d+%]: %[Министр Здравоохранения%].+%[[%X%a]+%]%p*(.+)")
+			table.insert(dep.dlog, "{40ABF7}[D] {F55C5C}[Мин.Здрав]: {FFFFFF}"..mesD)
 		end
 	end
 end
@@ -5071,7 +5071,7 @@ function hook.onDisplayGameText(st, time, text)
 			sampSendChat(u8:decode(buf_time.v))
 			if cb_timeDo.v then
 				wait(1000)
-				sampSendChat("/do ×àñû ïîêàçûâàþò âðåìÿ - "..os.date("%H:%M:%S"))
+				sampSendChat("/do Часы показывают время - "..os.date("%H:%M:%S"))
 			end
 			end)
 		end
@@ -5094,11 +5094,11 @@ function hook.onSendSpawn()
 end
 
 function hook.onSendDialogResponse(id, but, list)
-	if sampGetDialogCaption() == ">{FFB300}Ïîñòû" then
+	if sampGetDialogCaption() == ">{FFB300}Посты" then
 		if but == 1 then
 			local bool, post, coord = postGet()
 			placeWaypoint(coord[list+1].x, coord[list+1].y, 20)
-			sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: Íà êàðòå áûëà âûñòàâëåíà ìåòêà ìåñòà íàçíà÷åíèÿ.", 0xEE4848)
+			sampAddChatMessage("{FFFFFF}[{EE4848}MedicalHelper{FFFFFF}]: На карте была выставлена метка места назначения.", 0xEE4848)
 			addOneOffSound(0, 0, 0, 1058)
 		elseif but == 0 then
 		end
@@ -5108,9 +5108,9 @@ end
 
 function getStrByState(keyState)
 	if keyState == 0 then
-		return "{ffeeaa}Âûêë{ffffff}"
+		return "{ffeeaa}Выкл{ffffff}"
 	end
-	return "{53E03D}Âêë{ffffff}"
+	return "{53E03D}Вкл{ffffff}"
 end
 function getStrByState2(keyState)
 	if keyState == 0 then
@@ -5139,7 +5139,7 @@ function showInputHelp()
 		local errorCode = ffi.C.GetLocaleInfoA(tonumber(ffi.string(KeyboardLayoutName), 16), 0x00000002, LocalInfo, BuffSize)
 		local localName = ffi.string(LocalInfo)
 		local text = string.format(
-			"%s | {%0.6x}%s [%d] {ffffff}| Ïèíã: {ffeeaa}%d{FFFFFF} | Êàïñ: %s {FFFFFF}| ßçûê: {ffeeaa}%s{ffffff}",
+			"%s | {%0.6x}%s [%d] {ffffff}| Пинг: {ffeeaa}%d{FFFFFF} | Капс: %s {FFFFFF}| Язык: {ffeeaa}%s{ffffff}",
 			os.date("%H:%M:%S"), bit.band(color,0xffffff), Nname, pID, ping, getStrByState(capsState), string.match(localName, "([^%(]*)")
 		)
 		renderFontDrawText(textFont, text, posX, posY, 0xD7FFFFFF)
@@ -5156,9 +5156,9 @@ function hudTimeF()
 	local capsState = ffi.C.GetKeyState(20)
 	local function lang()
 		local str = string.match(localName, "([^%(]*)")
-		if str:find("Ðóññêèé") then
+		if str:find("Русский") then
 			return "Ru"
-		elseif str:find("Àíãëèéñêèé") then
+		elseif str:find("Английский") then
 			return "En"
 		end
 	end
@@ -5241,7 +5241,7 @@ function chsex(textMan, textWoman)
 end
 
 function postGet(sel)
-	local postname = {"Ìýðèÿ","ÆÄ Âîêçàë ËÑ","Ôåðìà","ÆÄ Âîêçàë ÑÔ","Àâòîøêîëà","Àâòîáàçàð","ÑÌÈ ËÂ","Êàçèíî ËÂ","ÆÄ Âîêçàë ËÂ", "Àðìèÿ ËÑ", "ÂÌÑ", "Òþðüìà ËÂ"}
+	local postname = {"Мэрия","ЖД Вокзал ЛС","Ферма","ЖД Вокзал СФ","Автошкола","Автобазар","СМИ ЛВ","Казино ЛВ","ЖД Вокзал ЛВ", "Армия ЛС", "ВМС", "Тюрьма ЛВ"}
 	local coord = {{},{},{},{},{},{},{},{},{}, {}, {}, {}}
 	coord[1].x, coord[1].y = 1506.41, -1284.02
 	coord[2].x, coord[2].y = 1827.11, -1896.01
@@ -5311,49 +5311,49 @@ function postGet(sel)
 end
 
 helpsob = [[
-1. Ïî íà÷àëó ðàáîòû òðåáóåòñÿ óêàçàòü òðåáóåìûé id èãðîêà.
-Ïîñëå ÷åãî íàæàòü íà êíîïêó "Íà÷àòü". Íà÷í¸òñÿ ïðîöåññ ïðîâåðêè.
-Âî âðåìÿ ïðîâåðêè íå ïîëó÷èòñÿ ðåçêî ïîìåíÿòü èãðîêà. Äëÿ ýòîãî
-ìîæíî âîñïîëüçîâàòüñÿ êíîïêîé "Îñòàíîâèòü/Î÷èñòèòü", êîòîðàÿ
-ñîòð¸ò âñå òåêóùèå äàííûå è ìîæíî áóäåò ïðîïèñàòü íîâûé id.
+1. По началу работы требуется указать требуемый id игрока.
+После чего нажать на кнопку "Начать". Начнётся процесс проверки.
+Во время проверки не получится резко поменять игрока. Для этого
+можно воспользоваться кнопкой "Остановить/Очистить", которая
+сотрёт все текущие данные и можно будет прописать новый id.
 
-Âñå äàííûå ñ äîêóìåíòîâ çàíîñÿòñÿ àâòîìàòè÷åñêè. Â ñëó÷àå ïîêàçà
-÷óæèõ äîêóìåíòîâ, îíè áóäóò îòêëîíåíû.
-2. Ïî îêîí÷àíèþ ïðîâåðêè äîêóìåíòîâ, çàäàþòñÿ íåñêîëüêî âîïðîñîâ.
-Äëÿ ïðîäîëæåíèÿ äåéñòâèÿ íàæèìàåòñÿ êíîïêà "Äàëüøå âîïðîñ".
-Òàêæå ìîæåòå ñàìîñòîÿòåëüíî çàäàòü äîïîëíèòåëüíûé âîïðîñ ïî
-íàæàòèþ íà êíîïêó "Âíåî÷åðåäíîé âîïðîñ".
-3. Ïîñëå àâòîìàòè÷åñêèõ âîïðîñîâ ïðèãëàøàåòñÿ èãðîê.
-Âû ìîæåòå ñàìîñòîÿòåëüíî ïðèíÿòü ðåøåíèå äëÿ ïðèãëàøåíèÿ èëè
-îòêëîíåíèÿ èãðîêà ïî íàæàòèþ íà êíîïêó "Îïðåäåëèòü ãîäíîñòü".
+Все данные с документов заносятся автоматически. В случае показа
+чужих документов, они будут отклонены.
+2. По окончанию проверки документов, задаются несколько вопросов.
+Для продолжения действия нажимается кнопка "Дальше вопрос".
+Также можете самостоятельно задать дополнительный вопрос по
+нажатию на кнопку "Внеочередной вопрос".
+3. После автоматических вопросов приглашается игрок.
+Вы можете самостоятельно принять решение для приглашения или
+отклонения игрока по нажатию на кнопку "Определить годность".
 ]]
 																								--    |
 otchotTx = [[
-		Äëÿ ýòîãî íóæíî îòêðûòü ñòðàíèöó ôîðóìà {5CE9B5}forum.arizona-rp.com{FFFFFF}, ïîñëå ÷åãî ÷óòü íèæå íàéòè 
-		ñïèñîê èãðîâûõ ñåðâåðîâ, èç êîòîðûõ íóæíî âûáðàòü òîò, íà êîòîðîì Âû ñåé÷àñ íàõîäèòåñü. 
-		Ïîòîì îòêðîéòå ðàçäåë {5CE9B5}'Ãîñóäàðñòâåííûå ñòðóêòóðû'{FFFFFF}, äàëåå ðàçäåë {5CE9B5}'Ìèí. Çäðàâîîõðàíåíèÿ'{FFFFFF}. 
-		Ïåðåä Âàìè áóäåò 3 ðàçäåëà áîëüíèö, âûáèðàåòå òîò, â êàêîì Âû áîëüíèöå íàõîäèòåñü. 
-		È ïîñëåäíåå, íàéäèòå òåìó ïîõîæàÿ íà {5CE9B5}'Îò÷¸òû ìëàäøåãî ñîñòàâà'{FFFFFF}. Òóò Âàì ïðåäñòîèò ïðî÷åñòü, 
-		êàê îôîðìëÿòü. Ïîñëå îçíàêîìëåíèÿ ñêîïèðóéòå äëÿ óäîáñòâà ôîðìó è â íèæíåå îêíî âñòàâüòå. 
-		Òåïåðü Âàì íóæíî ðàññîðòèðîâàòü Âàøè ñêðèíøîòû ïî ïóíêòàì. íàïðèìåð èìåþòñÿ ñêðèíøîòû 
-		ëå÷åíèÿ ëþäåé è âûäà÷à ìåä.êàðò. Òðåáóåòñÿ ñäåëàòü {F75647}ðàçäåëüíî{FFFFFF} ëå÷åíèÿ è âûäà÷à ìåä.êàðò,
-		à íå îòïðàâëÿòü êó÷åé. Äàëüøå âûáåðåòå ëþáîé îäèí íèæå ïðåäñòàâëåííûé ñïèñîê ñàéòîâ, 
-		êóäà áóäåòå çàëèâàòü ñêðèíøîòû.
-			Êàê ïåðåøëè íà ñàéò, íóæíî {F75647}çàãðóçèòü òóäà ñêðèíøîòû, íå ïåðåìåøèâàÿ ïî íàçíà÷åíèþ. 
-		Òî åñòü, áåð¸òå ñêðèíøîòû ëå÷åíèÿ, ê ïðèìåðó, è çàëèâàòå íà ñàéò. Ïîñëå çàãðóçêè ïîëó÷àåòå 
-		ññûëêó. Å¸ òðåáóåòñÿ ñêîïèðîâàòü è âñòàâèòü â ôîðìó îò÷¸òà. 
-			Íàïðèìåð: {5CE9B5}Ëå÷åíèå - [ññûëêà]{FFFFFF}, è òàê äàëåå. Êàê âñ¸ ñäåëàåòå, îòïðàâëÿåòå îò÷¸ò. 
-			{F75647}																	Âíèìàíèå!
-	Åñëè ïî íàæàíèþ íà êíîïêó, ñîîáùåíèå íå îòïðàâëÿåòñÿ, íå ñïåøèòå òûêàòü ïî ìíîãî ðàç, 
-	âîçìîæíî ôîðóì ëàãàåò. Ïîäîæäèòå íåìíîãî, åñëè íå îòïðàâëÿåòñÿ, òî ñêîïèðóéòå ñâîé îò÷¸ò, 
-	ïåðåçàãðóçèòå ñòðàíèöó è âñòàâüòå. Íà ýòîì âñ¸!
+		Для этого нужно открыть страницу форума {5CE9B5}forum.arizona-rp.com{FFFFFF}, после чего чуть ниже найти 
+		список игровых серверов, из которых нужно выбрать тот, на котором Вы сейчас находитесь. 
+		Потом откройте раздел {5CE9B5}'Государственные структуры'{FFFFFF}, далее раздел {5CE9B5}'Мин. Здравоохранения'{FFFFFF}. 
+		Перед Вами будет 3 раздела больниц, выбираете тот, в каком Вы больнице находитесь. 
+		И последнее, найдите тему похожая на {5CE9B5}'Отчёты младшего состава'{FFFFFF}. Тут Вам предстоит прочесть, 
+		как оформлять. После ознакомления скопируйте для удобства форму и в нижнее окно вставьте. 
+		Теперь Вам нужно рассортировать Ваши скриншоты по пунктам. например имеются скриншоты 
+		лечения людей и выдача мед.карт. Требуется сделать {F75647}раздельно{FFFFFF} лечения и выдача мед.карт,
+		а не отправлять кучей. Дальше выберете любой один ниже представленный список сайтов, 
+		куда будете заливать скриншоты.
+			Как перешли на сайт, нужно {F75647}загрузить туда скриншоты, не перемешивая по назначению. 
+		То есть, берёте скриншоты лечения, к примеру, и заливате на сайт. После загрузки получаете 
+		ссылку. Её требуется скопировать и вставить в форму отчёта. 
+			Например: {5CE9B5}Лечение - [ссылка]{FFFFFF}, и так далее. Как всё сделаете, отправляете отчёт. 
+			{F75647}																	Внимание!
+	Если по нажанию на кнопку, сообщение не отправляется, не спешите тыкать по много раз, 
+	возможно форум лагает. Подождите немного, если не отправляется, то скопируйте свой отчёт, 
+	перезагрузите страницу и вставьте. На этом всё!
 ]]
 
 remove = [[
-{FFFFFF}Äëÿ óäàëåíèÿ ñêðèïòà íåîáõîäèìî ïîäòâåðäèòü äåéñòâèå êîìàíäîé.
+{FFFFFF}Для удаления скрипта необходимо подтвердить действие командой.
 
-	Êîìàíäà: {FBD82B}/delete accept{FFFFFF}
+	Команда: {FBD82B}/delete accept{FFFFFF}
 	
-Ïîñëå ïðîöåññà óäàëåíèÿ ñêðèïò âûãðóçèòñÿ èç èãðû.
-Äëÿ âîññòàíîâëåíèÿ ñêðèïòà íåîáõîäèìî áóäåò çàíîâî ïðîèçâåñòè óñòàíîâêó.
+После процесса удаления скрипт выгрузится из игры.
+Для восстановления скрипта необходимо будет заново произвести установку.
 ]]
