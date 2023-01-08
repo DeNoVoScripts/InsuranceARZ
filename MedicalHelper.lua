@@ -1,6 +1,6 @@
-script_name("Insurance Compant by DeNoVo")
-script_authors("Christian Costa")
-script_description("Script for the Insurance Сompany Scottdale")
+script_name("MedicalHelper")
+script_authors("Kevin Hatiko")
+script_description("Script for the Ministries of Health Arizona Saint Rose")
 script_version("2.5.38")
 script_properties("work-in-pause")
 setver = 1
@@ -2842,7 +2842,7 @@ function imgui.OnDrawFrame()
 			imgui.SameLine()
 			imgui.BeginChild("dep log", imgui.ImVec2(0, 0), true)
 				imgui.SetCursorPosX(250)
-				imgui.Text(u8"Локальный ат")
+				imgui.Text(u8"Локальный ������������������������������������������������������������������������������������ат")
 				if imgui.IsItemHovered() then imgui.SetTooltip(u8"Кликните ПКМ для очистки") end
 				if imgui.IsItemClicked(1) then dep.dlog = {} end
 					imgui.BeginChild("dep logg", imgui.ImVec2(0, 260), true)
@@ -4212,7 +4212,7 @@ function funCMD.med(id)
 				wait(200)
 				while true do
 					wait(0)
-					renderFontDrawText(font, "Выдача мед.карты: {8ABCFA}Срок мед.карты\n{FFFFFF}[{67E56F}1{FFFFFF}] - 7 дней\n[{67E56F}2{FFFFFF}] - 14 днй\n[{67E56F}3{FFFFFF}] - 30 дней\n[{67E56F}4{FFFFFF}] - 60 не", sx/5*4, sy-120, 0xFFFFFFFF)
+					renderFontDrawText(font, "Выдача мед.карты: {8ABCFA}Срок мед.карты\n{FFFFFF}[{67E56F}1{FFFFFF}] - 7 дней\n[{67E56F}2{FFFFFF}] - 14 дн��й\n[{67E56F}3{FFFFFF}] - 30 дней\n[{67E56F}4{FFFFFF}] - 60 ��не��", sx/5*4, sy-120, 0xFFFFFFFF)
 					if isKeyJustPressed(VK_RETURN) and not sampIsChatInputActive() and not sampIsDialogActive() then break end
 					if isKeyJustPressed(VK_1) and not sampIsChatInputActive() and not sampIsDialogActive() then time = 0; break end
 					if isKeyJustPressed(VK_2) and not sampIsChatInputActive() and not sampIsDialogActive() then time = 1; break end
