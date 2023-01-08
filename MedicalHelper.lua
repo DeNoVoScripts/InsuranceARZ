@@ -1,7 +1,7 @@
 script_name("MedicalHelper")
 script_authors("Christian Costa")
 script_description("Script for the Ministries of Health Arizona Saint Rose")
-script_version("2.5.38")
+script_version("2.5.48")
 script_properties("work-in-pause")
 setver = 1
  
